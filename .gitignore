@@ -38,3 +38,6 @@ out/
 
 ### AMAZONE ###
 *.pem
+*.xlsx
+*.ppk
+
