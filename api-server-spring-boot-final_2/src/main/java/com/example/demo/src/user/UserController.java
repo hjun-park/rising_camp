@@ -52,7 +52,7 @@ public class UserController {
                 List<GetUserRes> getUsersRes = userProvider.getUsers();
                 return new BaseResponse<>(getUsersRes);
             }
-            // Get Users
+            // Get Users ( 이메일이 존재하는 경우 이메일 기준으로 필터링 후 뱉어줌 )
             List<GetUserRes> getUsersRes = userProvider.getUsersByEmail(Email);
             return new BaseResponse<>(getUsersRes);
         } catch(BaseException exception){
