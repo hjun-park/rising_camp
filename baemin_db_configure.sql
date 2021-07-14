@@ -125,44 +125,69 @@ WHERE store_id = 3;
         -> 멤버 ID  ==> 멤버의 ID만 추출
         -> 가게 ID  ==> 가게 ID만 추출
 
+    총액을 구하는 방법은
+      1) union all
+      2) ROLL UP
+
  */
 
 SELECT /* 특정가게를 방문한 특정 유저의 장바구니 */
     name, -- 메뉴 이름
-    SB.amount -- 수량
-    -- (메뉴 이름 * 수량 금액)
+    SB.amount, -- 수량
+    (M.price * SB.amount) AS menu_price -- (메뉴 이름 * 수량 금액)
     -- 서브쿼리 이용한 총 주문금액
 FROM STORE_BASKET SB   -- MEMBER, MENU
-    LEFT JOIN(SELECT id,
-                   name,
-                   price
-              FROM MENU LEFT JOIN(SELECT id
-                                  FROM STORE) AS S
-                               ON S.id =
-
-          ON M.id = SB.menu_id
-#     JOIN(SELECT id
-#          FROM STORE
-#          WHERE ) AS S
-#           ON S.id = SB.store_id
-WHERE  status = 'Used';
-
-
-SELECT id,
-                   name,
-                   price
-              FROM MENU;
+    JOIN(SELECT id,
+                name,
+                price
+         FROM MENU) AS M
+       ON M.id = SB.menu_id
+    JOIN(SELECT id
+         FROM STORE) AS S
+       ON S.id = SB.store_id
+WHERE  status = 'Used' AND member_id = 4
+UNION ALL
+SELECT
+       'TOTAL' AS name,
+       NULL AS amount,
+       SUM(M.price * SB.amount) AS menu_price
+FROM STORE_BASKET AS SB
+    JOIN(SELECT id,
+                name,
+                price
+         FROM MENU) AS M
+       ON M.id = SB.menu_id
+    JOIN(SELECT id
+         FROM STORE) AS S
+       ON S.id = SB.store_id
+WHERE  status = 'Used' AND member_id = 4;
 
 
 # 8. 주문하기 페이지
+/*
+    1. 도로명주소 -> ADDRESS 테이블(address_building_no)
+    2. 전화번호 -> MEMBER 테이블(phone_number)
+    3. 주문금액 -> store_basket_id
+    4. 배달팁 -> store_id_tips +
+
+
+    +. address_detail -CONCAT-
+ */
+SELECT /* 특정 사용자의 주문하기 페이지 */
     -- 도로명주소
-    -- 상세주소
+    address_detail, -- 상세주소
     -- 전화번호
-    -- 사장님 요청사항
-    -- 라이더 요청사항
+    store_request, -- 사장님 요청사항
+    rider_request, -- 라이더 요청사항
     -- 주문금액
     -- 배달팁
     -- 주문금액 + 배달팁 AS 총 결제금액
+FROM ORDERS
+    LEFT JOIN()
+WHERE member_id = 4;
+
+SHOW DATABASES;
+
 
 # 9. 회원정보 수정 페이지
     -- 회원사진
@@ -179,8 +204,6 @@ SELECT /* 메뉴그룹 ID와 이름 선택 */
                     name        -- 메뉴그룹 이름
               FROM MENU_GROUP
               WHERE status = 'Used';
-
-
 
 
 
