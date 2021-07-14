@@ -1,0 +1,17 @@
+server:
+  port: 9000 # 01. 디폴트는 8080
+
+spring:
+  application:
+    name: demo
+
+# 02. 데이터 연결해 주는 부분
+  datasource:
+    platform: mysql
+    # url: jdbc:mysql://RDS엔드포인트:3306/DB스키마명?autoReconnect=true
+    # autoReconnect : 시간이 지나면 DB 연결이 자동으로 끊기는데 이를 막기 위함
+    url: jdbc:mysql://baemindb.cse28wj5y9fo.ap-northeast-2.rds.amazonaws.com:3306/baemin_db?autoReconnect=true
+    username: admin
+    password: guswjd35
+    driver-class-name: com.mysql.cj.jdbc.Driver # mysql 8버전
+    # driver-class-name: com.mysql.jdbc.Driver # mysql 5버전
