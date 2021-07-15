@@ -13,8 +13,7 @@ public enum BaseResponseStatus {
     // Common
     SUCCESS(true, 1000, "요청에 성공하였습니다."),
 
-	// [POST] /users
-	POST_USERS_SUCCESS_TO_JOIN(true, 1010, "회원가입에 성공하였습니다"),
+
 
     /**
      * 2000 : Request 오류
@@ -24,9 +23,6 @@ public enum BaseResponseStatus {
     EMPTY_JWT(false, 2001, "JWT를 입력해주세요."),
     INVALID_JWT(false, 2002, "유효하지 않은 JWT입니다."),
     INVALID_USER_JWT(false,2003,"권한이 없는 유저의 접근입니다."),
-
-    // users
-    USERS_EMPTY_USER_ID(false, 2010, "유저 아이디 값을 확인해주세요."),
 
     // [POST] /users
     POST_USERS_INVALID_PHONE_NUMBER(false, 2013, "휴대전화 형식을 확인해주세요."),
@@ -41,10 +37,10 @@ public enum BaseResponseStatus {
      * 3000 : Response 오류
      */
     // Common
-    RESPONSE_ERROR(false, 3000, "값을 불러오는데 실패하였습니다."),
+    RESPONSE_ERROR(false, 3000, "요청 처리에 실패하였습니다."),
 
-    // [POST] /users
-    FAILED_TO_JOIN(false, 3010, "회원가입에 실패하였습니다."),
+	// [POST] /users/login
+	FAILED_TO_LOGIN(false, 3010, "존재하지 않는 계정입니다."),
 
 
 
