@@ -10,8 +10,11 @@ public enum BaseResponseStatus {
     /**
      * 1000 : 요청 성공
      */
+    // Common
     SUCCESS(true, 1000, "요청에 성공하였습니다."),
 
+	// [POST] /users
+	POST_USERS_SUCCESS_TO_JOIN(true, 1010, "회원가입에 성공하였습니다"),
 
     /**
      * 2000 : Request 오류
@@ -26,9 +29,11 @@ public enum BaseResponseStatus {
     USERS_EMPTY_USER_ID(false, 2010, "유저 아이디 값을 확인해주세요."),
 
     // [POST] /users
-    POST_USERS_EMPTY_EMAIL(false, 2015, "이메일을 입력해주세요."),
-    POST_USERS_INVALID_EMAIL(false, 2016, "이메일 형식을 확인해주세요."),
-    POST_USERS_EXISTS_EMAIL(false,2017,"중복된 이메일입니다."),
+    POST_USERS_INVALID_PHONE_NUMBER(false, 2013, "휴대전화 형식을 확인해주세요."),
+	POST_USERS_EXISTS_PHONE_NUMBER(false,2014, "중복된 휴대전화입니다."),
+    POST_USERS_EXISTS_EMAIL(false,2015,"중복된 이메일입니다."),
+	POST_USERS_EXISTS_NICKNAME(false,2016,"중복된 닉네임입니다."),
+	POST_USERS_EXISTS_USER(false,2017,"이미 존재하는 회원입니다."),
 
 
 
@@ -39,8 +44,7 @@ public enum BaseResponseStatus {
     RESPONSE_ERROR(false, 3000, "값을 불러오는데 실패하였습니다."),
 
     // [POST] /users
-    DUPLICATED_EMAIL(false, 3013, "중복된 이메일입니다."),
-    FAILED_TO_LOGIN(false,3014,"없는 아이디거나 비밀번호가 틀렸습니다."),
+    FAILED_TO_JOIN(false, 3010, "회원가입에 실패하였습니다."),
 
 
 
