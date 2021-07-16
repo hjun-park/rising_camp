@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -56,17 +55,52 @@ public class UserDao {
 		return this.jdbcTemplate.update(modifyUserNameQuery, modifyUserNameParams);
 	}
 
-	public List<GetBasketRes> getUserBasket(int userId, int basketId) {
-		String getUserBasketQuery = "SELECT name, SB.amount, (M.price * SB.amount) AS menuPrice FROM STORE_BASKET SB JOIN(SELECT id, name, price FROM MENU) AS M ON M.id = SB.menuId JOIN(SELECT id FROM STORE) AS S ON S.id = SB.storeId WHERE status = 'Used' AND memberId = ?";
+	public List<GetUserBasketRes> getUserBasket(int userId, int basketId) {
+		String getUserBasketQuery = "SELECT S.name, M.name, SB.amount, (M.price * SB.amount) AS menuPrice FROM STORE_BASKET SB JOIN(SELECT id, name, price FROM MENU) AS M ON M.id = SB.menuId JOIN(SELECT id, name FROM STORE) AS S ON S.id = SB.storeId WHERE status = 'Used' AND memberId = ?";
 		String getUserBasketParams = Integer.toString(userId);
 		return this.jdbcTemplate.query(getUserBasketQuery,
-			(rs, rowNum) -> new GetBasketRes(
-				rs.getString("name"),
+			(rs, rowNum) -> new GetUserBasketRes(
+				rs.getString("S.name"),
+				rs.getString("M.name"),
 				rs.getInt("amount"),
 				rs.getInt("menuPrice")),
+
 			getUserBasketParams);
 
 	}
+
+	public Integer postUserBasket(int userId, PostUserBasketReq postUserBasketReq) {
+		String postUserBasketQuery = "insert into STORE_BASKET(memberId, storeId, menuId, amount) " +
+			"VALUES (?, ?, ?, ?)";
+		Object[] postUserBasketParams = new Object[] {userId, postUserBasketReq.getStoreId(),
+															postUserBasketReq.getMenuId(), postUserBasketReq.getAmount() };
+		this.jdbcTemplate.update(postUserBasketQuery, postUserBasketParams);
+
+		String lastIntegerIdQuery = "select last_insert_id()";
+		return this.jdbcTemplate.queryForObject(lastIntegerIdQuery, Integer.class);
+	}
+
+	public int modifyAmount(PatchUserBasketReq patchUserBasketReq) {
+		String modifyAmountQuery = "update STORE_BASKET set amount = ? where id = ?";
+		Object[] modifyAmountParams = new Object[]{patchUserBasketReq.getAmount(), patchUserBasketReq.getBasketId()};
+
+		return this.jdbcTemplate.update(modifyAmountQuery, modifyAmountParams);
+	}
+
+
+//	public void getOrderDetail(int userId, int orderId) {
+//		String getOrderDetailQuery = "SELECT S.name, M.name, SB.amount, (M.price * SB.amount) AS menuPrice FROM STORE_BASKET SB JOIN(SELECT id, name, price FROM MENU) AS M ON M.id = SB.menuId JOIN(SELECT id, name FROM STORE) AS S ON S.id = SB.storeId WHERE status = 'Used' AND memberId = ?";
+//		String getOrderDetailParams =
+//		return this.jdbcTemplate.query(getUserBasketQuery,
+//			(rs, rowNum) -> new GetUserBasketRes(
+//				rs.getString("S.name"),
+//				rs.getString("M.name"),
+//				rs.getInt("amount"),
+//				rs.getInt("menuPrice")),
+//
+//			getUserBasketParams);
+//
+//	}
 
 //	public PostUserReq findByEmail(String email, String phoneNumber) {
 //		return em.createQuery("select u from u where u.email = :email" +
