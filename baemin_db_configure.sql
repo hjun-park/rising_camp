@@ -145,7 +145,7 @@ FROM STORE_BASKET SB   -- MEMBER, MENU
     JOIN(SELECT id
          FROM STORE) AS S
        ON S.id = SB.storeId
-WHERE  status = 'Used' AND memberId = 4
+WHERE status = 'Used' AND memberId = 4;
 UNION ALL
 SELECT
        'TOTAL' AS name,
@@ -230,90 +230,6 @@ WHERE id = 1;
 
 
 
-# 서브쿼리
-SELECT additional_tips
-FROM DELIVERY_POLICY DP
-                    JOIN (SELECT distinct_code
-                          FROM ADDRESS A
-                                   JOIN (SELECT address_code
-                                         FROM MEMBER
-                                         WHERE name = '금천_박현준') M on M.address_code = A.building_manage_no
-                         ) AS DC ON DC.distinct_code = DP.town_code
-
-
-# 1. SELECT 절 옆에는 컬럼명을 기술하지 않는다.
-# 2. SELECT절 옆에는 해당 SELECT문이 무슨 역할을 의미하는지를 작성한다.
-# 3. SELECT절 아래에 컬럼명을 기술한다.
-# 5. 컬럼명 뒤에 주석을 이용하여 해당 컬럼의 한글명을 작성한다.
-# SELECT /*쿼리의 용도 (예)고객의 카드번호 조회*/
-#        INDEX_KEY     --인덱스키
-#      , CUST_NO       --고객번호
-#      , CUST_NAME     --고객명
-#      , CUST_CARD_NO  --고객카드번호
-#   FROM test.NEW_TABLE m
-#  WHERE m.INDEX_KEY = '1111'
-#    AND m.CUST_NO   = '1111111'
-
-# 4. 메뉴 리스트
-SELECT /* 쿼리의 용도: 해당 지점의 메뉴 리스트 조회 */
-         M.name AS menu_name       -- 메뉴 이름
-        ,M.price AS menu_price      -- 가격
-        ,M.picture AS menu_image    -- 이미지 URL
-        ,A.name AS group_name       -- 카테고리 이름
-FROM MENU M
-#      (SELECT * from ADDRESS) AS AD
-JOIN ( SELECT C.id, C.name /* 쿼리의 용도: menu_group 카테고리 반환 */
-       FROM MENU_GROUP C
-       JOIN (SELECT id /* 쿼리의 용도 : store id 반환 */
-             FROM STORE) as B ON B.id = store_id
-     ) AS A ON A.id = menu_group_id;
--- 메뉴 리스트 ( MENU_GROUP )
--- 대표 메뉴 ( MENU )
-
-# 4-1. 메뉴 리스트
-SELECT /* 해당 지점 메뉴 리스트 조회 */
-         M.name                            AS menu_name      -- 메뉴 이름
-        ,M.price                           AS menu_price     -- 가격
-        ,M.picture                         AS menu_image     -- 이미지 URL
-        ,MG.name                           AS group_name     -- 카테고리 이름
-        , IF(M.is_signature = 1, '1', '0') AS 'is_signature' -- 대표메뉴
-
-FROM MENU M
-    LEFT JOIN MENU_GROUP MG ON M.menu_group_id = MG.id;
-
-
-# 5. 장바구니
-SELECT /* 해당 지점의 주문 예정 리스트 */
-    S.name,     -- 가게 이름 ( STORE )
-    M.name,     -- 메뉴 이름 ( MENU )
-    M.price,    -- 메뉴 가격 ( MENU )
-    SB.amount,   -- 수량 ( STORE_BASKET )
-    SUM(M.price * SB.amount) AS 'menu_price'  -- 한 메뉴의 총 주문금액
-FROM STORE_BASKET SB
-    INNER JOIN (SELECT
-                    id,
-                    name
-                FROM STORE) AS S ON S.id = SB.store_id
-    INNER JOIN ( SELECT
-                    id,
-                    name,
-                    price
-                 FROM MENU ) AS M on M.id = SB.menu_id
-WHERE member_id = 1;
-
-# 6. 장바구니 총 주문금액
-SELECT  /* 한 유저의 한 가게의 장바구니 총 주문금액 */
-    SUM(price*amount) AS total_price-- 총 주문금액
-FROM STORE_BASKET SB
-    JOIN (SELECT
-                id
-          FROM STORE ) AS S ON S.id = SB.store_id
-    JOIN (SELECT
-                id,
-                price
-          FROM MENU ) AS M ON M.id = SB.menu_id
-WHERE member_id = 1;
-
 
 ###################################################################################################################################################################################
 ###################################################################################################################################################################################
@@ -324,3 +240,7 @@ select exists(select email, phoneNumber from MEMBER WHERE email = ? AND phoneNum
 insert into MEMBER(phoneNumber, email, password, birthDate, name) VALUES ('010-2222-3333','ph08@guess.com','asdf','1996-10-22', 'nathan');
 
 select id, email, password from MEMBER where email='박현준@gmail.com'
+
+select id, email, password from MEMBER where email='박현준@gmail.com';
+
+

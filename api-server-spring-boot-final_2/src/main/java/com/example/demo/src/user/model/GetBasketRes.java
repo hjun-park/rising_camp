@@ -7,12 +7,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class PostLoginReq {
-
-	private String email;
-	private String password;
-
-	public PostLoginReq() {
-
-	}
+public class GetBasketRes {
+	private String name;
+	private int amount;
+	private int menuPrice;
 }

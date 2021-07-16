@@ -3,10 +3,7 @@ package com.example.demo.src.user;
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
 import com.example.demo.config.BaseResponseStatus;
-import com.example.demo.src.user.model.PostLoginReq;
-import com.example.demo.src.user.model.PostLoginRes;
-import com.example.demo.src.user.model.PostUserReq;
-import com.example.demo.src.user.model.PostUserRes;
+import com.example.demo.src.user.model.*;
 import com.example.demo.utils.JwtService;
 import com.example.demo.utils.Util;
 import com.example.demo.utils.ValidationRegex;
@@ -42,7 +39,13 @@ public class UserController {
 
 	@ResponseBody
 	@PostMapping("/login")
-	public BaseResponse<PostLoginRes> login(@RequestBody PostLoginReq postLoginReq) throws BaseException {
+	public BaseResponse<PostLoginRes> login(@RequestBody PostLoginReq postLoginReq) {
+		System.out.println("######UserController.login");
+		System.out.println("postLoginReq = " + postLoginReq);
+		System.out.println("postLoginReq = " + postLoginReq.getEmail());
+		System.out.println("postLoginReq = " + postLoginReq.getPassword());
+		log.debug("#################1) {}", postLoginReq.getPassword());
+		log.debug("#################1) {}", postLoginReq.getEmail());
 
 		try {
 			// TODO: 로그인 값들에 대한 검증 필요 ( XSS 방지 )
@@ -52,6 +55,34 @@ public class UserController {
 			return new BaseResponse<>(exception.getStatus());
 		}
 	}
+
+	@ResponseBody
+	@PatchMapping("/{userId}")
+	public BaseResponse<String> modifyUserName(@PathVariable int userId, @RequestBody User user) {
+		try {
+			PatchUserReq patchUserReq = new PatchUserReq(userId, user.getName());
+			userService.modifyUserName(patchUserReq);
+		} catch (BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+
+		String result = "";
+		return new BaseResponse<>(result);
+
+	}
+
+	@ResponseBody
+	@GetMapping("/users/{userId}/baskets/{basketId}")
+	public BaseResponse<List<GetBasketRes>> getUserBasket(@PathVariable int userId,
+												   @PathVariable int basketId) {
+		try {
+			List<GetBasketRes> getBasketRes = userProvider.getUserBasket(userId, basketId);
+			return new BaseResponse<>(getBasketRes);
+		} catch (BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+	}
+
 
 //	@ResponseBody
 //	@PostMapping("/join")
