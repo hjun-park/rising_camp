@@ -131,8 +131,13 @@ WHERE store_id = 3;
 
  */
 
+
+SELECT S.name, M.name, SB.amount, (M.price * SB.amount) AS menuPrice FROM STORE_BASKET SB JOIN(SELECT id, name, price FROM MENU) AS M ON M.id = SB.menuId JOIN(SELECT id, name FROM STORE) AS S ON S.id = SB.storeId WHERE status = 'Used' AND memberId = 4;
+
+
 SELECT /* 특정가게를 방문한 특정 유저의 장바구니 */
-    name, -- 메뉴 이름
+    S.name,
+    M.name, -- 메뉴 이름
     SB.amount, -- 수량
     (M.price * SB.amount) AS menu_price -- (메뉴 이름 * 수량 금액)
     -- 서브쿼리 이용한 총 주문금액
@@ -142,7 +147,8 @@ FROM STORE_BASKET SB   -- MEMBER, MENU
                 price
          FROM MENU) AS M
        ON M.id = SB.menuId
-    JOIN(SELECT id
+    JOIN(SELECT id,
+                name
          FROM STORE) AS S
        ON S.id = SB.storeId
 WHERE status = 'Used' AND memberId = 4;
@@ -239,8 +245,16 @@ select exists(select email, phoneNumber from MEMBER WHERE email = ? AND phoneNum
 
 insert into MEMBER(phoneNumber, email, password, birthDate, name) VALUES ('010-2222-3333','ph08@guess.com','asdf','1996-10-22', 'nathan');
 
-select id, email, password from MEMBER where email='박현준@gmail.com'
+select id, email, password from MEMBER where email='박현준@gmail.com';
 
 select id, email, password from MEMBER where email='박현준@gmail.com';
 
+insert into STORE_BASKET(memberId, storeId, menuId, amount) VALUES (1, 4, 7, 2);
 
+select last_insert_id();
+
+update STORE_BASKET set amount = 10 where id = 3;
+
+select id, orderTime, status, storeId,  from ORDERS;
+
+update ORDERS set status = 'Deleted' where id = 2;

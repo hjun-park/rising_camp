@@ -7,8 +7,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class GetBasketRes {
-	private String name;
+public class PatchUserBasketReq {
+
+	private int userId;
+	private int basketId;
 	private int amount;
-	private int menuPrice;
+
 }

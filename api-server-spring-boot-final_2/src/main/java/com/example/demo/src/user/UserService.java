@@ -2,12 +2,11 @@ package com.example.demo.src.user;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponseStatus;
-import com.example.demo.src.user.model.PatchUserReq;
-import com.example.demo.src.user.model.PostUserReq;
-import com.example.demo.src.user.model.PostUserRes;
+import com.example.demo.src.user.model.*;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
 import static com.example.demo.config.BaseResponseStatus.*;
@@ -40,6 +39,27 @@ public class UserService {
 		} catch(BaseException exception) {
 			throw new BaseException(DATABASE_ERROR);
 		}
+	}
+
+	public Integer postUserBasket(int userId, PostUserBasketReq postUserBasketReq) throws BaseException {
+		try {
+			return userDao.postUserBasket(userId, postUserBasketReq);
+		} catch(Exception exception) {
+			throw new BaseException(DATABASE_ERROR);
+		}
+	}
+
+
+	public void modifyAmount(PatchUserBasketReq patchUserBasketReq) throws BaseException {
+		try {
+			int result = userDao.modifyAmount(patchUserBasketReq);
+			if (result == 0) {
+				throw new BaseException(RESPONSE_ERROR);
+			}
+		} catch (Exception exception) {
+			throw new BaseException(DATABASE_ERROR);
+		}
+
 	}
 
 

@@ -1,7 +1,6 @@
 package com.example.demo.src.user;
 
 import com.example.demo.config.BaseException;
-import com.example.demo.config.BaseResponseStatus;
 import com.example.demo.src.user.model.*;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
@@ -50,7 +49,7 @@ public class UserProvider {
 		}
 	}
 
-	public List<GetBasketRes> getUserBasket(int userId, int basketId) throws BaseException{
+	public List<GetUserBasketRes> getUserBasket(int userId, int basketId) throws BaseException{
 		try {
 			return userDao.getUserBasket(userId, basketId);
 		} catch (Exception exception) {
@@ -58,6 +57,13 @@ public class UserProvider {
 		}
 	}
 
+//	public GetOrderDetailRes getOrderDetail(int userId, int orderId) throws BaseException{
+//		try {
+//			userDao.getOrderDetail(userId, orderId);
+//		} catch(Exception exception) {
+//			throw new BaseException(DATABASE_ERROR);
+//		}
+//	}
 
 
 //	public void validateDuplicateUser(PostUserReq postUserReq) throws BaseException{

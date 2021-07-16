@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.lang.Nullable;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -31,8 +32,8 @@ public class User {
 
 	private int grade;
 	private String status;
-	private Date createdAt;
-	private Date updatedAt;
+	private LocalDateTime createdAt;
+	private LocalDateTime updatedAt;
 
 	public User(int id, String email, String password) {
 		this.id = id;

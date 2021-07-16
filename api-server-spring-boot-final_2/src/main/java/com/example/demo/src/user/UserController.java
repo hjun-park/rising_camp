@@ -2,20 +2,13 @@ package com.example.demo.src.user;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
-import com.example.demo.config.BaseResponseStatus;
 import com.example.demo.src.user.model.*;
 import com.example.demo.utils.JwtService;
-import com.example.demo.utils.Util;
-import com.example.demo.utils.ValidationRegex;
 import lombok.extern.slf4j.Slf4j;
-import org.intellij.lang.annotations.Pattern;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-import static com.example.demo.config.BaseResponseStatus.*;
-import static com.example.demo.utils.ValidationRegex.*;
 
 @RestController
 @RequestMapping("/users")
@@ -72,16 +65,50 @@ public class UserController {
 	}
 
 	@ResponseBody
-	@GetMapping("/users/{userId}/baskets/{basketId}")
-	public BaseResponse<List<GetBasketRes>> getUserBasket(@PathVariable int userId,
-												   @PathVariable int basketId) {
+	@GetMapping("/{userId}/baskets/{basketId}")
+	public BaseResponse<List<GetUserBasketRes>> getUserBasket(@PathVariable("userId") int userId,
+															  @PathVariable("basketId") int basketId) {
 		try {
-			List<GetBasketRes> getBasketRes = userProvider.getUserBasket(userId, basketId);
-			return new BaseResponse<>(getBasketRes);
+			List<GetUserBasketRes> getUserBasketRes = userProvider.getUserBasket(userId, basketId);
+			return new BaseResponse<>(getUserBasketRes);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
 		}
 	}
+
+	@ResponseBody
+	@PostMapping("/{userId}/baskets")
+	public BaseResponse<Integer> postUserBasket(@PathVariable("userId") int userId,
+												@RequestBody PostUserBasketReq postUserBasketReq) {
+		try {
+			Integer basketId = userService.postUserBasket(userId, postUserBasketReq);
+			return new BaseResponse<>(basketId);
+		} catch (BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+	}
+
+	//7 - 장바구니 수량 변경
+	@ResponseBody
+	@PatchMapping("/{userId}/baskets/{basketId}")
+	public BaseResponse<String> postUserBasket(@PathVariable("userId") int userId,
+												@PathVariable("basketId") int basketId,
+												@RequestBody Basket basket) {
+		try {
+			PatchUserBasketReq patchUserBasketReq = new PatchUserBasketReq(userId, basketId, basket.getAmount());
+			userService.modifyAmount(patchUserBasketReq);
+
+			String result = "";
+			return new BaseResponse<String>(result);
+		} catch (BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+	}
+
+
+
+
+
 
 
 //	@ResponseBody
