@@ -141,11 +141,11 @@ FROM STORE_BASKET SB   -- MEMBER, MENU
                 name,
                 price
          FROM MENU) AS M
-       ON M.id = SB.menu_id
+       ON M.id = SB.menuId
     JOIN(SELECT id
          FROM STORE) AS S
-       ON S.id = SB.store_id
-WHERE  status = 'Used' AND member_id = 4
+       ON S.id = SB.storeId
+WHERE  status = 'Used' AND memberId = 4
 UNION ALL
 SELECT
        'TOTAL' AS name,
@@ -156,11 +156,11 @@ FROM STORE_BASKET AS SB
                 name,
                 price
          FROM MENU) AS M
-       ON M.id = SB.menu_id
+       ON M.id = SB.menuId
     JOIN(SELECT id
          FROM STORE) AS S
-       ON S.id = SB.store_id
-WHERE  status = 'Used' AND member_id = 4;
+       ON S.id = SB.storeId
+WHERE  status = 'Used' AND memberId = 4;
 
 
 # 8. 주문하기 페이지
