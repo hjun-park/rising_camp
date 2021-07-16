@@ -1,9 +1,6 @@
 package com.example.demo.src.user;
 
-import com.example.demo.src.user.model.PostLoginReq;
-import com.example.demo.src.user.model.PostUserReq;
-import com.example.demo.src.user.model.PostUserRes;
-import com.example.demo.src.user.model.User;
+import com.example.demo.src.user.model.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -49,6 +47,25 @@ public class UserDao {
 				rs.getString("password")
 			),
 			getPwdParams);
+	}
+
+	public int modifyUserName(PatchUserReq patchUserReq) {
+		String modifyUserNameQuery = "update MEMBER set userName = ? where id = ?";
+		Object[] modifyUserNameParams = new Object[] {patchUserReq.getName(), patchUserReq.getId()};
+
+		return this.jdbcTemplate.update(modifyUserNameQuery, modifyUserNameParams);
+	}
+
+	public List<GetBasketRes> getUserBasket(int userId, int basketId) {
+		String getUserBasketQuery = "SELECT name, SB.amount, (M.price * SB.amount) AS menuPrice FROM STORE_BASKET SB JOIN(SELECT id, name, price FROM MENU) AS M ON M.id = SB.menuId JOIN(SELECT id FROM STORE) AS S ON S.id = SB.storeId WHERE status = 'Used' AND memberId = ?";
+		String getUserBasketParams = Integer.toString(userId);
+		return this.jdbcTemplate.query(getUserBasketQuery,
+			(rs, rowNum) -> new GetBasketRes(
+				rs.getString("name"),
+				rs.getInt("amount"),
+				rs.getInt("menuPrice")),
+			getUserBasketParams);
+
 	}
 
 //	public PostUserReq findByEmail(String email, String phoneNumber) {

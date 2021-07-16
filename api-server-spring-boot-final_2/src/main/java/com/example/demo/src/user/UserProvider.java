@@ -2,10 +2,7 @@ package com.example.demo.src.user;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponseStatus;
-import com.example.demo.src.user.model.PostLoginReq;
-import com.example.demo.src.user.model.PostLoginRes;
-import com.example.demo.src.user.model.PostUserReq;
-import com.example.demo.src.user.model.User;
+import com.example.demo.src.user.model.*;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +38,7 @@ public class UserProvider {
 	public PostLoginRes login(PostLoginReq postLoginReq) throws BaseException {
 		// 패스워드 가져오기
 		User user = userDao.getPwd(postLoginReq);
+		log.debug("2) {}", user.getPassword());
 
 		if(postLoginReq.getPassword().equals(user.getPassword())) {
 			// 로그인 성공
@@ -50,8 +48,17 @@ public class UserProvider {
 			// 로그인 실패
 			throw new BaseException(FAILED_TO_LOGIN);
 		}
-
 	}
+
+	public List<GetBasketRes> getUserBasket(int userId, int basketId) throws BaseException{
+		try {
+			return userDao.getUserBasket(userId, basketId);
+		} catch (Exception exception) {
+			throw new BaseException(DATABASE_ERROR);
+		}
+	}
+
+
 
 //	public void validateDuplicateUser(PostUserReq postUserReq) throws BaseException{
 //		 EXCEPTION
