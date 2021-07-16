@@ -31,15 +31,27 @@ public class UserService {
 	}
 
 	// POST
-	public PostUserRes createUser(PostUserReq postUserReq) throws BaseException {
-		// 중복된 값 있는지 체크 (SELECT 역할을 Provider)
-		if(userProvider.checkEmail(postUserReq.getEmail()) == 1) {
-			throw new BaseException(POST_USERS_EXISTS_EMAIL);
-		}
+//	public PostUserRes createUser(PostUserReq postUserReq) throws BaseException {
+//		// 중복된 값 있는지 체크 (SELECT 역할을 Provider)
+//		if(userProvider.checkUser(postUserReq.getEmail(), postUserReq.getPhoneNumber()) == 1) {
+//			throw new BaseException(POST_USERS_EXISTS_USER);
+//		}
+//
+//		// 유저 생성
+//		int userId = userDao.createUser(postUserReq);
+//
+//		// JWT 발급 생략
+//	}
 
-		// 유저 생성
-		int userId = userDao.createUser(postUserReq);
-
-		// JWT 발급 생략
-	}
+	 //POST
+//	public PostUserRes join(PostUserReq postUserReq) throws BaseException {
+		 //검증
+//		userProvider.validateDuplicateUser(postUserReq);
+//
+		 //회원가입
+//		userDao.createUser(postUserReq);
+//
+//
+//		return null;
+//	}
 }
