@@ -13,6 +13,5 @@ public class PostLoginReq {
 	private String password;
 
 	public PostLoginReq() {
-
 	}
 }

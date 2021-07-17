@@ -4,6 +4,8 @@ import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
 import com.example.demo.src.order.model.Order;
 import com.example.demo.src.order.model.PatchOrderDetailReq;
+import com.example.demo.src.order.model.PostReviewReq;
+import com.example.demo.src.order.model.PostReviewRes;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,5 +63,16 @@ public class OrderController {
 		}
 	}
 
+//	//20
+//	@ResponseBody
+//	@PostMapping("/users/{userId}/orders/{orderId}/review")
+//	public BaseResponse<PostReviewRes> postReview(@RequestBody PostReviewReq postReviewReq){
+//		try{
+//			PostReviewRes postReviewRes = orderService.postReview(postReviewReq);
+//			return new BaseResponse<>(postReviewRes);
+//		} catch (BaseException exception){
+//			return new BaseResponse<>(exception.getStatus());
+//		}
+//	}
 
 }

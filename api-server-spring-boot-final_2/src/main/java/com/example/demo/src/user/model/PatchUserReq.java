@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.sound.midi.Patch;
 import java.util.Date;
 
 @Getter
@@ -22,5 +23,9 @@ public class PatchUserReq {
 	public PatchUserReq(int id, String name) {
 		this.id = id;
 		this.name = name;
+	}
+
+	public PatchUserReq() {
+
 	}
 }

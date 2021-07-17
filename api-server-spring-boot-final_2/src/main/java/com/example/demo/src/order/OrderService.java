@@ -3,6 +3,8 @@ package com.example.demo.src.order;
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponseStatus;
 import com.example.demo.src.order.model.PatchOrderDetailReq;
+import com.example.demo.src.order.model.PostReviewReq;
+import com.example.demo.src.order.model.PostReviewRes;
 import com.example.demo.utils.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,4 +41,8 @@ public class OrderService {
 			throw new BaseException(DATABASE_ERROR);
 		}
 	}
+
+//	public PostReviewRes postReview(PostReviewReq postReviewReq) {
+//		int reviewId = orderDao.postReview(postReviewReq);
+//	}
 }

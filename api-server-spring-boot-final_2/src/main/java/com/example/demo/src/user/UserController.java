@@ -80,6 +80,8 @@ public class UserController {
 	@PostMapping("/{userId}/baskets")
 	public BaseResponse<Integer> postUserBasket(@PathVariable("userId") int userId,
 												@RequestBody PostUserBasketReq postUserBasketReq) {
+
+		log.debug("##### {}", postUserBasketReq.getMenuName());
 		try {
 			Integer basketId = userService.postUserBasket(userId, postUserBasketReq);
 			return new BaseResponse<>(basketId);
@@ -104,9 +106,6 @@ public class UserController {
 			return new BaseResponse<>(exception.getStatus());
 		}
 	}
-
-
-
 
 
 
