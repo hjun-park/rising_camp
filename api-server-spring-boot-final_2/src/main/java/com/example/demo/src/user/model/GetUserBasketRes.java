@@ -15,7 +15,6 @@ public class GetUserBasketRes {
 	private int amount;
 	private int menuPrice;
 
-
 //	@JsonProperty("menus")
 //	private Menus menus;
 

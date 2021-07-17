@@ -1,6 +1,7 @@
 package com.example.demo.src.order;
 
 import com.example.demo.src.order.model.PatchOrderDetailReq;
+import com.example.demo.src.order.model.PostReviewReq;
 import com.example.demo.src.user.model.PatchUserBasketReq;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,4 +30,8 @@ public class OrderDao {
 		return this.jdbcTemplate.update(deleteOrderDetailQuery, deleteOrderDetailParam);
 
 	}
+
+//    public int postReview(PostReviewReq postReviewReq) {
+//		String postReviewQuery = ""
+//    }
 }

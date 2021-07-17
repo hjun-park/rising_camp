@@ -258,3 +258,46 @@ update STORE_BASKET set amount = 10 where id = 3;
 select id, orderTime, status, storeId,  from ORDERS;
 
 update ORDERS set status = 'Deleted' where id = 2;
+
+select M.id, M.membershipName, (select )
+from REVIEW R
+join (
+    select id, name, phoneNumber, (select membershipName from MEMBER_LEVEL where memberId=1) AS membershipName
+    from MEMBER) AS M
+on M.id = R.memberId
+where  R.id = 1;
+
+select id, count(rating) as count, rating, reviewImageUrl, R.content
+from REVIEW R
+where R.id = ? and status = 'Used';
+
+
+select * from REVIEW WHERE REVIEW.memberId = 4;
+
+select name, imageUrl from STORE_CATEGORY where status = 'Used';
+
+
+# 5. 가게 상세정보 출력
+SELECT /* 가게 상세정보 출력 */
+    S.id, -- 가게 정보
+    (CONCAT('상호명\t', name)) AS storeName,
+    R.rating AS rating,
+    R.count AS reviewCount,
+    minOrderPrice,
+    paymentMethod,
+    (CONCAT(deliveryTime, '분')) AS deliveryTime
+FROM STORE S
+JOIN (select storeId, rating, count(rating) as count from REVIEW) AS R
+ON R.storeId = S.id WHERE status = 'Used' AND S.id = 3;
+
+
+
+SELECT S.id, (CONCAT('상호명\t', name)) AS storeName, R.rating AS rating, R.count AS reviewCount, minOrderPrice, paymentMethod, (CONCAT(deliveryTime, '분')) AS deliveryTime FROM STORE S JOIN (select storeId, rating, count(rating) as count from REVIEW) AS R ON R.storeId = S.id WHERE status = 'Used' AND S.id = ?;
+
+select S.id, storeImageUrl, info, hours, closedDay, phoneNumber, deliveryArea, notice, minOrderPrice, tips, address
+from STORE S
+WHERE S.id = 3;
+
+select M.id, name, price, (select amount from STORE_BASKET where menuId=4) AS amount, (select minOrderPrice from STORE where id=3) as minOrderPrice
+from MENU M
+WHERE M.id = 1;

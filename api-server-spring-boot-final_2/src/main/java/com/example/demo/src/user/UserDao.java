@@ -55,8 +55,14 @@ public class UserDao {
 		return this.jdbcTemplate.update(modifyUserNameQuery, modifyUserNameParams);
 	}
 
-	public List<GetUserBasketRes> getUserBasket(int userId, int basketId) {
-		String getUserBasketQuery = "SELECT S.name, M.name, SB.amount, (M.price * SB.amount) AS menuPrice FROM STORE_BASKET SB JOIN(SELECT id, name, price FROM MENU) AS M ON M.id = SB.menuId JOIN(SELECT id, name FROM STORE) AS S ON S.id = SB.storeId WHERE status = 'Used' AND memberId = ?";
+	public List<GetUserBasketRes> getUserBasket(int userId) {
+		String getUserBasketQuery = "SELECT S.name, M.name, SB.amount, (M.price * SB.amount) AS menuPrice " +
+			"FROM STORE_BASKET SB " +
+			"JOIN(SELECT id, name, price FROM MENU) AS M " +
+			"ON M.id = SB.menuId " +
+			"JOIN(SELECT id, name FROM STORE) AS S " +
+			"ON S.id = SB.storeId " +
+			"WHERE status = 'Used' AND memberId = ?";
 		String getUserBasketParams = Integer.toString(userId);
 		return this.jdbcTemplate.query(getUserBasketQuery,
 			(rs, rowNum) -> new GetUserBasketRes(
