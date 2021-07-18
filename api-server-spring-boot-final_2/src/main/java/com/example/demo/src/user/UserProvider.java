@@ -51,7 +51,7 @@ public class UserProvider {
 
 	public List<GetUserBasketRes> getUserBasket(int userId, int basketId) throws BaseException{
 		try {
-			return userDao.getUserBasket(userId, basketId);
+			return userDao.getUserBasket(userId);
 		} catch (Exception exception) {
 			throw new BaseException(DATABASE_ERROR);
 		}

@@ -69,8 +69,8 @@ public class UserDao {
 				rs.getString("S.name"),
 				rs.getString("M.name"),
 				rs.getInt("amount"),
-				rs.getInt("menuPrice")),
-
+				rs.getInt("menuPrice")
+			),
 			getUserBasketParams);
 
 	}

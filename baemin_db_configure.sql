@@ -301,3 +301,21 @@ WHERE S.id = 3;
 select M.id, name, price, (select amount from STORE_BASKET where menuId=4) AS amount, (select minOrderPrice from STORE where id=3) as minOrderPrice
 from MENU M
 WHERE M.id = 1;
+
+DROP TABLE ORDER_HISTORY;
+
+CREATE TABLE ORDER_DETAIL
+(
+    `id`         BIGINT UNSIGNED    NOT NULL    AUTO_INCREMENT COMMENT '주문상세 ID',
+    `orderId`    BIGINT UNSIGNED    NOT NULL    COMMENT '주문 ID',
+    `menuId`     BIGINT UNSIGNED    NOT NULL    COMMENT '메뉴 ID',
+    `createdAt`  TIMESTAMP          NOT NULL    DEFAULT CURRENT_TIMESTAMP COMMENT '주문 생성일자',
+    `updatedAt`  TIMESTAMP          NULL        DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '주문 수정일자',
+    CONSTRAINT PK_PAYMENT PRIMARY KEY (id)
+)char set UTF8;
+
+ALTER TABLE ORDER_DETAIL COMMENT '주문상세';
+
+ALTER TABLE ORDER_DETAIL
+    ADD CONSTRAINT FK_ORDER_DETAIL_orderId_ORDERS_id FOREIGN KEY (orderId)
+        REFERENCES ORDERS (id) ON DELETE RESTRICT ON UPDATE RESTRICT;
