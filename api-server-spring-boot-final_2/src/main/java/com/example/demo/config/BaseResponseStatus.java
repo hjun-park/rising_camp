@@ -31,17 +31,8 @@ public enum BaseResponseStatus {
 	POST_USERS_EXISTS_NICKNAME(false,2016,"중복된 닉네임입니다."),
 	POST_USERS_EXISTS_USER(false,2017,"이미 존재하는 회원입니다."),
 
-	// [POST] /users/:userId/baskets/:basketId
-	POST_USERS_EXISTS_BASKET(false, 2020, "다른 가게의 장바구니가 이미 존재합니다."),
-
-	// [GET] /users/:userId/reviews/:reviewId
-	GET_NONUSER_INFO(false, 2025, "존재하지 않는 사용자 요청입니다."),
-
-	// [GET] /stores/:storeId/menus/:menuId
-	LESS_THAN_MINIMUM_PRICE(false, 2030, "주문최소금액을 맞춰주세요."),
-
-	// [POST] /users/:userId/orders/:orderId/review
-	POST_NON_EXIST_RATING(false, 2035, "평점을 입력해주세요."),
+	// [POST] /users/login
+	POST_USERS_LOGIN_INVALID(false, 2020, "계정이 존재하지 않거나 유효하지 않습니다"),
 
 
 

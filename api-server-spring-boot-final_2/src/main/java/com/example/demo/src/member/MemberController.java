@@ -5,11 +5,15 @@ import com.example.demo.config.BaseResponse;
 import com.example.demo.config.BaseResponseStatus;
 import com.example.demo.src.member.model.MemberDTO;
 import com.example.demo.utils.JwtService;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import static com.example.demo.config.BaseResponseStatus.*;
+import static com.example.demo.src.member.model.MemberDTO.*;
 
 @RestController
 @RequestMapping("/members")
@@ -31,20 +35,13 @@ public class MemberController {
 		this.jwtService = jwtService;
 	}
 
-	@ResponseBody
-	@GetMapping("")
-	public BaseResponse<Integer> signUp() {
-		// validation
-		Integer i = memberService.test();
-		return new BaseResponse<>(i);
-	}
 
+	//01
 	@ResponseBody
 	@PostMapping("/register")
 	public BaseResponse<Integer> signUp(@RequestBody MemberDTO memberDTO) {
 		// validation
-		log.info("exception start: ");
-		if (MemberDTO.hasNullDataWhenJoin(memberDTO)) {
+		if (hasNullDataWhenJoin(memberDTO)) {
 			return new BaseResponse<>(POST_USERS_INVALID_INFO);
 		}
 
@@ -52,15 +49,94 @@ public class MemberController {
 			Integer memberId = memberService.joinMember(memberDTO);
 			return new BaseResponse<>(memberId);
 		} catch (BaseException exception) {
-			log.info("exceptionController : {}", exception);
 			return new BaseResponse<>(exception.getStatus());
 		}
 
 	}
 
+	//02
+	@ResponseBody
+	@PostMapping("/login")
+	public BaseResponse<Integer> login(@RequestBody MemberLoginReq memberLoginReq) {
+		// 입력값 누락 확인 (email, password)
+		String email = memberLoginReq.getEmail();
+		String password = memberLoginReq.getPassword();
+
+		try {
+			MemberDTO memberDTO = memberProvider.login(email, password);
+			return new BaseResponse<>(memberDTO.getId());
+		} catch (BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+
+	}
+
+
+	//05
+	@ResponseBody
+	@PatchMapping("/{member-id}")
+	public BaseResponse<Integer> modifyMemberName(@RequestParam("member-id") int memberId,
+												  MemberDTO memberDTO) {
+		try {
+			Integer resultId = memberService.modifyMemberName(memberId, memberDTO.getName());
+			return new BaseResponse<>(resultId);
+		} catch (BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+	}
+
+	//07 JWT 개념 익힌 후 구현
+//	@ResponseBody
+//	@GetMapping("/info")
+//	public BaseResponse<MemberDTO> lookupMember() {
+//
+//	}
+
+	//08 이메일 수신 동의 API
+	@ResponseBody
+	@GetMapping("/{member-id}/email")
+	public BaseResponse<Integer> modifyAcceptEmail(@RequestParam("member-id") int memberId,
+												  MemberDTO memberDTO) {
+		String emailStatus = memberDTO.getMailAccept();
+		try {
+			Integer resultId = memberService.modifyAcceptEmail(memberId, emailStatus);
+			return new BaseResponse<>(resultId);
+		} catch (BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+	}
+
+	//09 SMS 수신 동의 API
+	@ResponseBody
+	@GetMapping("/{member-id}/sms")
+	public BaseResponse<Integer> modifyAcceptSms(@RequestParam("member-id") int memberId,
+												   MemberDTO memberDTO) {
+		String smsStatus = memberDTO.getSmsAccept();
+		try {
+			Integer resultId = memberService.modifyAcceptSms(memberId, smsStatus);
+			return new BaseResponse<>(resultId);
+		} catch (BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+	}
+
+
+
+//	// 로그아웃 결과에 따라서 처리
+//	@ResponseBody
+//	@GetMapping("/logout")
+//	public BaseResponse<Integer> logout() {
+//
+//	}
+
+//	// 패스워드 수정
+//	@ResponseBody
+//	@PatchMapping("/{user-id}/password")
+//	public BaseResponse<Integer>
+
+
 //	@ResponseBody
 //	@PostMapping
-//
 
 
 //
@@ -180,4 +256,11 @@ public class MemberController {
 //			return new BaseResponse<>((exception.getStatus()));
 //		}
 
+	// ========== login 객체 ==========//
+	@Setter
+	@Getter
+	private static class MemberLoginReq {
+		private String email;
+		private String password;
+	}
 }
