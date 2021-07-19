@@ -13,8 +13,9 @@ import java.util.Date;
 @ToString
 public class MemberDTO {
 	public enum Status {
-		Used, Deleted;
+		Joined, Deleted, Suspend;
 	}
+
 
 	private int id;
 
@@ -23,9 +24,9 @@ public class MemberDTO {
 	private String name;
 	private String phoneNumber;
 	private String profileImageUrl;
-	private int mailAccept;
-	private int smsAccept;
-	private Date birthDate;
+	private String mailAccept;
+	private String smsAccept;
+	private String birthDate;
 
 	private String addressBuildingNum;
 	private String districtCode;

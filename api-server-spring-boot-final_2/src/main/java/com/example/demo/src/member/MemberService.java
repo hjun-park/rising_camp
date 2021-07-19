@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import static com.example.demo.config.BaseResponseStatus.*;
+import static com.example.demo.src.member.model.MemberDTO.*;
 
 @Service
 @Slf4j
@@ -30,6 +31,19 @@ public class MemberService {
 	}
 
 	public Integer joinMember(MemberDTO memberDTO) throws BaseException {
+		// 이메일, 전화번호 중복체크
+		if(memberProvider.checkMember(memberDTO.getEmail(), memberDTO.getPhoneNumber()) == 1) {
+			throw new BaseException(POST_USERS_EXISTS_USER);
+		}
+
+		// 닉네임 중복체크
+		if(memberProvider.checkName(memberDTO.getName()) == 1) {
+			throw new BaseException(POST_USERS_EXISTS_NICKNAME);
+		}
+
+
+		// 닉네임 중복체크
+
 		try {
 			Integer memberId = memberDAO.insertMember(memberDTO);
 			return memberId;
@@ -38,6 +52,48 @@ public class MemberService {
 		}
 	}
 
+	public Integer modifyMemberName(int memberId, String name) throws BaseException {
+
+		try {
+			return memberDAO.modifyMemberName(memberId, name);
+		} catch (Exception exception) {
+			throw new BaseException(DATABASE_ERROR);
+		}
+
+	}
+
+	public Integer modifyAcceptEmail(int memberId, String emailStatus) throws BaseException {
+
+		// 상태 변환
+		if (emailStatus.equals("Y")) {
+			emailStatus = "N";
+		} else {
+			emailStatus = "Y";
+		}
+
+		try {
+			return memberDAO.modifyAcceptEmail(memberId, emailStatus);
+		} catch(Exception exception) {
+			throw new BaseException(DATABASE_ERROR);
+		}
+
+	}
+
+	public Integer modifyAcceptSms(int memberId, String smsStatus) throws BaseException {
+		// 상태 변환
+		if (smsStatus.equals("Y")) {
+			smsStatus = "N";
+		} else {
+			smsStatus = "Y";
+		}
+
+		try {
+			return memberDAO.modifyAcceptSms(memberId, smsStatus);
+		} catch(Exception exception) {
+			throw new BaseException(DATABASE_ERROR);
+		}
+
+	}
 
 
 	// POST

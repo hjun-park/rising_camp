@@ -344,3 +344,20 @@ ALTER TABLE OWNER
 insert into MEMBER(password, email, name, phoneNumber, profileImageUrl,
                    addressBuildingNum, districtCode, birthDate)
 VALUES('111', '1', '11', '111', '1', 0, 0, '19961022');
+
+select count(id)
+FROM MEMBER
+WHERE email='phph@gmail.com' OR phoneNumber='01066141111';
+
+SELECT *
+FROM MEMBER
+WHERE email = '박현준@gmail.com'
+AND password = 'pwd1'
+AND status = 'Joined';
+
+UPDATE MEMBER SET name = '준준' WHERE id = 8;
+
+UPDATE MEMBER SET mailAccept = 'N' WHERE id = 8;
+
+select last_insert_id();
+
