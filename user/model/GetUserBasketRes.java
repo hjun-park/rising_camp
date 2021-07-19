@@ -14,6 +14,6 @@ import java.util.List;
 @AllArgsConstructor
 public class GetUserBasketRes {
 	private String storeName;
-
 	private List<Menus> menus;
+
 }

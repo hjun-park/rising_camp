@@ -1,9 +1,16 @@
 package com.example.demo.src.user;
 
+
 import com.example.demo.config.BaseException;
-import com.example.demo.src.user.model.*;
+import com.example.demo.config.secret.Secret;
+import com.example.demo.src.user.model.GetUserRes;
+import com.example.demo.src.user.model.PostLoginReq;
+import com.example.demo.src.user.model.PostLoginRes;
+import com.example.demo.src.user.model.User;
+import com.example.demo.utils.AES128;
 import com.example.demo.utils.JwtService;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,69 +18,78 @@ import java.util.List;
 
 import static com.example.demo.config.BaseResponseStatus.*;
 
+//Provider : Read의 비즈니스 로직 처리
 @Service
-@Slf4j
 public class UserProvider {
 
-	@Autowired
-	private final UserDao userDao;
+    private final UserDAO userDao;
+    private final JwtService jwtService;
 
-	@Autowired
-	private final JwtService jwtService;
 
-	public UserProvider(UserDao userDao, JwtService jwtService) {
-		this.userDao = userDao;
-		this.jwtService = jwtService;
+    final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    public UserProvider(UserDAO userDao, JwtService jwtService) {
+        this.userDao = userDao;
+        this.jwtService = jwtService;
+    }
+
+    public List<GetUserRes> getUsers() throws BaseException{
+        try{
+            List<GetUserRes> getUserRes = userDao.getUsers();
+            return getUserRes;
+        }
+        catch (Exception exception) {
+            throw new BaseException(DATABASE_ERROR);
+        }
+    }
+
+    public List<GetUserRes> getUsersByEmail(String email) throws BaseException{
+        try{
+            List<GetUserRes> getUsersRes = userDao.getUsersByEmail(email);
+            return getUsersRes;
+        }
+        catch (Exception exception) {
+            throw new BaseException(DATABASE_ERROR);
+        }
 	}
 
-	public int checkUser(String email, String phoneNumber) throws BaseException {
-		try {
-			return userDao.checkUser(email, phoneNumber);
-		} catch (Exception exception) {
-			throw new BaseException(DATABASE_ERROR);
-		}
-	}
 
-	public PostLoginRes login(PostLoginReq postLoginReq) throws BaseException {
-		// 패스워드 가져오기
-		User user = userDao.getPwd(postLoginReq);
-		log.debug("2) {}", user.getPassword());
+    public GetUserRes getUser(int userIdx) throws BaseException {
+        try {
+            GetUserRes getUserRes = userDao.getUser(userIdx);
+            return getUserRes;
+        } catch (Exception exception) {
+            throw new BaseException(DATABASE_ERROR);
+        }
+    }
 
-		if(postLoginReq.getPassword().equals(user.getPassword())) {
-			// 로그인 성공
-			int userId = userDao.getPwd(postLoginReq).getId();
-			return new PostLoginRes(userId);
-		} else {
-			// 로그인 실패
-			throw new BaseException(FAILED_TO_LOGIN);
-		}
-	}
+    public int checkEmail(String email) throws BaseException{
+        try{
+            return userDao.checkEmail(email);
+        } catch (Exception exception){
+            throw new BaseException(DATABASE_ERROR);
+        }
+    }
 
-	public List<GetUserBasketRes> getUserBasket(int userId, int basketId) throws BaseException{
-		try {
-			return userDao.getUserBasket(userId);
-		} catch (Exception exception) {
-			throw new BaseException(DATABASE_ERROR);
-		}
-	}
+    public PostLoginRes logIn(PostLoginReq postLoginReq) throws BaseException{
+        User user = userDao.getPwd(postLoginReq);
+        String password;
+        try {
+            password = new AES128(Secret.USER_INFO_PASSWORD_KEY).decrypt(user.getPassword());
+        } catch (Exception ignored) {
+            throw new BaseException(PASSWORD_DECRYPTION_ERROR);
+        }
 
-//	public GetOrderDetailRes getOrderDetail(int userId, int orderId) throws BaseException{
-//		try {
-//			userDao.getOrderDetail(userId, orderId);
-//		} catch(Exception exception) {
-//			throw new BaseException(DATABASE_ERROR);
-//		}
-//	}
+        if(postLoginReq.getPassword().equals(password)){
+            int userIdx = userDao.getPwd(postLoginReq).getUserIdx();
+            String jwt = jwtService.createJwt(userIdx);
+            return new PostLoginRes(userIdx,jwt);
+        }
+        else{
+            throw new BaseException(FAILED_TO_LOGIN);
+        }
 
-
-//	public void validateDuplicateUser(PostUserReq postUserReq) throws BaseException{
-//		 EXCEPTION
-//		Object result = userDao.findByEmail(postUserReq.getEmail(), postUserReq.getPhoneNumber());
-//
-//		 중복되는 이메일이 있는 경우
-//		if (result != null) {
-//			throw new BaseException(POST_USERS_EXISTS_USER);
-//		}
-//	}
+    }
 
 }

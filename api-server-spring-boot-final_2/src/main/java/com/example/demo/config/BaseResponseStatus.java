@@ -26,7 +26,7 @@ public enum BaseResponseStatus {
 	EMPTY_CONTENT(false, 2004, "내용을 입력해주세요"),
 
     // [POST] /users
-	POST_USERS_INVALID_EMAIL(false, 2012, "올바른 이메일 형식이 아닙니다."),
+	POST_USERS_INVALID_INFO(false, 2012, "입력되지 않은 빈 칸이 있습니다."),
     POST_USERS_INVALID_PHONE_NUMBER(false, 2013, "올바른 번호형식이 아닙니다."),
 	POST_USERS_EXISTS_NICKNAME(false,2016,"중복된 닉네임입니다."),
 	POST_USERS_EXISTS_USER(false,2017,"이미 존재하는 회원입니다."),

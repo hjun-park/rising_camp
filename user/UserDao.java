@@ -1,15 +1,19 @@
 package com.example.demo.src.user;
 
+import com.example.demo.src.store.model.Store;
 import com.example.demo.src.user.model.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -55,7 +59,7 @@ public class UserDao {
 		return this.jdbcTemplate.update(modifyUserNameQuery, modifyUserNameParams);
 	}
 
-	public List<GetUserBasketRes> getUserBasket(int userId) {
+	public List<Basket> getUserBasket(int userId) {
 		String getUserBasketQuery = "SELECT S.name, M.name, SB.amount, (M.price * SB.amount) AS menuPrice " +
 			"FROM STORE_BASKET SB " +
 			"JOIN(SELECT id, name, price FROM MENU) AS M " +
@@ -64,15 +68,28 @@ public class UserDao {
 			"ON S.id = SB.storeId " +
 			"WHERE status = 'Used' AND memberId = ?";
 		String getUserBasketParams = Integer.toString(userId);
-		return this.jdbcTemplate.query(getUserBasketQuery,
-			(rs, rowNum) -> new GetUserBasketRes(
-				rs.getString("S.name"),
-				rs.getString("M.name"),
-				rs.getInt("amount"),
-				rs.getInt("menuPrice")
-			),
+
+//		RowMapper<Basket> rowMapper = (rs, rowNum) -> {
+//			Menus m = new Menus();
+//			m.setMenuName(m.getMenuName());
+//			m.setMenuPrice(m.getMenuPrice());
+//			m.setAmount(m.getAmount());
+//
+//			return m;
+//		};
+
+		ArrayList<Menus> list = new ArrayList<>();
+
+		List<Basket> basketList = this.jdbcTemplate.query(getUserBasketQuery,
+			(rs, rowNum) -> {
+				Store store = new Store();
+				store.setName(rs.getString("S.name"));
+				Menus menus = new Menus();
+
+				},
 			getUserBasketParams);
 
+		return basketList;
 	}
 
 	public Integer postUserBasket(int userId, PostUserBasketReq postUserBasketReq) {

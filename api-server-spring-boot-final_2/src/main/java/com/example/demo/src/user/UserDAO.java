@@ -1,7 +1,7 @@
-package com.example.demo.src.user02;
+package com.example.demo.src.user;
 
 
-import com.example.demo.src.user02.model.*;
+import com.example.demo.src.user.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -10,7 +10,7 @@ import javax.sql.DataSource;
 import java.util.List;
 
 @Repository
-public class UserDao {
+public class UserDAO {
 
     private JdbcTemplate jdbcTemplate;
 

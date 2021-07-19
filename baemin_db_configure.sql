@@ -319,3 +319,28 @@ ALTER TABLE ORDER_DETAIL COMMENT '주문상세';
 ALTER TABLE ORDER_DETAIL
     ADD CONSTRAINT FK_ORDER_DETAIL_orderId_ORDERS_id FOREIGN KEY (orderId)
         REFERENCES ORDERS (id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
+CREATE TABLE OWNER
+(
+    `id`           BIGINT UNSIGNED    NOT NULL    AUTO_INCREMENT COMMENT '사장님 ID',
+    `storeId`      BIGINT UNSIGNED    NOT NULL    COMMENT '가게 ID',
+    `email`        VARCHAR(45)        NOT NULL    COMMENT '사장님 이메일',
+    `password`     TEXT               NOT NULL    COMMENT '사장님 비밀번호',
+    `phoneNumber`  VARCHAR(15)        NOT NULL    COMMENT '핸드폰 번호',
+    `createdAt`    TIMESTAMP          NOT NULL    COMMENT '생성일자',
+    `updatedAt`    TIMESTAMP          NULL        COMMENT '수정일자',
+    `status`       VARCHAR(20)        NOT NULL    DEFAULT 'Joined' COMMENT 'Joined, Deleted, Suspend',
+     PRIMARY KEY (id)
+)CHARSET UTF8;
+
+ALTER TABLE OWNER COMMENT '사장님';
+
+ALTER TABLE OWNER
+    ADD CONSTRAINT FK_OWNER_storeId_STORE_id FOREIGN KEY (storeId)
+        REFERENCES STORE (id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+
+insert into MEMBER(password, email, name, phoneNumber, profileImageUrl,
+                   addressBuildingNum, districtCode, birthDate)
+VALUES('111', '1', '11', '111', '1', 0, 0, '19961022');
