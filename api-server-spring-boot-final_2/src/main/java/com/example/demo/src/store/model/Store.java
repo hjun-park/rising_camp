@@ -35,4 +35,6 @@ public class Store {
 	private int tips;
 	private String storeImageUrl;
 
+	public Store() {
+	}
 }

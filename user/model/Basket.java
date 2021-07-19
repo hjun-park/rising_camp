@@ -23,5 +23,9 @@ public class Basket {
 
 	private String status;
 
+	public Basket() {
+
+	}
+
 
 }

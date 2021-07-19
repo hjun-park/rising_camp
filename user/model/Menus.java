@@ -7,8 +7,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class PostLoginRes {
+public class Menus {
+	private String menuName;
+	private int amount;
+	private int menuPrice;
 
-    private int userIdx;
-    private String jwt;
+	public Menus() {
+	}
+
 }
