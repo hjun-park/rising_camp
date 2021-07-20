@@ -5,7 +5,7 @@ import com.example.demo.config.BaseResponse;
 import com.example.demo.src.review.model.GetReviewDetailRes;
 import com.example.demo.src.review.model.GetReviewRes;
 import com.example.demo.src.review.model.PatchReviewReq;
-import com.example.demo.src.review.model.Review;
+import com.example.demo.src.review.model.ReviewDTO;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,10 +61,10 @@ public class ReviewController {
 	@ResponseBody
 	@PatchMapping("/reviews/{reviewId}")
 	public BaseResponse<String> deleteReviewDetail(@PathVariable("userId") int userId,
-												   @PathVariable("reviewId") int reviewId,
-													Review review) {
+												   @PathVariable("reviewId") int reviewId
+												   ) {
 		try {
-			PatchReviewReq patchReviewReq = new PatchReviewReq(userId, reviewId, review.getStatus());
+			PatchReviewReq patchReviewReq = new PatchReviewReq(userId, reviewId);
 			reviewService.deleteReviewDetail(patchReviewReq);
 			String result = "";
 			return new BaseResponse<>(result);

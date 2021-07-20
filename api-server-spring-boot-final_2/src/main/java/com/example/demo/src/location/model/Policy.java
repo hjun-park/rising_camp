@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Getter @Setter	@ToString
 @AllArgsConstructor
 public class Policy {
-	private enum Status {
+	public enum Status {
 		Used, Deleted;
 	}
 	private int id;
@@ -19,8 +19,6 @@ public class Policy {
 	private int additionalTips;
 
 	private Status status;
-	private LocalDateTime createdAt;
-	private LocalDateTime updatedAt;
 
 	public Policy() {
 	}

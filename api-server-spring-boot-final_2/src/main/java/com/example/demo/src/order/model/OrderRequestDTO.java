@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Getter
 @ToString
 public class OrderRequestDTO {
-	private enum Status {
+	public enum Status {
 		OrderComplete, DeliveryComplete, Cancel;
 	}
 

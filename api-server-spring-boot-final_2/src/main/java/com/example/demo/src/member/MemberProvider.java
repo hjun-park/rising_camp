@@ -42,16 +42,16 @@ public class MemberProvider {
 		return memberDAO.isDuplicatedName(name);
 	}
 
-	public Member login(String email, String password) throws BaseException {
+	public Integer login(String email, String password) throws BaseException {
 		//패스워드 암호화 진행
 
 		//id, 패스워드 확인
 		try {
-			Member member = memberDAO.findByIdPassword(email, password);
-			if (member == null) {
+			Integer result = memberDAO.findByIdPassword(email, password);
+			if (result == 0) {
 				throw new BaseException(POST_USERS_LOGIN_INVALID);
 			}
-			return member;
+			return result;
 		} catch (Exception exception) {
 			throw new BaseException(DATABASE_ERROR);
 		}

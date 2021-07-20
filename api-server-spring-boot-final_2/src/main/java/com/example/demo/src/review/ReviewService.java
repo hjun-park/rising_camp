@@ -15,7 +15,7 @@ import static com.example.demo.config.BaseResponseStatus.RESPONSE_ERROR;
 public class ReviewService {
 
 	@Autowired
-	private final ReviewDao reviewDao;
+	private final ReviewDAO reviewDao;
 
 	@Autowired
 	private final ReviewProvider reviewProvider;
@@ -23,7 +23,7 @@ public class ReviewService {
 	@Autowired
 	private final JwtService jwtService;
 
-	public ReviewService(ReviewDao reviewDao, ReviewProvider reviewProvider, JwtService jwtService) {
+	public ReviewService(ReviewDAO reviewDao, ReviewProvider reviewProvider, JwtService jwtService) {
 		this.reviewDao = reviewDao;
 		this.reviewProvider = reviewProvider;
 		this.jwtService = jwtService;

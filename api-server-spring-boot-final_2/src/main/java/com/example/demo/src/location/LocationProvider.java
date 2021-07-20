@@ -1,10 +1,16 @@
 package com.example.demo.src.location;
 
+import com.example.demo.config.BaseException;
+import com.example.demo.src.location.model.Policy;
 import com.example.demo.src.store.StoreDAO;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+import static com.example.demo.config.BaseResponseStatus.*;
 
 @Slf4j
 @Service
@@ -23,6 +29,16 @@ public class LocationProvider {
 		this.locationDAO = locationDAO;
 		this.storeDAO = storeDAO;
 		this.jwtService = jwtService;
+	}
+
+	public List<Policy> findPolicy(int storeId) throws BaseException {
+		try {
+			return locationDAO.findPolicyByStoreId(storeId);
+
+		} catch(Exception exception) {
+			throw new BaseException(DATABASE_ERROR);
+		}
+
 	}
 
 //	public List<StorePolicy> findZones(int storeId) {

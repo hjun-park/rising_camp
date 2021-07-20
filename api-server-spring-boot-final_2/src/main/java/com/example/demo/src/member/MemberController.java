@@ -60,8 +60,8 @@ public class MemberController {
 		String password = memberLoginReq.getPassword();
 
 		try {
-			Member member = memberProvider.login(email, password);
-			return new BaseResponse<>(member.getId());
+			Integer result = memberProvider.login(email, password);
+			return new BaseResponse<>(result);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
 		}
@@ -73,10 +73,10 @@ public class MemberController {
 	@ResponseBody
 	@PatchMapping("/{member-id}")
 	public BaseResponse<Integer> patchMemberName(@PathVariable("member-id") int memberId,
-												  Member member) {
+												 @RequestBody Member member) {
 		try {
-			Integer resultId = memberService.modifyMemberName(memberId, member.getName());
-			return new BaseResponse<>(resultId);
+			Integer result = memberService.modifyMemberName(memberId, member.getName());
+			return new BaseResponse<>(result);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
 		}
@@ -91,13 +91,13 @@ public class MemberController {
 
 	//08 이메일 수신 동의 API
 	@ResponseBody
-	@GetMapping("/{member-id}/email")
-	public BaseResponse<Integer> modifyAcceptEmail(@PathVariable("member-id") int memberId,
-												   Member member) {
+	@PostMapping("/{member-id}/email")
+	public BaseResponse<Integer> postAcceptEmail(@PathVariable("member-id") int memberId,
+												   @RequestBody Member member) {
 		String emailStatus = member.getMailAccept();
 		try {
-			Integer resultId = memberService.modifyAcceptEmail(memberId, emailStatus);
-			return new BaseResponse<>(resultId);
+			Integer result = memberService.modifyAcceptEmail(memberId, emailStatus);
+			return new BaseResponse<>(result);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
 		}
@@ -105,13 +105,13 @@ public class MemberController {
 
 	//09 SMS 수신 동의 API
 	@ResponseBody
-	@GetMapping("/{member-id}/sms")
-	public BaseResponse<Integer> modifyAcceptSms(@PathVariable("member-id") int memberId,
-												   Member member) {
+	@PostMapping("/{member-id}/sms")
+	public BaseResponse<Integer> postAcceptSms(@PathVariable("member-id") int memberId,
+												 @RequestBody  Member member) {
 		String smsStatus = member.getSmsAccept();
 		try {
-			Integer resultId = memberService.modifyAcceptSms(memberId, smsStatus);
-			return new BaseResponse<>(resultId);
+			Integer result = memberService.modifyAcceptSms(memberId, smsStatus);
+			return new BaseResponse<>(result);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
 		}

@@ -98,3 +98,53 @@ SELECT *
 			FROM STORE
 			WHERE id = 1
 			AND status = 'Used';
+
+SELECT exists(select id from MEMBER WHERE email = 'jun@gmail.com'
+    AND password = 'mypwdpwd123' AND status = 'Joined');
+
+UPDATE MEMBER SET name = '네임1' WHERE id = 1;
+
+SELECT * FROM STORE_CATEGORY WHERE status = 'Used';
+
+SELECT * FROM STORE WHERE storeCategoryName = '치킨' AND status = 'Used';
+
+CREATE TABLE REVIEW
+(
+    `id`              BIGINT UNSIGNED    NOT NULL    AUTO_INCREMENT COMMENT '리뷰 ID',
+    `storeId`         BIGINT UNSIGNED    NOT NULL    COMMENT '가게 ID',
+    `memberId`        BIGINT UNSIGNED    NOT NULL    COMMENT '멤버 ID',
+    `orderId`         BIGINT UNSIGNED    NOT NULL    COMMENT '주문 ID',
+    `content`         TEXT               NOT NULL    COMMENT '리뷰 내용',
+    `createdAt`       TIMESTAMP          NOT NULL    DEFAULT CURRENT_TIMESTAMP COMMENT '등록일자',
+    `updatedAt`       TIMESTAMP          NULL        DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일자',
+    `status`          VARCHAR(20)        NOT NULL    DEFAULT 'Used' COMMENT '(Used, Deleted)',
+    `rating`          DECIMAL(2, 1)      NOT NULL    COMMENT '리뷰 별점',
+    `reviewImageUrl`  TEXT               NULL        COMMENT '리뷰 이미지',
+    CONSTRAINT PK_REVIEW PRIMARY KEY (id)
+)CHARSET UTF8;
+
+ALTER TABLE REVIEW COMMENT '리뷰';
+
+ALTER TABLE REVIEW
+    ADD CONSTRAINT FK_REVIEW_storeId_STORE_id FOREIGN KEY (storeId)
+        REFERENCES STORE (id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE REVIEW
+    ADD CONSTRAINT FK_REVIEW_memberId_MEMBER_id FOREIGN KEY (memberId)
+        REFERENCES MEMBER (id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE REVIEW
+    ADD CONSTRAINT FK_REVIEW_orderId_ORDERS_id FOREIGN KEY (orderId)
+        REFERENCES ORDERS (id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+SELECT * FROM REVIEW
+WHERE status = 'Used' AND storeId = 1;
+
+UPDATE STORE_CATEGORY SET status = 'Deleted'
+			WHERE name = '피자';
+
+SELECT * FROM DELIVERY_POLICY
+			WHERE status = 'Used' AND storeId = 1;
+
+UPDATE DELIVERY_POLICY SET additionalTips = 7000000
+			WHERE storeId = 1 AND id = 7 AND status = 'Used';
