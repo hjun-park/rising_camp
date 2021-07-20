@@ -1,7 +1,6 @@
 package com.example.demo.src.category;
 
 import com.example.demo.config.BaseException;
-import com.example.demo.src.category.model.GetCategoryRes;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

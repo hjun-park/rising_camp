@@ -93,3 +93,8 @@ INSERT INTO ORDERS(storeId, memberId, addressBuildingNum, addressDetail, tips, s
 
 INSERT INTO DELIVERY_POLICY(storeId, districtCode, additionalTips)
     VALUES(2, 5555, 10000);
+
+SELECT *
+			FROM STORE
+			WHERE id = 1
+			AND status = 'Used';

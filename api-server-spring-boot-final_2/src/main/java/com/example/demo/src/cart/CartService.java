@@ -67,7 +67,6 @@ public class CartService {
 		} catch (Exception exception) {
 			throw new BaseException(DATABASE_ERROR);
 		}
-
 	}
 
 	public Integer deleteCart(int memberId, int cartId) throws BaseException{
