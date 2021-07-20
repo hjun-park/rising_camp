@@ -6,12 +6,11 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Getter @Setter
 @AllArgsConstructor
 @ToString
-public class MemberDTO {
+public class Member {
 	public enum Status {
 		Joined, Deleted, Suspend;
 	}
@@ -39,16 +38,34 @@ public class MemberDTO {
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
 
-	public MemberDTO(int id, String email, String password) {
+	public Member(int id, String email, String password) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
 	}
 
-	public MemberDTO() {
+	public Member(int id, String email, String password, String name, String phoneNumber, String profileImageUrl, String mailAccept, String smsAccept, String birthDate, String addressBuildingNum, String districtCode, String addressDetail, double latitude, double longitude, int grade) {
+		this.id = id;
+		this.email = email;
+		this.password = password;
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+		this.profileImageUrl = profileImageUrl;
+		this.mailAccept = mailAccept;
+		this.smsAccept = smsAccept;
+		this.birthDate = birthDate;
+		this.addressBuildingNum = addressBuildingNum;
+		this.districtCode = districtCode;
+		this.addressDetail = addressDetail;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.grade = grade;
 	}
 
-	public static boolean hasNullDataWhenJoin(MemberDTO m) {
+	public Member() {
+	}
+
+	public static boolean hasNullDataWhenJoin(Member m) {
 		return m.getEmail() == null || m.getPassword() == null ||
 			m.getName() == null || m.getPhoneNumber() == null;
 	}

@@ -9,6 +9,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 # 2. 문제가 일어나는 작업 수행 후 다시 제약 조건을 켜준다.
 SET FOREIGN_KEY_CHECKS = 1;
 
+ALTER TABLE CART
+    ADD CONSTRAINT FK_CART_storeId_STORE_id FOREIGN KEY (storeId)
+        REFERENCES STORE (id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
 CREATE TABLE ORDER_ITEM
 (
     `id`         BIGINT UNSIGNED    NOT NULL    AUTO_INCREMENT COMMENT '주문상품 ID',
@@ -38,3 +42,43 @@ ON OI.orderId = O.id
 INNER JOIN (SELECT id, name, price FROM MENU) M
 ON OI.menuId = M.id
 WHERE orderId = 1 and status = 'Used';
+
+CREATE TABLE CART
+(
+    `id`         BIGINT UNSIGNED    NOT NULL    AUTO_INCREMENT COMMENT '카트 ID',
+    `memberId`   BIGINT UNSIGNED    NOT NULL    COMMENT '멤버 ID',
+    `menuId`     BIGINT UNSIGNED    NOT NULL    COMMENT '메뉴 ID',
+    `amount`     INT UNSIGNED       NOT NULL    COMMENT '수량',
+    `createdAt`  TIMESTAMP          NOT NULL    DEFAULT CURRENT_TIMESTAMP COMMENT '카트 생성일자',
+    `updatedAt`  TIMESTAMP          NULL        DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '카트 수정일자',
+    `status`     VARCHAR(20)        NOT NULL    COMMENT '상태',
+     PRIMARY KEY (id)
+)CHARSET UTF8;
+
+ALTER TABLE CART COMMENT '카트';
+
+ALTER TABLE CART
+    ADD CONSTRAINT FK_CART_memberId_MEMBER_id FOREIGN KEY (memberId)
+        REFERENCES MEMBER (id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+ALTER TABLE CART
+    ADD CONSTRAINT FK_CART_menuId_MENU_id FOREIGN KEY (menuId)
+        REFERENCES MENU (id) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+SELECT name, price, amount
+FROM CART C
+INNER JOIN (SELECT id, name, price FROM MENU) M
+ON M.id = C.menuId
+WHERE memberId = 1 AND status = 'Used';
+
+
+
+SELECT *
+			 FROM MEMBER
+			WHERE id = 1
+			AND status = 'Joined';
+
+
+
+select * from CART where memberId = 1 AND status = 'Used' LIMIT 1;
+INSERT INTO CART(memberId, menuId, amount, storeId) VALUES(1, 8, 20, 1);

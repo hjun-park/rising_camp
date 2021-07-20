@@ -1,6 +1,5 @@
 package com.example.demo.order.model;
 
-import com.example.demo.menu.model.MenuDTO;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -8,7 +7,7 @@ import java.time.LocalDateTime;
 @Getter @Setter
 @AllArgsConstructor
 @ToString
-public class OrderItemDTO {
+public class OrderItem {
 	private enum Status {
 		Used, Deleted;
 	}
@@ -20,24 +19,24 @@ public class OrderItemDTO {
 	private LocalDateTime updatedAt;
 	private Status status;
 
-	// 1:1
-	private MenuDTO menuDTO;
-
-	public OrderItemDTO() {
+	public OrderItem() {
 	}
 
-	@Builder
-	public OrderItemDTO (
-		String name,
-		int amount,
-		int price
-	) {
-		this.amount = amount;
-		this.menuDTO = MenuDTO.builder()
-			.name(name)
-			.price(price)
-			.build();
-	}
+
+
+
+//	@Builder
+//	public OrderItemDTO (
+//		String name,
+//		int amount,
+//		int price
+//	) {
+//		this.amount = amount;
+//		this.menuDTO = MenuDTO.builder()
+//			.name(name)
+//			.price(price)
+//			.build();
+//	}
 
 
 

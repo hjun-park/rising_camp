@@ -34,6 +34,9 @@ public enum BaseResponseStatus {
 	// [POST] /users/login
 	POST_USERS_LOGIN_INVALID(false, 2020, "계정이 존재하지 않거나 유효하지 않습니다"),
 
+	// [POST] /cart
+	MISMATCH_STORE_MENU(false, 2025, "다른 매장의 메뉴를 담았습니다."),
+
 
 
     /**
