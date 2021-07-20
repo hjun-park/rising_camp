@@ -2,7 +2,7 @@ package com.example.demo.src.store;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
-import com.example.demo.src.store.model.Store;
+import com.example.demo.src.store.model.StoreDTO;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +31,10 @@ public class StoreController {
 	//27 가게 조회
 	@ResponseBody
 	@GetMapping("/{store-id}")
-	public BaseResponse<Store> getStore(@PathVariable("store-id") int storeId) {
+	public BaseResponse<StoreDTO> getStore(@PathVariable("store-id") int storeId) {
 		try {
-			Store store = storeProvider.findStore(storeId);
-			return new BaseResponse<>(store);
+			StoreDTO storeDTO = storeProvider.findStore(storeId);
+			return new BaseResponse<>(storeDTO);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
 		}
@@ -43,14 +43,26 @@ public class StoreController {
 	//28 가게 등록
 	@ResponseBody
 	@PostMapping("")
-	public BaseResponse<Integer> postStore(@RequestBody Store store) {
+	public BaseResponse<Integer> postStore(@RequestBody StoreDTO storeDTO) {
 		try {
-			Integer resultId = storeService.registerStore(store);
+			Integer resultId = storeService.registerStore(storeDTO);
 			return new BaseResponse<>(resultId);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
 		}
+	}
 
+	//28 가게 등록
+	@ResponseBody
+	@DeleteMapping("/{store-id}")
+	public BaseResponse<Integer> deleteStore(@PathVariable("store-id") int storeId) {
+		try {
+
+			Integer result = storeService.deleteStore(storeId);
+			return new BaseResponse<>(result);
+		} catch (BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
 	}
 
 }

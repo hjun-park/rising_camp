@@ -24,15 +24,15 @@ public class OrderController {
 
 	//ctrl alt l o
 	//16 주문하기
-	@PostMapping("/{member-id}")
-	public BaseResponse<Integer> postOrder(@PathVariable("member-id") int memberId,
-										   @RequestBody OrderRequestDTO orderRequestDTO) {
-		try {
-			Integer orderResult = orderService.order(memberId, orderRequestDTO);
-			return new BaseResponse<>(orderResult);
-		} catch (BaseException exception) {
-			return new BaseResponse<>(exception.getStatus());
-		}
-	}
+//	@PostMapping("/{member-id}")
+//	public BaseResponse<Integer> postOrder(@PathVariable("member-id") int memberId,
+//										   @RequestBody OrderRequestDTO orderRequestDTO) {
+//		try {
+//			Integer orderResult = orderService.order(memberId, orderRequestDTO);
+//			return new BaseResponse<>(orderResult);
+//		} catch (BaseException exception) {
+//			return new BaseResponse<>(exception.getStatus());
+//		}
+//	}
 
 }

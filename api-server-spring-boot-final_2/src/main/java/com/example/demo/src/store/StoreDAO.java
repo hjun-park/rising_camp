@@ -1,6 +1,6 @@
 package com.example.demo.src.store;
 
-import com.example.demo.src.store.model.Store;
+import com.example.demo.src.store.model.StoreDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -26,7 +26,7 @@ public class StoreDAO {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
-	public Store findStoreById(int storeId) throws Exception {
+	public StoreDTO findStoreById(int storeId) throws Exception {
 		String findStoreQuery = "SELECT *" +
 			" FROM STORE" +
 			" WHERE id = ? " +
@@ -34,15 +34,15 @@ public class StoreDAO {
 		String findStoreParam = Integer.toString(storeId);
 		try {
 			return this.jdbcTemplate.queryForObject(findStoreQuery,
-				(rs, rowNum) -> new Store(
+				(rs, rowNum) -> new StoreDTO(
 					rs.getInt("id"),
 					rs.getString("storeCategoryName"),
 					rs.getString("name"),
-					rs.getBlob("notice"),
-					rs.getBlob("info"),
+					rs.getString("notice"),
+					rs.getString("info"),
 					rs.getString("paymentMethod"),
 					rs.getString("deliveryType"),
-					rs.getBlob("originInform"),
+					rs.getString("originInform"),
 					rs.getString("address"),
 					rs.getString("phoneNumber"),
 					rs.getString("hours"),
@@ -54,7 +54,8 @@ public class StoreDAO {
 					rs.getString("deliveryArea"),
 					rs.getInt("minOrderPrice"),
 					rs.getInt("tips"),
-					rs.getBlob("storeImageUrl")
+					rs.getString("storeImageUrl"),
+					StoreDTO.Status.valueOf(rs.getString("status"))
 				),
 				findStoreParam);
 		} catch(Exception exception) {
@@ -64,34 +65,34 @@ public class StoreDAO {
 		}
 	}
 
-	public Integer insertStore(Store store) throws Exception{
+	public Integer insertStore(StoreDTO storeDTO) throws Exception{
 		try {
 			String insertStoreQuery = "INSERT INTO STORE (storeCategoryName, name, notice, info," +
 				" paymentMethod, deliveryType, originInform, address, phoneNumber," +
 				" hours, addressBuildingNum, districtCode, addressDetail," +
 				" deliveryTime, closedDay, deliveryArea, minOrderPrice, tips, storeImageUrl)" +
-				" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, '12:00-17:00', ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 			Object[] insertStoreParam = new Object[]{
-				store.getStoreCategoryName(),
-				store.getName(),
-				store.getNotice(),
-				store.getInfo(),
-				store.getPaymentMethod(),
-				store.getDeliveryTime(),
-				store.getOriginInform(),
-				store.getAddress(),
-				store.getPhoneNumber(),
-				store.getHours(),
-				store.getAddressBuildingNum(),
-				store.getDistrictCode(),
-				store.getAddressDetail(),
-				store.getDeliveryTime(),
-				store.getClosedDay(),
-				store.getDeliveryArea(),
-				store.getMinOrderPrice(),
-				store.getTips(),
-				store.getStoreImageUrl()
+				storeDTO.getStoreCategoryName(),
+				storeDTO.getName(),
+				storeDTO.getNotice(),
+				storeDTO.getInfo(),
+				storeDTO.getPaymentMethod(),
+				storeDTO.getDeliveryType(),
+				storeDTO.getOriginInform(),
+				storeDTO.getAddress(),
+				storeDTO.getPhoneNumber(),
+				storeDTO.getHours(),
+				storeDTO.getAddressBuildingNum(),
+				storeDTO.getDistrictCode(),
+				storeDTO.getAddressDetail(),
+				storeDTO.getDeliveryTime(),
+				storeDTO.getClosedDay(),
+				storeDTO.getDeliveryArea(),
+				storeDTO.getMinOrderPrice(),
+				storeDTO.getTips(),
+				storeDTO.getStoreImageUrl()
 			};
 			this.jdbcTemplate.update(insertStoreQuery, insertStoreParam);
 		} catch (Exception exception) {
@@ -103,4 +104,19 @@ public class StoreDAO {
 		return this.jdbcTemplate.queryForObject(lastInsertIdQuery, int.class);
 
 	}
+
+	public int deleteStoreById(int storeId) throws Exception{
+		try {
+			String deleteStoreQuery = "UPDATE STORE SET status = 'Deleted'" +
+				" WHERE id = ?";
+			String deleteStoreParam = Integer.toString(storeId);
+
+			return this.jdbcTemplate.update(deleteStoreQuery, deleteStoreParam);
+		} catch(Exception exception) {
+			exception.printStackTrace();
+			throw new Exception(exception);
+		}
+	}
+
+
 }

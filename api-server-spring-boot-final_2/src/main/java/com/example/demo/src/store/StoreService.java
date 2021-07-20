@@ -1,13 +1,14 @@
 package com.example.demo.src.store;
 
 import com.example.demo.config.BaseException;
-import com.example.demo.src.store.model.Store;
+import com.example.demo.src.store.model.StoreDTO;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import static com.example.demo.config.BaseResponseStatus.DATABASE_ERROR;
+import static com.example.demo.config.BaseResponseStatus.NOTHING_TO_DELETE;
 
 @Slf4j
 @Service
@@ -28,21 +29,29 @@ public class StoreService {
 		this.jwtService = jwtService;
 	}
 
-	public Integer registerStore(Store store) throws BaseException {
+	public Integer registerStore(StoreDTO storeDTO) throws BaseException {
+		// 1. 카테고리 메뉴 이름 유효성 검사
 		try {
-			// 카트 생성 전 가게 ID 확인
-			// myCart = cartProvider.peekCart(memberId);
-
-			// 등록하려는 가게와 이전 가게가 서로 다르다면 에러
-//			if (cart.getStoreId() != myCart.getStoreId()) {
-//				throw new BaseException(MISMATCH_STORE_MENU);
-//			}
-
 			// 검증 되었다면 상품 등록
-			Integer resultId = storeDAO.insertStore(store);
+			Integer resultId = storeDAO.insertStore(storeDTO);
+
+			// STORE_HOURS를 통해서 파싱해서 넣어줘야함
 			return resultId;
 		} catch (Exception exception) {
 			throw new BaseException(DATABASE_ERROR);
 		}
 	}
+
+	public Integer deleteStore(int storeId) throws BaseException {
+		try {
+			int result = storeDAO.deleteStoreById(storeId);
+			if (result == 0) {
+				throw new BaseException(NOTHING_TO_DELETE);
+			}
+			return result;
+		} catch (Exception exception) {
+			throw new BaseException(DATABASE_ERROR);
+		}
+	}
+
 }
