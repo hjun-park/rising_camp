@@ -3,6 +3,7 @@ package com.example.demo.src.store;
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
 import com.example.demo.src.store.model.StoreDTO;
+import com.example.demo.src.store.model.StoreInfoDTO;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,5 +66,17 @@ public class StoreController {
 		}
 	}
 
+	//34 가게 정보 탭 조회
+	@GetMapping("/{store-id}/info")
+	public BaseResponse<StoreInfoDTO> getStoreInfo(@PathVariable("store-id") int storeId) {
+		try {
+			StoreInfoDTO storeInfoDTO = storeProvider.getStoreInfo(storeId);
+			return new BaseResponse<>(storeInfoDTO);
+		} catch (BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+	}
+
+	//35 가게
 }
 

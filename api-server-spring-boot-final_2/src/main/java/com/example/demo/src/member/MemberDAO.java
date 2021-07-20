@@ -66,15 +66,18 @@ public class MemberDAO {
 
 	}
 
-	public Member findByIdPassword(String email, String password) {
-		String findQuery = "SELECT *" +
-			" FROM MEMBER" +
-			" WHERE email = ?" +
-			" AND password = ?" +
-			" AND status = 'Joined'";
+	public Integer findByIdPassword(String email, String password) throws Exception{
+		String findQuery = "SELECT exists(" +
+			" SELECT id FROM MEMBER WHERE email = ?" +
+			" AND password = ? AND status = 'Joined')";
 		Object[] findParam = new Object[]{email, password};
 
-		return this.jdbcTemplate.queryForObject(findQuery, Member.class, findParam);
+		try {
+			return this.jdbcTemplate.queryForObject(findQuery, int.class, findParam);
+		}catch(Exception exception) {
+			exception.printStackTrace();
+			throw new Exception(exception);
+		}
 	}
 
 	public Member findMemberById(int memberId) throws Exception {
@@ -112,31 +115,35 @@ public class MemberDAO {
 	}
 
 	@Transactional
-	public Integer modifyMemberName(int memberId, String name) {
-		String modifyQuery = "UPDATE MEMBER SET name = ? WHERE id = ?";
-		Object[] modifyParam = new Object[]{memberId, name};
+	public Integer modifyMemberName(int memberId, String name) throws Exception{
 
-		return this.jdbcTemplate.queryForObject(modifyQuery, int.class, modifyParam);
+		String modifyQuery = "UPDATE MEMBER SET name = ? WHERE id = ?";
+		Object[] modifyParam = new Object[]{name, memberId};
+
+		try {
+			return this.jdbcTemplate.update(modifyQuery, modifyParam);
+		} catch(Exception exception) {
+			exception.printStackTrace();
+			throw new Exception(exception);
+		}
 	}
 
 	@Transactional
 	public Integer modifyAcceptEmail(int memberId, String emailStatus) {
 		String modifyQuery = "UPDATE MEMBER SET mailAccept = ? WHERE id = ?";
-		Object[] modifyParam = new Object[]{memberId, emailStatus};
+		Object[] modifyParam = new Object[]{emailStatus, memberId};
 
-		this.jdbcTemplate.update(modifyQuery, modifyParam);
+		return this.jdbcTemplate.update(modifyQuery, modifyParam);
 
-		return memberId;
 	}
 
 	@Transactional
 	public Integer modifyAcceptSms(int memberId, String smsStatus) {
 		String modifyQuery = "UPDATE MEMBER SET smsAccept = ? WHERE id = ?";
-		Object[] modifyParam = new Object[]{memberId, smsStatus};
+		Object[] modifyParam = new Object[]{smsStatus, memberId};
 
-		this.jdbcTemplate.update(modifyQuery, modifyParam);
+		return this.jdbcTemplate.update(modifyQuery, modifyParam);
 
-		return memberId;
 	}
 
 //	public List<Member> findCartByMemberId(int memberId) {

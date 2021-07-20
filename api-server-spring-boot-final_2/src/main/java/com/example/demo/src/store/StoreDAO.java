@@ -1,6 +1,7 @@
 package com.example.demo.src.store;
 
 import com.example.demo.src.store.model.StoreDTO;
+import com.example.demo.src.store.model.StoreInfoDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
+import java.util.List;
 
 @Repository
 @Transactional
@@ -118,5 +120,41 @@ public class StoreDAO {
 		}
 	}
 
+	public List<StoreDTO> findStoreByCategoryName(String categoryName) throws Exception {
+		String findStoreQuery = "SELECT * FROM STORE" +
+			" WHERE storeCategoryName = ? AND status = 'Used'";
+		String findStoreParam = categoryName;
+		try {
+			return this.jdbcTemplate.query(findStoreQuery,
+				(rs, rowNum) -> new StoreDTO(
+					rs.getInt("id"),
+					rs.getString("storeCategoryName"),
+					rs.getString("name"),
+					rs.getString("notice"),
+					rs.getString("info"),
+					rs.getString("paymentMethod"),
+					rs.getString("deliveryType"),
+					rs.getString("originInform"),
+					rs.getString("address"),
+					rs.getString("phoneNumber"),
+					rs.getString("hours"),
+					rs.getString("addressBuildingNum"),
+					rs.getString("districtCode"),
+					rs.getString("addressDetail"),
+					rs.getString("deliveryTime"),
+					rs.getString("closedDay"),
+					rs.getString("deliveryArea"),
+					rs.getInt("minOrderPrice"),
+					rs.getInt("tips"),
+					rs.getString("storeImageUrl"),
+					StoreDTO.Status.valueOf(rs.getString("status"))
+				),
+				findStoreParam);
+		} catch(Exception exception) {
+			exception.printStackTrace();
+			throw new Exception();
+
+		}
+	}
 
 }

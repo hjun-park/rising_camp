@@ -3,25 +3,29 @@ package com.example.demo.src.review.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@ToString
 @AllArgsConstructor
-public class Review {
+public class ReviewDTO {
+	public enum Status {
+		Used, Deleted;
+	}
+
 	private int id;
 	private int storeId;
-	private int userId;
-	private int storeBasketId;
+	private int memberId;
+	private int orderId;
 
+	private String content;
 	private double rating;
 	private String reviewImageUrl;
-	private String content;
 
-	private LocalDateTime createdAt;
-	private LocalDateTime updatedAt;
+	private Status status;
 
-	private String status;
 
 }

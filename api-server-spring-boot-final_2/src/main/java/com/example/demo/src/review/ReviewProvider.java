@@ -15,12 +15,12 @@ import static com.example.demo.config.BaseResponseStatus.*;
 public class ReviewProvider {
 
 	@Autowired
-	private final ReviewDao reviewDao;
+	private final ReviewDAO reviewDao;
 
 	@Autowired
 	private final JwtService jwtService;
 
-	public ReviewProvider(ReviewDao reviewDao, JwtService jwtService) {
+	public ReviewProvider(ReviewDAO reviewDao, JwtService jwtService) {
 		this.reviewDao = reviewDao;
 		this.jwtService = jwtService;
 	}

@@ -10,5 +10,4 @@ import lombok.Setter;
 public class PatchReviewReq {
 	private int userId;
 	private int reviewId;
-	private String reviewStatus;
 }
