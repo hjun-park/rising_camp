@@ -13,7 +13,7 @@ import javax.sql.DataSource;
 import java.util.List;
 
 @Repository
-@Transactional(readOnly = true)
+@Transactional(readOnly = false)
 @Slf4j
 public class CartDAO {
 
@@ -49,6 +49,8 @@ public class CartDAO {
 
 
 	public Cart peekByMemberId(int memberId) {
+		log.info("@@@##{}", memberId);
+
 		String peekIdQuery = "SELECT *" +
 			" FROM CART " +
 			" WHERE memberId = ?" +
@@ -56,7 +58,7 @@ public class CartDAO {
 			" LIMIT 1";
 		String peekIdParam = Integer.toString(memberId);
 
-		return this.jdbcTemplate.queryForObject(peekIdParam,
+		return this.jdbcTemplate.queryForObject(peekIdQuery,
 			(rs, rowNum) -> new Cart(
 				rs.getInt("id"),
 				rs.getInt("memberId"),
@@ -67,19 +69,53 @@ public class CartDAO {
 			peekIdParam);
 	}
 
-	public Integer insertCart(int memberId, Cart cart) {
-		String insertCartQuery = "INSERT INTO CART(memberId, menuId, amount, storeId)" +
-			" VALUES(?, ?, ?, ?)";
-		Object[] insertCartParam = new Object[]{
-			memberId,
-			cart.getMenuId(),
-			cart.getAmount(),
-			cart.getStoreId()
-		};
-		this.jdbcTemplate.update(insertCartQuery, insertCartParam);
+	public Integer insertCart(int memberId, Cart cart) throws Exception{
+		try {
+			String insertCartQuery = "INSERT INTO CART(memberId, menuId, amount, storeId)" +
+				" VALUES(?, ?, ?, ?)";
+			Object[] insertCartParam = new Object[]{
+				memberId,
+				cart.getMenuId(),
+				cart.getAmount(),
+				cart.getStoreId()
+			};
+			this.jdbcTemplate.update(insertCartQuery, insertCartParam);
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw new Exception(exception);
+		}
 
 		String lastInsertIdQuery = "select last_insert_id()";
 		return this.jdbcTemplate.queryForObject(lastInsertIdQuery, int.class);
 
+	}
+
+	public int modifyCartAmount(int memberId, int cartId, int amount) {
+		String modifyCartQuery = "UPDATE CART SET amount = ?" +
+			" WHERE memberId = ? AND id = ? AND status = 'Used'";
+		Object[] modifyCartParam = new Object[] {
+			amount, memberId, cartId
+		};
+
+		return this.jdbcTemplate.update(modifyCartQuery, modifyCartParam);
+
+	}
+
+	public int deleteCarts(int memberId) {
+		String deleteCartsQuery = "UPDATE CART SET status = 'Deleted'" +
+			" WHERE memberId = ?";
+		String deleteCartsParam = Integer.toString(memberId);
+
+		return this.jdbcTemplate.update(deleteCartsQuery, deleteCartsParam);
+	}
+
+	public int deleteCart(int memberId, int cartId) {
+		String deleteCartQuery = "UPDATE CART SET status = 'Deleted'" +
+			" WHERE memberId = ? AND id = ?";
+		Object[] deleteCartParam = new Object[] {
+			memberId, cartId
+		};
+
+		return this.jdbcTemplate.update(deleteCartQuery, deleteCartParam);
 	}
 }

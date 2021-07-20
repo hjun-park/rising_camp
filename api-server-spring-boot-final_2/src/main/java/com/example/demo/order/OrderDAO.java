@@ -1,5 +1,6 @@
 package com.example.demo.order;
 
+import com.example.demo.order.model.Order;
 import com.example.demo.order.model.OrderItem;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import javax.sql.DataSource;
 import java.util.List;
 
 @Repository
-@Transactional(readOnly = true)
+@Transactional(readOnly = false)
 @Slf4j
 public class OrderDAO {
 
@@ -25,6 +26,28 @@ public class OrderDAO {
 	@Autowired
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	}
+
+	public int order(int memberId, Order order) throws Exception {
+		try {
+		String orderQuery = "INSERT INTO ORDERS(storeId, memberId, addressBuildingNum," +
+			" addressDetail, tips, storeRequest, riderRequest)" +
+			" VALUES(?, ?, ?, ?, ?, ?, ?)";
+			Object[] orderParam = new Object[]{
+				order.getStoreId(),
+				memberId,
+				order.getAddressBuildingNum(),
+				order.getAddressDetail(),
+				order.getTips(),
+				order.getStoreRequest(),
+				order.getRiderRequest()
+			};
+
+			return this.jdbcTemplate.update(orderQuery, orderParam);
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			throw new Exception(exception);
+		}
 	}
 
 //	public List<OrderItem> findOrderItems(int orderId) {

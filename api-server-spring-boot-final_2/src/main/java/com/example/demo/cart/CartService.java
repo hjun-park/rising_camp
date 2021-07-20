@@ -48,4 +48,40 @@ public class CartService {
 			throw new BaseException(DATABASE_ERROR);
 		}
 	}
+
+	public int modifyCart(int memberId, int cartId, Cart cart) throws BaseException {
+		try {
+			int amount = cart.getAmount();
+			// 상품 수량 수정
+			return cartDAO.modifyCartAmount(memberId, cartId, amount);
+		} catch (Exception exception) {
+			throw new BaseException(DATABASE_ERROR);
+		}
+	}
+
+
+	public int deleteCarts(int memberId) throws BaseException{
+		try {
+			int result = cartDAO.deleteCarts(memberId);
+			if (result == 0) {
+				throw new BaseException(NOTHING_TO_DELETE);
+			}
+			return result;
+		} catch (Exception exception) {
+			throw new BaseException(DATABASE_ERROR);
+		}
+
+	}
+
+	public Integer deleteCart(int memberId, int cartId) throws BaseException{
+		try {
+			int result = cartDAO.deleteCart(memberId, cartId);
+			if (result == 0) {
+				throw new BaseException(NOTHING_TO_DELETE);
+			}
+			return result;
+		} catch (Exception exception) {
+			throw new BaseException(DATABASE_ERROR);
+		}
+	}
 }

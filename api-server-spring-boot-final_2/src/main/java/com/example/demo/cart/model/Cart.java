@@ -33,4 +33,7 @@ public class Cart {
 		this.storeId = storeId;
 
 	}
+
+	public Cart() {
+	}
 }

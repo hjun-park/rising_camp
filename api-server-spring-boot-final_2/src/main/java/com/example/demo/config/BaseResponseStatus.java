@@ -24,6 +24,8 @@ public enum BaseResponseStatus {
     INVALID_JWT(false, 2002, "유효하지 않은 JWT입니다."),
     INVALID_USER_JWT(false,2003,"권한이 없는 유저의 접근입니다."),
 	EMPTY_CONTENT(false, 2004, "내용을 입력해주세요"),
+	NOTHING_TO_DELETE(true, 2005, "삭제할 내용이 없습니다."),
+	NOTHING_TO_EDIT(true, 2005, "수정할 내용이 없습니다."),
 
     // [POST] /users
 	POST_USERS_INVALID_INFO(false, 2012, "입력되지 않은 빈 칸이 있습니다."),

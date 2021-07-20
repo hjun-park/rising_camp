@@ -1,4 +1,4 @@
-package com.example.demo.src.store;
+package com.example.demo.store;
 
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
@@ -10,20 +10,17 @@ import org.springframework.stereotype.Service;
 public class StoreService {
 
 	@Autowired
-	private final StoreDao storeDao;
+	private final StoreProvider storeProvider;
 
 	@Autowired
-	private final StoreProvider storeProvider;
+	private final StoreDAO storeDAO;
 
 	@Autowired
 	private final JwtService jwtService;
 
-	public StoreService(StoreDao storeDao, StoreProvider storeProvider, JwtService jwtService) {
-		this.storeDao = storeDao;
+	public StoreService(StoreProvider storeProvider, StoreDAO storeDAO, JwtService jwtService) {
 		this.storeProvider = storeProvider;
+		this.storeDAO = storeDAO;
 		this.jwtService = jwtService;
 	}
-
-
-
 }
