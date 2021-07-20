@@ -4,6 +4,9 @@ package com.example.demo.src.user;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.secret.Secret;
+import com.example.demo.src.user.model.PatchUserReq;
+import com.example.demo.src.user.model.PostUserReq;
+import com.example.demo.src.user.model.PostUserRes;
 import com.example.demo.src.user.model.*;
 import com.example.demo.utils.AES128;
 import com.example.demo.utils.JwtService;
@@ -24,7 +27,6 @@ public class UserService {
     private final JwtService jwtService;
 
 
-    @Autowired
     public UserService(UserDAO userDao, UserProvider userProvider, JwtService jwtService) {
         this.userDao = userDao;
         this.userProvider = userProvider;
