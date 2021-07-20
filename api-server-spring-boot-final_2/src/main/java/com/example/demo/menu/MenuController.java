@@ -1,7 +1,5 @@
 package com.example.demo.menu;
 
-import com.example.demo.src.store.StoreProvider;
-import com.example.demo.src.store.StoreService;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
 
 @Repository
-@Transactional(readOnly = true)
+@Transactional(readOnly = false)
 @Slf4j
 public class MemberDAO {
 

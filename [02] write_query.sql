@@ -82,3 +82,14 @@ SELECT *
 
 select * from CART where memberId = 1 AND status = 'Used' LIMIT 1;
 INSERT INTO CART(memberId, menuId, amount, storeId) VALUES(1, 8, 20, 1);
+UPDATE CART SET amount = 100 WHERE memberId = 1 AND id = 6;
+
+UPDATE CART SET status = 'Deleted' WHERE memberId = 1;
+
+# 1. 배달팁 계산
+# 2.
+INSERT INTO ORDERS(storeId, memberId, addressBuildingNum, addressDetail, tips, status, storeRequest, riderRequest)
+    VALUES(1, 1, 1, '2층', 2000, '결제전', '리뷰이벤트','천천히');
+
+INSERT INTO DELIVERY_POLICY(storeId, districtCode, additionalTips)
+    VALUES(2, 5555, 10000);

@@ -47,7 +47,6 @@ public class CartController {
 
 	}
 
-
 	//12 유저 장바구니 등록
 	@ResponseBody
 	@PostMapping("/{member-id}")
@@ -61,6 +60,47 @@ public class CartController {
 		}
 
 	}
+
+	//13 유저 장바구니 수정(수량)
+	@ResponseBody
+	@PatchMapping("/{member-id}/{cart-id}")
+	public BaseResponse<Integer> patchCart(@PathVariable("member-id") int memberId,
+										  @PathVariable("cart-id") int cartId,
+										 	@RequestBody Cart cart) {
+		try {
+			Integer result = cartService.modifyCart(memberId, cartId, cart);
+			return new BaseResponse<>(result);
+		} catch (BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+	}
+
+	//14 유저 장바구니 전체 삭제
+	@ResponseBody
+	@DeleteMapping("/{member-id}")
+	public BaseResponse<Integer> deleteAllCarts(@PathVariable("member-id") int memberId) {
+
+		try {
+			Integer result = cartService.deleteCarts(memberId);
+			return new BaseResponse<>(result);
+		} catch (BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+	}
+
+	//15 유저 장바구니 단일 삭제
+	@ResponseBody
+	@DeleteMapping("/{member-id}/{cart-id}")
+	public BaseResponse<Integer> deleteCart(@PathVariable("member-id") int memberId,
+											@PathVariable("cart-id") int cartId) {
+		try {
+			Integer result = cartService.deleteCart(memberId, cartId);
+			return new BaseResponse<>(result);
+		} catch (BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+	}
+
 
 }
 
