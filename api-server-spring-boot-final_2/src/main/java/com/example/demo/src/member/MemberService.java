@@ -1,15 +1,13 @@
 package com.example.demo.src.member;
 
 import com.example.demo.config.BaseException;
-import com.example.demo.src.member.model.MemberDTO;
-import com.example.demo.src.user.model.*;
+import com.example.demo.src.member.model.Member;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import static com.example.demo.config.BaseResponseStatus.*;
-import static com.example.demo.src.member.model.MemberDTO.*;
 
 @Service
 @Slf4j
@@ -30,14 +28,14 @@ public class MemberService {
 		this.jwtService = jwtService;
 	}
 
-	public Integer joinMember(MemberDTO memberDTO) throws BaseException {
+	public Integer joinMember(Member member) throws BaseException {
 		// 이메일, 전화번호 중복체크
-		if(memberProvider.checkMember(memberDTO.getEmail(), memberDTO.getPhoneNumber()) == 1) {
+		if(memberProvider.checkMember(member.getEmail(), member.getPhoneNumber()) == 1) {
 			throw new BaseException(POST_USERS_EXISTS_USER);
 		}
 
 		// 닉네임 중복체크
-		if(memberProvider.checkName(memberDTO.getName()) == 1) {
+		if(memberProvider.checkName(member.getName()) == 1) {
 			throw new BaseException(POST_USERS_EXISTS_NICKNAME);
 		}
 
@@ -45,7 +43,7 @@ public class MemberService {
 		// 닉네임 중복체크
 
 		try {
-			Integer memberId = memberDAO.insertMember(memberDTO);
+			Integer memberId = memberDAO.insertMember(member);
 			return memberId;
 		} catch(Exception exception) {
 			throw new BaseException(DATABASE_ERROR);

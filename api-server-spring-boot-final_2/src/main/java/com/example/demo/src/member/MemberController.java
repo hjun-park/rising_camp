@@ -2,18 +2,19 @@ package com.example.demo.src.member;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
-import com.example.demo.config.BaseResponseStatus;
-import com.example.demo.src.member.model.MemberDTO;
+import com.example.demo.src.member.model.Member;
+import com.example.demo.src.member.model.MemberCartDTO;
 import com.example.demo.utils.JwtService;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 import static com.example.demo.config.BaseResponseStatus.*;
-import static com.example.demo.src.member.model.MemberDTO.*;
+import static com.example.demo.src.member.model.Member.*;
 
 @RestController
 @RequestMapping("/members")
@@ -39,14 +40,14 @@ public class MemberController {
 	//01
 	@ResponseBody
 	@PostMapping("/register")
-	public BaseResponse<Integer> signUp(@RequestBody MemberDTO memberDTO) {
+	public BaseResponse<Integer> postSignUp(@RequestBody Member member) {
 		// validation
-		if (hasNullDataWhenJoin(memberDTO)) {
+		if (hasNullDataWhenJoin(member)) {
 			return new BaseResponse<>(POST_USERS_INVALID_INFO);
 		}
 
 		try {
-			Integer memberId = memberService.joinMember(memberDTO);
+			Integer memberId = memberService.joinMember(member);
 			return new BaseResponse<>(memberId);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
@@ -57,14 +58,14 @@ public class MemberController {
 	//02
 	@ResponseBody
 	@PostMapping("/login")
-	public BaseResponse<Integer> login(@RequestBody MemberLoginReq memberLoginReq) {
+	public BaseResponse<Integer> postMemberLogin(@RequestBody MemberLoginReq memberLoginReq) {
 		// 입력값 누락 확인 (email, password)
 		String email = memberLoginReq.getEmail();
 		String password = memberLoginReq.getPassword();
 
 		try {
-			MemberDTO memberDTO = memberProvider.login(email, password);
-			return new BaseResponse<>(memberDTO.getId());
+			Member member = memberProvider.login(email, password);
+			return new BaseResponse<>(member.getId());
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
 		}
@@ -75,10 +76,10 @@ public class MemberController {
 	//05
 	@ResponseBody
 	@PatchMapping("/{member-id}")
-	public BaseResponse<Integer> modifyMemberName(@RequestParam("member-id") int memberId,
-												  MemberDTO memberDTO) {
+	public BaseResponse<Integer> patchMemberName(@PathVariable("member-id") int memberId,
+												  Member member) {
 		try {
-			Integer resultId = memberService.modifyMemberName(memberId, memberDTO.getName());
+			Integer resultId = memberService.modifyMemberName(memberId, member.getName());
 			return new BaseResponse<>(resultId);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
@@ -95,9 +96,9 @@ public class MemberController {
 	//08 이메일 수신 동의 API
 	@ResponseBody
 	@GetMapping("/{member-id}/email")
-	public BaseResponse<Integer> modifyAcceptEmail(@RequestParam("member-id") int memberId,
-												  MemberDTO memberDTO) {
-		String emailStatus = memberDTO.getMailAccept();
+	public BaseResponse<Integer> modifyAcceptEmail(@PathVariable("member-id") int memberId,
+												   Member member) {
+		String emailStatus = member.getMailAccept();
 		try {
 			Integer resultId = memberService.modifyAcceptEmail(memberId, emailStatus);
 			return new BaseResponse<>(resultId);
@@ -109,9 +110,9 @@ public class MemberController {
 	//09 SMS 수신 동의 API
 	@ResponseBody
 	@GetMapping("/{member-id}/sms")
-	public BaseResponse<Integer> modifyAcceptSms(@RequestParam("member-id") int memberId,
-												   MemberDTO memberDTO) {
-		String smsStatus = memberDTO.getSmsAccept();
+	public BaseResponse<Integer> modifyAcceptSms(@PathVariable("member-id") int memberId,
+												   Member member) {
+		String smsStatus = member.getSmsAccept();
 		try {
 			Integer resultId = memberService.modifyAcceptSms(memberId, smsStatus);
 			return new BaseResponse<>(resultId);

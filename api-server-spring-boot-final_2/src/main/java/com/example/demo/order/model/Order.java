@@ -9,5 +9,5 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @ToString
-public class OrderDTO {
+public class Order {
 }

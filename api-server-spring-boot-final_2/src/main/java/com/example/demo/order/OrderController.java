@@ -1,6 +1,6 @@
 package com.example.demo.order;
 
-import com.example.demo.order.model.OrderItemDTO;
+import com.example.demo.order.model.OrderItem;
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
 import com.example.demo.utils.JwtService;
@@ -30,16 +30,16 @@ public class OrderController {
 	}
 
 	// TODO: 장바구니는 인가된 사용자만 접근이 가능함
-	@ResponseBody
-	@GetMapping("/{order-id}/items")
-	public BaseResponse<List<OrderItemDTO>> findOrderItems(@PathVariable("order-id") int orderId) {
-		try {
-			List<OrderItemDTO> orderItemDTO = orderProvider.findOrderItems(orderId);
-			return new BaseResponse<>(orderItemDTO);
-		} catch (BaseException exception){
-			return new BaseResponse<>(exception.getStatus());
-		}
-	}
+//	@ResponseBody
+//	@GetMapping("/{order-id}/items")
+//	public BaseResponse<List<OrderItem>> findOrderItems(@PathVariable("order-id") int orderId) {
+//		try {
+//			List<OrderItem> orderItem = orderProvider.findOrderItems(orderId);
+//			return new BaseResponse<>(orderItem);
+//		} catch (BaseException exception){
+//			return new BaseResponse<>(exception.getStatus());
+//		}
+//	}
 
 
 

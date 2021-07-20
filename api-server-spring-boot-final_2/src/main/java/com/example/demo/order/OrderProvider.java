@@ -1,6 +1,6 @@
 package com.example.demo.order;
 
-import com.example.demo.order.model.OrderItemDTO;
+import com.example.demo.order.model.OrderItem;
 import com.example.demo.config.BaseException;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
@@ -26,15 +26,15 @@ public class OrderProvider {
 		this.jwtService = jwtService;
 	}
 
-	public List<OrderItemDTO> findOrderItems(int orderId) throws BaseException {
-		try {
-			return orderDAO.findOrderItems(orderId);
+//	public List<OrderItem> findOrderItems(int orderId) throws BaseException {
+//		try {
+//			return orderDAO.findOrderItems(orderId);
+//		} catch (Exception exception) {
+//			throw new BaseException(DATABASE_ERROR);
+//		}
+//
+//	}
 
-		} catch (Exception exception) {
-			throw new BaseException(DATABASE_ERROR);
-		}
-
-	}
 }
 
 

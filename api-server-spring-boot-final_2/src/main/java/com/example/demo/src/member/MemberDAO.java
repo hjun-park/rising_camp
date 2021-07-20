@@ -1,6 +1,6 @@
 package com.example.demo.src.member;
 
-import com.example.demo.src.member.model.MemberDTO;
+import com.example.demo.src.member.model.Member;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -27,15 +27,15 @@ public class MemberDAO {
 	}
 
 	@Transactional
-	public Integer insertMember(MemberDTO memberDTO) {
+	public Integer insertMember(Member member) {
 		String insertMemberQuery = "insert into MEMBER(password, email, name, phoneNumber, profileImageUrl," +
 			" addressBuildingNum, districtCode, birthDate)" +
 			" VALUES(?, ?, ?, ?, ?, 0, 0, ?)";
 
-		Object[] insertMemberParam = new Object[] {
-			memberDTO.getPassword(), memberDTO.getEmail(),memberDTO.getName(),
-			memberDTO.getPhoneNumber(), memberDTO.getProfileImageUrl(),
-			memberDTO.getBirthDate()
+		Object[] insertMemberParam = new Object[]{
+			member.getPassword(), member.getEmail(), member.getName(),
+			member.getPhoneNumber(), member.getProfileImageUrl(),
+			member.getBirthDate()
 		};
 
 		this.jdbcTemplate.update(insertMemberQuery, insertMemberParam);
@@ -50,7 +50,7 @@ public class MemberDAO {
 			" FROM MEMBER" +
 			" WHERE email = ? OR phoneNumber = ?";
 
-		Object[] checkParam = new Object[] { email, phoneNumber	};
+		Object[] checkParam = new Object[]{email, phoneNumber};
 
 		return this.jdbcTemplate.queryForObject(checkQuery, int.class, checkParam);
 
@@ -66,7 +66,7 @@ public class MemberDAO {
 
 	}
 
-	public MemberDTO findByIdPassword(String email, String password) {
+	public Member findByIdPassword(String email, String password) {
 		String findQuery = "SELECT *" +
 			" FROM MEMBER" +
 			" WHERE email = ?" +
@@ -74,9 +74,44 @@ public class MemberDAO {
 			" AND status = 'Joined'";
 		Object[] findParam = new Object[]{email, password};
 
-		return this.jdbcTemplate.queryForObject(findQuery, MemberDTO.class, findParam);
+		return this.jdbcTemplate.queryForObject(findQuery, Member.class, findParam);
 	}
 
+	public Member findMemberById(int memberId) throws Exception {
+		log.info("test5");
+		String findMemberQuery = "SELECT *" +
+			" FROM MEMBER" +
+			" WHERE id = ? " +
+			" AND status = 'Joined'";
+		String findMemberParam = Integer.toString(memberId);
+		try {
+			return this.jdbcTemplate.queryForObject(findMemberQuery,
+				(rs, rowNum) -> new Member(
+					rs.getInt("id"),
+					rs.getString("email"),
+					rs.getString("password"),
+					rs.getString("name"),
+					rs.getString("phoneNumber"),
+					rs.getString("profileImageUrl"),
+					rs.getString("mailAccept"),
+					rs.getString("smsAccept"),
+					rs.getString("birthDate"),
+					rs.getString("addressBuildingNum"),
+					rs.getString("districtCode"),
+					rs.getString("addressDetail"),
+					rs.getDouble("latitude"),
+					rs.getDouble("longitude"),
+					rs.getInt("grade")
+				),
+				findMemberParam);
+		} catch(Exception exception) {
+			exception.printStackTrace();
+			throw new Exception();
+
+		}
+	}
+
+	@Transactional
 	public Integer modifyMemberName(int memberId, String name) {
 		String modifyQuery = "UPDATE MEMBER SET name = ? WHERE id = ?";
 		Object[] modifyParam = new Object[]{memberId, name};
@@ -84,6 +119,7 @@ public class MemberDAO {
 		return this.jdbcTemplate.queryForObject(modifyQuery, int.class, modifyParam);
 	}
 
+	@Transactional
 	public Integer modifyAcceptEmail(int memberId, String emailStatus) {
 		String modifyQuery = "UPDATE MEMBER SET mailAccept = ? WHERE id = ?";
 		Object[] modifyParam = new Object[]{memberId, emailStatus};
@@ -93,6 +129,7 @@ public class MemberDAO {
 		return memberId;
 	}
 
+	@Transactional
 	public Integer modifyAcceptSms(int memberId, String smsStatus) {
 		String modifyQuery = "UPDATE MEMBER SET smsAccept = ? WHERE id = ?";
 		Object[] modifyParam = new Object[]{memberId, smsStatus};
@@ -101,4 +138,18 @@ public class MemberDAO {
 
 		return memberId;
 	}
+
+//	public List<Member> findCartByMemberId(int memberId) {
+//		String findCartQuery = "SELECT name, price, amount " +
+//			"FROM MEMBER " +
+//			"WHERE memberId = ? AND status = 'Used'";
+//
+//		String findCartParam = Integer.toString(memberId);
+
+//		return jdbcTemplate.query(findCartQuery,
+//			(rs, rowNum) -> (
+//
+//				),
+//			findCartParam)
+//}
 }
