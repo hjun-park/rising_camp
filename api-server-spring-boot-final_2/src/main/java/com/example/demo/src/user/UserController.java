@@ -1,5 +1,8 @@
 package com.example.demo.src.user;
 
+import com.example.demo.src.user.model.GetUserRes;
+import com.example.demo.src.user.model.PostLoginReq;
+import com.example.demo.src.user.model.PostLoginRes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.example.demo.config.BaseException;
@@ -10,9 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-
-import static com.example.demo.config.BaseResponseStatus.*;
 
 @RestController
 @RequestMapping("/app/users")

@@ -35,7 +35,7 @@ public class ReviewController {
 	@ResponseBody
 	@GetMapping("/reviews/{reviewId}")
 	public BaseResponse<GetReviewDetailRes> getReviewDetail(@PathVariable("userId") int userId,
-													  @PathVariable("reviewId") int reviewId) {
+															@PathVariable("reviewId") int reviewId) {
 		try {
 			GetReviewDetailRes getReviewDetailRes = reviewProvider.getReviewDetail(userId, reviewId);
 			return new BaseResponse<>(getReviewDetailRes);

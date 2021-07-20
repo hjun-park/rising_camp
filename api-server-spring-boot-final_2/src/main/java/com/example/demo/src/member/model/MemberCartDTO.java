@@ -5,16 +5,19 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import static lombok.Lombok.checkNotNull;
+
 @Getter
-@Setter
 @ToString
-@AllArgsConstructor
 public class MemberCartDTO {
 
 	private String name;
 	private int price;
 	private int amount;
 
-	public MemberCartDTO() {
+	public MemberCartDTO(String name, int price, int amount) {
+		this.name = checkNotNull(name, "name");
+		this.price = price;
+		this.amount = amount;
 	}
 }

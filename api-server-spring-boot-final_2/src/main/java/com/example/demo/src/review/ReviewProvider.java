@@ -1,7 +1,6 @@
 package com.example.demo.src.review;
 
 import com.example.demo.config.BaseException;
-import com.example.demo.config.BaseResponseStatus;
 import com.example.demo.src.review.model.GetReviewDetailRes;
 import com.example.demo.src.review.model.GetReviewRes;
 import com.example.demo.utils.JwtService;

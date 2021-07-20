@@ -3,7 +3,6 @@ package com.example.demo.src.member;
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
 import com.example.demo.src.member.model.Member;
-import com.example.demo.src.member.model.MemberCartDTO;
 import com.example.demo.utils.JwtService;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,10 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 import static com.example.demo.config.BaseResponseStatus.*;
-import static com.example.demo.src.member.model.Member.*;
 
 @RestController
 @RequestMapping("/members")
@@ -42,7 +38,7 @@ public class MemberController {
 	@PostMapping("/register")
 	public BaseResponse<Integer> postSignUp(@RequestBody Member member) {
 		// validation
-		if (hasNullDataWhenJoin(member)) {
+		if (Member.hasNullDataWhenJoin(member)) {
 			return new BaseResponse<>(POST_USERS_INVALID_INFO);
 		}
 
