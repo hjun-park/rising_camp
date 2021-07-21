@@ -38,9 +38,6 @@ public class CartProvider {
 
 	public List<MemberCartDTO> findCart(int memberId) throws BaseException {
 		try {
-			// 검증용
-//			List<MemberCartDTO> memberCarts = new ArrayList<>();
-
 			List<Cart> carts = cartDAO.findCartByMemberId(memberId);
 
 			// foreach , map -> return type

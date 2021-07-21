@@ -49,7 +49,7 @@ public class MemberProvider {
 		try {
 			Integer result = memberDAO.findByIdPassword(email, password);
 			if (result == 0) {
-				throw new BaseException(POST_USERS_LOGIN_INVALID);
+				throw new BaseException(REQUEST_ERROR);
 			}
 			return result;
 		} catch (Exception exception) {

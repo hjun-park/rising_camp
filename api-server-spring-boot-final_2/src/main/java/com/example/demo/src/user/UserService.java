@@ -43,7 +43,7 @@ public class UserService {
 
         String pwd;
         try{
-            //암호화
+            //암호화 ####  -> 암호화 해서 비밀번호 저장 해두기
             pwd = new AES128(Secret.USER_INFO_PASSWORD_KEY).encrypt(postUserReq.getPassword());
             postUserReq.setPassword(pwd);
         } catch (Exception ignored) {
@@ -51,7 +51,7 @@ public class UserService {
         }
         try{
             int userIdx = userDao.createUser(postUserReq);
-            //jwt 발급.
+            //jwt 발급. (userId를 이용해서 발급)
             String jwt = jwtService.createJwt(userIdx);
             return new PostUserRes(jwt,userIdx);
         } catch (Exception exception) {
