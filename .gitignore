@@ -41,3 +41,4 @@ out/
 *.xlsx
 *.ppk
 ./api-server-spring-boot-final_2/src/main/java/com/example/demo/config/secret/Secret.java
+./api-server-spring-boot-final_2/src/main/resources/application-oauth.properties

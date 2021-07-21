@@ -100,6 +100,8 @@ public class UserController {
 //            return new BaseResponse<>((exception.getStatus()));
 //        }
 //    }
+	// ####### 로그인 하고 반환되는 JWT 값은 따로 저장해두고 다른 테스트 때
+	// 이용해서 Header 에 집어넣기
     /**
      * 로그인 API
      * [POST] /users/logIn

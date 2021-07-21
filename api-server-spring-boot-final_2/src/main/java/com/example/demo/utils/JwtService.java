@@ -58,7 +58,7 @@ public class JwtService {
             throw new BaseException(EMPTY_JWT);
         }
 
-        // 2. JWT parsing
+        // 2. JWT parsing ( 내가 준 JWT 토큰이 맞는지 )
         Jws<Claims> claims;
         try{
             claims = Jwts.parser()
