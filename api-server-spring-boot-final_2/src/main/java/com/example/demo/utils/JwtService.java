@@ -30,7 +30,9 @@ public class JwtService {
                 .setHeaderParam("type","jwt")
                 .claim("userIdx",userIdx)
                 .setIssuedAt(now)
+			// JWT 시간은 테스트 시엔 길게, 실 배포 시에는 짧게 해주기 ######
                 .setExpiration(new Date(System.currentTimeMillis()+1*(1000*60*60*24*365)))
+			// Secret.java에 들어갈 내용 #######
                 .signWith(SignatureAlgorithm.HS256, Secret.JWT_SECRET_KEY)
                 .compact();
     }
@@ -60,7 +62,7 @@ public class JwtService {
         Jws<Claims> claims;
         try{
             claims = Jwts.parser()
-                    .setSigningKey(Secret.JWT_SECRET_KEY)
+                    .setSigningKey(Secret.JWT_SECRET_KEY) // 원하는 대로 바꿔도 된다.
                     .parseClaimsJws(accessToken);
         } catch (Exception ignored) {
             throw new BaseException(INVALID_JWT);

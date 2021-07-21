@@ -12,6 +12,8 @@ public enum BaseResponseStatus {
      */
     // Common
     SUCCESS(true, 1000, "요청에 성공하였습니다."),
+	NOTHING_TO_DELETE(true, 1001, "삭제할 내용이 없습니다."),
+	NOTHING_TO_EDIT(true, 1002, "수정할 내용이 없습니다."),
 
 
 
@@ -24,21 +26,14 @@ public enum BaseResponseStatus {
     INVALID_JWT(false, 2002, "유효하지 않은 JWT입니다."),
     INVALID_USER_JWT(false,2003,"권한이 없는 유저의 접근입니다."),
 	EMPTY_CONTENT(false, 2004, "내용을 입력해주세요"),
-	NOTHING_TO_DELETE(true, 2005, "삭제할 내용이 없습니다."),
-	NOTHING_TO_EDIT(true, 2005, "수정할 내용이 없습니다."),
 
-    // [POST] /users
-	POST_USERS_INVALID_INFO(false, 2012, "입력되지 않은 빈 칸이 있습니다."),
-    POST_USERS_INVALID_PHONE_NUMBER(false, 2013, "올바른 번호형식이 아닙니다."),
-	POST_USERS_EXISTS_NICKNAME(false,2016,"중복된 닉네임입니다."),
-	POST_USERS_EXISTS_USER(false,2017,"이미 존재하는 회원입니다."),
-
-	// [POST] /users/login
-	POST_USERS_LOGIN_INVALID(false, 2020, "계정이 존재하지 않거나 유효하지 않습니다"),
+    // [POST] /members/*
+    POST_USERS_INVALID_PHONE_NUMBER(false, 2011, "올바른 번호형식이 아닙니다."),
+	POST_USERS_EXISTS_NICKNAME(false,2012,"중복된 닉네임입니다."),
+	POST_USERS_EXISTS_USER(false,2013,"이미 존재하는 회원입니다."),
 
 	// [POST] /cart
-	MISMATCH_STORE_MENU(false, 2025, "다른 매장의 메뉴를 담았습니다."),
-
+	MISMATCH_STORE_MENU(false, 2020, "다른 매장의 메뉴를 담았습니다."),
 
 
     /**
@@ -50,6 +45,7 @@ public enum BaseResponseStatus {
 
 	// [POST] /users/login
 	FAILED_TO_LOGIN(false, 3010, "존재하지 않는 계정입니다."),
+
 
 
 

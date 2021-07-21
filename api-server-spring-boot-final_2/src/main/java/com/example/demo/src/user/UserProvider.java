@@ -75,7 +75,7 @@ public class UserProvider {
     public PostLoginRes logIn(PostLoginReq postLoginReq) throws BaseException{
         User user = userDao.getPwd(postLoginReq);
         String password;
-        try {
+        try { // #### 여기서는 암호를 복호화 해주고 있음
             password = new AES128(Secret.USER_INFO_PASSWORD_KEY).decrypt(user.getPassword());
         } catch (Exception ignored) {
             throw new BaseException(PASSWORD_DECRYPTION_ERROR);

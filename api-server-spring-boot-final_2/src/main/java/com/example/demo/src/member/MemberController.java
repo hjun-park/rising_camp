@@ -17,13 +17,8 @@ import static com.example.demo.config.BaseResponseStatus.*;
 @Slf4j
 public class MemberController {
 
-	@Autowired
 	private final MemberProvider memberProvider;
-
-	@Autowired
 	private final MemberService memberService;
-
-	@Autowired
 	private final JwtService jwtService;
 
 	public MemberController(MemberProvider memberProvider, MemberService memberService, JwtService jwtService) {
@@ -39,7 +34,7 @@ public class MemberController {
 	public BaseResponse<Integer> postSignUp(@RequestBody Member member) {
 		// validation
 		if (Member.hasNullDataWhenJoin(member)) {
-			return new BaseResponse<>(POST_USERS_INVALID_INFO);
+			return new BaseResponse<>(REQUEST_ERROR);
 		}
 
 		try {
