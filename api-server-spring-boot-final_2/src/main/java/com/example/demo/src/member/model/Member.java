@@ -1,20 +1,19 @@
 package com.example.demo.src.member.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDateTime;
+import static lombok.Lombok.checkNotNull;
 
-@Getter @Setter
-@AllArgsConstructor
+
+@Getter
 @ToString
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member {
 	public enum Status {
 		Joined, Deleted, Suspend;
 	}
-
 
 	private int id;
 
@@ -38,22 +37,17 @@ public class Member {
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
 
-	public Member(int id, String email, String password) {
-		this.id = id;
-		this.email = email;
-		this.password = password;
-	}
-
+	@Builder
 	public Member(int id, String email, String password, String name, String phoneNumber, String profileImageUrl, String mailAccept, String smsAccept, String birthDate, String addressBuildingNum, String districtCode, String addressDetail, double latitude, double longitude, int grade) {
 		this.id = id;
-		this.email = email;
-		this.password = password;
-		this.name = name;
-		this.phoneNumber = phoneNumber;
+		this.email = checkNotNull(email, "email");
+		this.password = checkNotNull(password, "password");
+		this.name = checkNotNull(name, "name");
+		this.phoneNumber = checkNotNull(phoneNumber, "phoneNumber");
 		this.profileImageUrl = profileImageUrl;
 		this.mailAccept = mailAccept;
 		this.smsAccept = smsAccept;
-		this.birthDate = birthDate;
+		this.birthDate = checkNotNull(birthDate, "birthDate");
 		this.addressBuildingNum = addressBuildingNum;
 		this.districtCode = districtCode;
 		this.addressDetail = addressDetail;
@@ -62,7 +56,8 @@ public class Member {
 		this.grade = grade;
 	}
 
-	public Member() {
+	public void setPassword(String password) {
+		this.password = checkNotNull(password, "password");
 	}
 
 	public static boolean hasNullDataWhenJoin(Member m) {

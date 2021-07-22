@@ -1,9 +1,13 @@
 package com.example.demo.src.member;
 
+import com.example.demo.config.secret.Secret;
 import com.example.demo.src.cart.CartDAO;
 import com.example.demo.config.BaseException;
+import com.example.demo.src.member.model.MemberReq;
+import com.example.demo.src.member.model.MemberRes;
 import com.example.demo.src.menu.MenuDAO;
 import com.example.demo.src.member.model.Member;
+import com.example.demo.utils.AES128;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,19 +46,31 @@ public class MemberProvider {
 		return memberDAO.isDuplicatedName(name);
 	}
 
-	public Integer login(String email, String password) throws BaseException {
-		//패스워드 암호화 진행
+	public MemberRes login(MemberReq memberReq) throws BaseException {
+		// 정보 받아오기
+		Member member = memberDAO.findMemberByEmail(memberReq);
 
-		//id, 패스워드 확인
-		try {
-			Integer result = memberDAO.findByIdPassword(email, password);
-			if (result == 0) {
-				throw new BaseException(REQUEST_ERROR);
-			}
-			return result;
-		} catch (Exception exception) {
-			throw new BaseException(DATABASE_ERROR);
+		String password;
+		try { // 복호화
+			password = new AES128(Secret.USER_INFO_PASSWORD_KEY).decrypt(member.getPassword());
+		} catch(Exception ignored) {
+			throw new BaseException(PASSWORD_DECRYPTION_ERROR);
 		}
+
+		// ****궁금증_1: 서비스에서 반환할 때 VO 객체로 반환해야하나? Integer로 반환하면 안 되나
+		// 복호화 된 패스워드 확인
+		if(memberReq.getPassword().equals(password)) {
+			int memberId = member.getId();
+			String myJwt = jwtService.createJwt(memberId);
+			return MemberRes.builder()
+				.jwt(myJwt)
+				.id(memberId)
+				.build();
+
+		} else {
+			throw new BaseException(FAILED_TO_LOGIN);
+		}
+
 	}
 
 //	public List<MemberCartDTO> findMemberCart(int memberId) throws BaseException {

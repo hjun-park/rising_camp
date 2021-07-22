@@ -76,12 +76,12 @@ public class UserController {
 
     }
 
-    /**
-     * 회원가입 API
-     * [POST] /users
-     * @return BaseResponse<PostUserRes>
-     */
-    // Body
+//    /**
+//     * 회원가입 API
+//     * [POST] /users
+//     * @return BaseResponse<PostUserRes>
+//     */
+//    // Body
 //    @ResponseBody
 //    @PostMapping("")
 //    public BaseResponse<PostUserRes> createUser(@RequestBody PostUserReq postUserReq) {
