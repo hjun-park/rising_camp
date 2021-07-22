@@ -3,14 +3,14 @@ package com.example.demo.src.member;
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
 import com.example.demo.src.member.model.Member;
+import com.example.demo.src.member.model.MemberReq;
+import com.example.demo.src.member.model.MemberRes;
 import com.example.demo.utils.JwtService;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import static com.example.demo.config.BaseResponseStatus.*;
+import static com.example.demo.config.BaseResponseStatus.INVALID_USER_JWT;
+import static com.example.demo.config.BaseResponseStatus.REQUEST_ERROR;
 
 @RestController
 @RequestMapping("/members")
@@ -29,66 +29,105 @@ public class MemberController {
 
 
 	//01
-	@ResponseBody
 	@PostMapping("/register")
-	public BaseResponse<Integer> postSignUp(@RequestBody Member member) {
+	public BaseResponse<MemberRes> postJoin(@RequestBody Member member) { // ****궁금증_2: 컨트롤러에서 DTO 객체로 받아도 되는지
 		// validation
 		if (Member.hasNullDataWhenJoin(member)) {
 			return new BaseResponse<>(REQUEST_ERROR);
 		}
 
+		// 이메일 검증
+
 		try {
-			Integer memberId = memberService.joinMember(member);
-			return new BaseResponse<>(memberId);
+			MemberRes memberRes = memberService.joinMember(member);
+			return new BaseResponse<>(memberRes);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
 		}
 
 	}
+
 
 	//02
-	@ResponseBody
 	@PostMapping("/login")
-	public BaseResponse<Integer> postMemberLogin(@RequestBody MemberLoginReq memberLoginReq) {
+	public BaseResponse<MemberRes> postMemberLogin(@RequestBody MemberReq memberReq) {
 		// 입력값 누락 확인 (email, password)
-		String email = memberLoginReq.getEmail();
-		String password = memberLoginReq.getPassword();
-
 		try {
-			Integer result = memberProvider.login(email, password);
+			// TODO: 로그인 값들에 대한 형식적인 validatin 처리해주셔야합니다!
+			// TODO: 유저의 status ex) 비활성화된 유저, 탈퇴한 유저 등을 관리해주고 있다면 해당 부분에 대한 validation 처리도 해주셔야합니다.
+			MemberRes memberRes = memberProvider.login(memberReq);
+			return new BaseResponse<>(memberRes);
+		} catch (BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+	}
+
+	//04 회원정보 - 비밀번호 수정
+	@PatchMapping("/{member-id}/password")
+	public BaseResponse<Integer> patchMemberPwd(@PathVariable("member-id") int memberId,
+												  @RequestBody MemberReq memberReq) {
+		try {
+			// jwt에서 id값 추출
+			int memberIdByJwt = jwtService.getUserIdx();
+
+			// 수정 요청한 id값이 본인이 아니라면 에러
+			if(memberId != memberIdByJwt) {
+				return new BaseResponse<>(INVALID_USER_JWT);
+			}
+
+			// 같다면 유저비밀번호 변경
+			Integer result = memberService.modifyMemberPwd(memberId, memberReq);
 			return new BaseResponse<>(result);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
 		}
-
 	}
 
-
-	//05
-	@ResponseBody
+	//05 회원정보 - 닉네임 수정
 	@PatchMapping("/{member-id}")
 	public BaseResponse<Integer> patchMemberName(@PathVariable("member-id") int memberId,
-												 @RequestBody Member member) {
+												 @RequestBody MemberReq memberReq) {
 		try {
-			Integer result = memberService.modifyMemberName(memberId, member.getName());
+			// jwt에서 id값 추출
+			int memberIdByJwt = jwtService.getUserIdx();
+
+			// 수정 요청한 id값이 본인이 아니라면 에러
+			if(memberId != memberIdByJwt) {
+				return new BaseResponse<>(INVALID_USER_JWT);
+			}
+
+			// 같다면 유저네임 변경
+			Integer result = memberService.modifyMemberName(memberId, memberReq);
 			return new BaseResponse<>(result);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
 		}
 	}
 
-	//07 JWT 개념 익힌 후 구현
-//	@ResponseBody
-//	@GetMapping("/info")
-//	public BaseResponse<MemberDTO> lookupMember() {
-//
-//	}
+	//06 회원 탈퇴 API
+	@DeleteMapping("/{member-id}")
+	public BaseResponse<Integer> deleteMember(@PathVariable("member-id") int memberId) {
+		try {
+			//  X-ACCESS-TOKEN으로부터 JWT 얻은 후 ID 추출
+			int memberIdByJwt = jwtService.getUserIdx();
+
+			// 수정한 ID 값이 본인이 아니라면 에러
+			if(memberId != memberIdByJwt) {
+				return new BaseResponse<>(INVALID_USER_JWT);
+			}
+
+			Integer result = memberService.deleteMember(memberId);
+			return new BaseResponse<>(result);
+		} catch (BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+	}
+
 
 	//08 이메일 수신 동의 API
-	@ResponseBody
 	@PostMapping("/{member-id}/email")
 	public BaseResponse<Integer> postAcceptEmail(@PathVariable("member-id") int memberId,
-												   @RequestBody Member member) {
+												 @RequestBody Member member) {
 		String emailStatus = member.getMailAccept();
 		try {
 			Integer result = memberService.modifyAcceptEmail(memberId, emailStatus);
@@ -102,7 +141,7 @@ public class MemberController {
 	@ResponseBody
 	@PostMapping("/{member-id}/sms")
 	public BaseResponse<Integer> postAcceptSms(@PathVariable("member-id") int memberId,
-												 @RequestBody  Member member) {
+											   @RequestBody Member member) {
 		String smsStatus = member.getSmsAccept();
 		try {
 			Integer result = memberService.modifyAcceptSms(memberId, smsStatus);
@@ -112,147 +151,6 @@ public class MemberController {
 		}
 	}
 
+	//
 
-
-//	// 로그아웃 결과에 따라서 처리
-//	@ResponseBody
-//	@GetMapping("/logout")
-//	public BaseResponse<Integer> logout() {
-//
-//	}
-
-//	// 패스워드 수정
-//	@ResponseBody
-//	@PatchMapping("/{user-id}/password")
-//	public BaseResponse<Integer>
-
-
-//	@ResponseBody
-//	@PostMapping
-
-
-//
-//	@ResponseBody
-//	@PostMapping("/login")
-//	public BaseResponse<PostLoginRes> login(@RequestBody PostLoginReq postLoginReq) {
-//		System.out.println("######UserController.login");
-//		System.out.println("postLoginReq = " + postLoginReq);
-//		System.out.println("postLoginReq = " + postLoginReq.getEmail());
-//		System.out.println("postLoginReq = " + postLoginReq.getPassword());
-//		log.debug("#################1) {}", postLoginReq.getPassword());
-//		log.debug("#################1) {}", postLoginReq.getEmail());
-//
-//		try {
-//			// TODO: 로그인 값들에 대한 검증 필요 ( XSS 방지 )
-//			PostLoginRes postLoginRes = userProvider.login(postLoginReq);
-//			return new BaseResponse<>(postLoginRes);
-//		} catch (BaseException exception) {
-//			return new BaseResponse<>(exception.getStatus());
-//		}
-//	}
-//
-//	@ResponseBody
-//	@PatchMapping("/{userId}")
-//	public BaseResponse<String> modifyUserName(@PathVariable int userId, @RequestBody User user) {
-//		try {
-//			PatchUserReq patchUserReq = new PatchUserReq(userId, user.getName());
-//			userService.modifyUserName(patchUserReq);
-//		} catch (BaseException exception) {
-//			return new BaseResponse<>(exception.getStatus());
-//		}
-//
-//		String result = "";
-//		return new BaseResponse<>(result);
-//
-//	}
-//
-//	@ResponseBody
-//	@GetMapping("/{userId}/baskets/{basketId}")
-//	public BaseResponse<List<GetUserBasketRes>> getUserBasket(@PathVariable("userId") int userId,
-//															  @PathVariable("basketId") int basketId) {
-//		try {
-//			List<GetUserBasketRes> getUserBasketRes = userProvider.getUserBasket(userId, basketId);
-//			return new BaseResponse<>(getUserBasketRes);
-//		} catch (BaseException exception) {
-//			return new BaseResponse<>(exception.getStatus());
-//		}
-//	}
-//
-//	@ResponseBody
-//	@PostMapping("/{userId}/baskets")
-//	public BaseResponse<Integer> postUserBasket(@PathVariable("userId") int userId,
-//												@RequestBody PostUserBasketReq postUserBasketReq) {
-//
-//		log.debug("##### {}", postUserBasketReq.getMenuName());
-//		try {
-//			Integer basketId = userService.postUserBasket(userId, postUserBasketReq);
-//			return new BaseResponse<>(basketId);
-//		} catch (BaseException exception) {
-//			return new BaseResponse<>(exception.getStatus());
-//		}
-//	}
-//
-//	//7 - 장바구니 수량 변경
-//	@ResponseBody
-//	@PatchMapping("/{userId}/baskets/{basketId}")
-//	public BaseResponse<String> postUserBasket(@PathVariable("userId") int userId,
-//											   @PathVariable("basketId") int basketId,
-//											   @RequestBody Basket basket) {
-//		try {
-//			PatchUserBasketReq patchUserBasketReq = new PatchUserBasketReq(userId, basketId, basket.getAmount());
-//			userService.modifyAmount(patchUserBasketReq);
-//
-//			String result = "";
-//			return new BaseResponse<String>(result);
-//		} catch (BaseException exception) {
-//			return new BaseResponse<>(exception.getStatus());
-//		}
-//	}
-
-
-//	@ResponseBody
-//	@PostMapping("/join")
-//	public BaseResponse<PostUserRes> createUser(@RequestBody PostUserReq postUserReq) throws BaseException {
-//
-//		log.debug("[IN] createUser()={}", postUserReq.toString());
-//
-//		// 하나라도 입력값 누락
-//		if (!Util.isEmpty(postUserReq)) {
-//			return new BaseResponse<>(REQUEST_ERROR);
-//		}
-//
-//		// 이메일 검증(정규표현식)
-//		if (!isRegexEmail(postUserReq.getEmail())) {
-//			return new BaseResponse<>(POST_USERS_INVALID_EMAIL);
-//		}
-//
-//		// TODO: @Pattern 이용하여 휴대전화 검증
-////		if (!isRegexPhoneNumber(postUserReq.getPhoneNumber())) {
-////			return new BaseResponse<>(POST_USERS_INVALID_PHONE_NUMBER);
-////		}
-//
-//
-//		// TODO: 중복된 닉네임 확인
-//
-//		// TODO: 이미 존재하는 회원인지 검증 (이메일)
-//		try {
-//			PostUserRes postUserRes = userService.createUser(postUserReq);
-//			return new BaseResponse<>(postUserRes);
-//		} catch (BaseException exception) {
-//			return new BaseResponse<>((exception.getStatus()));
-//		}
-//		try {
-//			PostUserRes postUserRes = userService.createUser(postUserReq);
-//			return new BaseResponse<>(postUserRes);
-//		} catch (BaseException exception) {
-//			return new BaseResponse<>((exception.getStatus()));
-//		}
-
-	// ========== login 객체 ==========//
-	@Setter
-	@Getter
-	private static class MemberLoginReq {
-		private String email;
-		private String password;
-	}
 }

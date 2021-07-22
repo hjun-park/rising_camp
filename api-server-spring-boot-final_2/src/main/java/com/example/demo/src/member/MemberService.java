@@ -1,7 +1,13 @@
 package com.example.demo.src.member;
 
 import com.example.demo.config.BaseException;
+import com.example.demo.config.secret.Secret;
 import com.example.demo.src.member.model.Member;
+import com.example.demo.src.member.model.MemberReq;
+import com.example.demo.src.member.model.MemberRes;
+import com.example.demo.src.user.model.PostUserReq;
+import com.example.demo.src.user.model.PostUserRes;
+import com.example.demo.utils.AES128;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +19,10 @@ import static com.example.demo.config.BaseResponseStatus.*;
 @Slf4j
 public class MemberService {
 
-	@Autowired
 	private final MemberDAO memberDAO;
 
-	@Autowired
 	private final MemberProvider memberProvider;	// select
 
-	@Autowired
 	private final JwtService jwtService;
 
 	public MemberService(MemberDAO memberDAO, MemberProvider memberProvider, JwtService jwtService) {
@@ -28,7 +31,7 @@ public class MemberService {
 		this.jwtService = jwtService;
 	}
 
-	public Integer joinMember(Member member) throws BaseException {
+	public MemberRes joinMember(Member member) throws BaseException {
 		// 이메일, 전화번호 중복체크
 		if(memberProvider.checkMember(member.getEmail(), member.getPhoneNumber()) == 1) {
 			throw new BaseException(POST_USERS_EXISTS_USER);
@@ -39,26 +42,62 @@ public class MemberService {
 			throw new BaseException(POST_USERS_EXISTS_NICKNAME);
 		}
 
-
-		// 닉네임 중복체크
-
+		// 비밀번호 암호화
+		String pwd;
 		try {
-			Integer memberId = memberDAO.insertMember(member);
-			return memberId;
+			pwd = new AES128(Secret.USER_INFO_PASSWORD_KEY).encrypt(member.getPassword());
+			member.setPassword(pwd);
+			log.info("##### member -> {} // {}", member, member.getEmail());
+		} catch (Exception ignored) {
+			throw new BaseException(PASSWORD_ENCRYPTION_ERROR);
+		}
+
+		// 비밀번호 저장
+		try {
+			int memberId = memberDAO.insertMember(member);
+
+			// jwt 발급 (UserId 정보 이용)
+			String myJwt = jwtService.createJwt(memberId);
+
+			return MemberRes.builder()
+				.jwt(myJwt)
+				.id(memberId)
+				.build();
+
 		} catch(Exception exception) {
 			throw new BaseException(DATABASE_ERROR);
 		}
 	}
 
-	public Integer modifyMemberName(int memberId, String name) throws BaseException {
 
+	public Integer modifyMemberName(int memberId, MemberReq memberReq) throws BaseException {
 		try {
-			return memberDAO.modifyMemberName(memberId, name);
+			return memberDAO.updateMemberName(memberId, memberReq);
 		} catch (Exception exception) {
 			throw new BaseException(DATABASE_ERROR);
 		}
-
 	}
+
+
+	public Integer modifyMemberPwd(int memberId, MemberReq memberReq) throws BaseException {
+
+		// 비밀번호 암호화
+		String pwd;
+		try {
+			pwd = new AES128(Secret.USER_INFO_PASSWORD_KEY).encrypt(memberReq.getPassword());
+			memberReq.setPassword(pwd);
+		} catch (Exception ignored) {
+			throw new BaseException(PASSWORD_ENCRYPTION_ERROR);
+		}
+
+		// 암호화된 비밀번호 저장
+		try {
+			return memberDAO.updateMemberPwd(memberId, memberReq);
+		} catch (Exception exception) {
+			throw new BaseException(DATABASE_ERROR);
+		}
+	}
+
 
 	public Integer modifyAcceptEmail(int memberId, String emailStatus) throws BaseException {
 
@@ -70,7 +109,7 @@ public class MemberService {
 		}
 
 		try {
-			return memberDAO.modifyAcceptEmail(memberId, emailStatus);
+			return memberDAO.updateAcceptEmail(memberId, emailStatus);
 		} catch(Exception exception) {
 			throw new BaseException(DATABASE_ERROR);
 		}
@@ -86,7 +125,7 @@ public class MemberService {
 		}
 
 		try {
-			return memberDAO.modifyAcceptSms(memberId, smsStatus);
+			return memberDAO.updateAcceptSms(memberId, smsStatus);
 		} catch(Exception exception) {
 			throw new BaseException(DATABASE_ERROR);
 		}
@@ -94,28 +133,17 @@ public class MemberService {
 	}
 
 
-	// POST
-//	public PostUserRes createUser(PostUserReq postUserReq) throws BaseException {
-//		// 중복된 값 있는지 체크 (SELECT 역할을 Provider)
-//		if(userProvider.checkUser(postUserReq.getEmail(), postUserReq.getPhoneNumber()) == 1) {
-//			throw new BaseException(POST_USERS_EXISTS_USER);
-//		}
-//
-//		// 유저 생성
-//		int userId = userDao.createUser(postUserReq);
-//
-//		// JWT 발급 생략
-//	}
+	// 회원 탈퇴 서비스
+	public Integer deleteMember(int memberId) throws BaseException {
+		try {
 
-	//POST
-//	public PostUserRes join(PostUserReq postUserReq) throws BaseException {
-	//검증
-//		userProvider.validateDuplicateUser(postUserReq);
-//
-	//회원가입
-//		userDao.createUser(postUserReq);
-//
-//
-//		return null;
-//	}
+		} catch (Exception exception) {
+			throw new BaseException(DATABASE_ERROR);
+		}
+
+	}
+
+
+
+
 }
