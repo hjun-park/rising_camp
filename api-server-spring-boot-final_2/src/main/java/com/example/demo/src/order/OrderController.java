@@ -2,9 +2,6 @@ package com.example.demo.src.order;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
-import com.example.demo.config.BaseResponseStatus;
-import com.example.demo.src.member.model.MemberCartDTO;
-import com.example.demo.src.order.model.OrderRequestDTO;
 import com.example.demo.src.order.model.OrderRes;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
@@ -53,8 +50,8 @@ public class OrderController {
 				return new BaseResponse<>(INVALID_USER_JWT);
 			}
 
-			List<OrderRes> orderRes = orderProvider.getOrderHistory(memberId);
-			return new BaseResponse<>(orderRes);
+			List<OrderRes> orderReDTOS = orderProvider.getOrderHistory(memberId);
+			return new BaseResponse<>(orderReDTOS);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
 		}

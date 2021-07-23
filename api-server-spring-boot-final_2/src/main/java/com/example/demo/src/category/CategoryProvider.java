@@ -1,7 +1,7 @@
 package com.example.demo.src.category;
 
 import com.example.demo.config.BaseException;
-import com.example.demo.src.category.model.CategoryDTO;
+import com.example.demo.src.category.model.Category;
 import com.example.demo.src.review.ReviewDAO;
 import com.example.demo.src.store.StoreDAO;
 import com.example.demo.utils.JwtService;
@@ -28,9 +28,9 @@ public class CategoryProvider {
 		this.jwtService = jwtService;
 	}
 
-	public List<CategoryDTO> getCategory() throws BaseException {
+	public List<Category> getCategory() throws BaseException {
 		try{
-			List<CategoryDTO> getCategoryRes = categoryDao.getCategory();
+			List<Category> getCategoryRes = categoryDao.getCategory();
 			return getCategoryRes;
 		}
 		catch (Exception exception) {

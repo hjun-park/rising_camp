@@ -2,17 +2,12 @@ package com.example.demo.src.member;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.secret.Secret;
-import com.example.demo.src.member.MemberDAO;
-import com.example.demo.src.member.MemberProvider;
-import com.example.demo.src.member.model.MemberDTO;
+import com.example.demo.src.member.model.Member;
 import com.example.demo.src.member.model.MemberReq;
 import com.example.demo.src.member.model.MemberRes;
-import com.example.demo.src.user.model.PostUserReq;
-import com.example.demo.src.user.model.PostUserRes;
 import com.example.demo.utils.AES128;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import static com.example.demo.config.BaseResponseStatus.*;
@@ -33,7 +28,7 @@ public class MemberService {
 		this.jwtService = jwtService;
 	}
 
-	public MemberRes joinMember(MemberDTO memberDTO) throws BaseException {
+	public MemberRes joinMember(Member memberDTO) throws BaseException {
 		// 이메일, 전화번호 중복체크
 		if(memberProvider.checkMember(memberDTO.getEmail(), memberDTO.getPhoneNumber()) == 1) {
 			throw new BaseException(POST_USERS_EXISTS_USER);

@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @ToString
-public class MenuDTO {
+public class Menu {
 	private enum Status {
 		Full, Empty;
 	}
@@ -26,10 +26,10 @@ public class MenuDTO {
 	private int menuGroupId;
 	private int isSignature;
 
-	public MenuDTO() {
+	public Menu() {
 	}
 
-	public MenuDTO(int id, String name, int price, String picture, String content, int menuGroupId, int isSignature) {
+	public Menu(int id, String name, int price, String picture, String content, int menuGroupId, int isSignature) {
 		this.id = id;
 		this.name = name;
 		this.price = price;

@@ -2,7 +2,7 @@ package com.example.demo.src.category;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
-import com.example.demo.src.category.model.CategoryDTO;
+import com.example.demo.src.category.model.Category;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +33,9 @@ public class CategoryController {
 	//25 - 카테고리 리스트 조회
 	@ResponseBody
 	@GetMapping("")
-	public BaseResponse<List<CategoryDTO>> getCategory() {
+	public BaseResponse<List<Category>> getCategory() {
 		try {
-			List<CategoryDTO> getCategoryRes = categoryProvider.getCategory();
+			List<Category> getCategoryRes = categoryProvider.getCategory();
 			return new BaseResponse<>(getCategoryRes);
 		} catch(BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
@@ -44,9 +44,9 @@ public class CategoryController {
 
 	//26 - 카테고리 생성
 	@PostMapping("")
-	public BaseResponse<Integer> postCategory(@RequestBody CategoryDTO categoryDTO) {
+	public BaseResponse<Integer> postCategory(@RequestBody Category category) {
 		try {
-			Integer resultId = categoryService.registerCategory(categoryDTO);
+			Integer resultId = categoryService.registerCategory(category);
 			return new BaseResponse<>(resultId);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());

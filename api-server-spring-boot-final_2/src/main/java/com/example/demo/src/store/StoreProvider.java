@@ -1,8 +1,8 @@
 package com.example.demo.src.store;
 
 import com.example.demo.config.BaseException;
-import com.example.demo.src.store.model.StoreDTO;
-import com.example.demo.src.store.model.StoreInfoDTO;
+import com.example.demo.src.store.model.Store;
+import com.example.demo.src.store.model.StoreInfo;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class StoreProvider {
 		this.jwtService = jwtService;
 	}
 
-	public StoreDTO findStore(int storeId) throws BaseException {
+	public Store findStore(int storeId) throws BaseException {
 		try {
 			return storeDAO.findStoreById(storeId);
 		} catch (Exception exception) {
@@ -33,21 +33,21 @@ public class StoreProvider {
 		}
 	}
 
-    public StoreInfoDTO getStoreInfo(int storeId) throws BaseException {
+    public StoreInfo getStoreInfo(int storeId) throws BaseException {
 		try {
-			StoreDTO storeDTO = storeDAO.findStoreById(storeId);
+			Store store = storeDAO.findStoreById(storeId);
 
-			return new StoreInfoDTO(
-				storeDTO.getId(),
-				storeDTO.getInfo(),
-				storeDTO.getAddress(),
-				storeDTO.getPhoneNumber(),
-				storeDTO.getHours(),
-				storeDTO.getAddressDetail(),
-				storeDTO.getClosedDay(),
-				storeDTO.getDeliveryArea(),
-				storeDTO.getMinOrderPrice(),
-				storeDTO.getTips()
+			return new StoreInfo(
+				store.getId(),
+				store.getInfo(),
+				store.getAddress(),
+				store.getPhoneNumber(),
+				store.getHours(),
+				store.getAddressDetail(),
+				store.getClosedDay(),
+				store.getDeliveryArea(),
+				store.getMinOrderPrice(),
+				store.getTips()
 			);
 		}catch (Exception exception) {
 			throw new BaseException(DATABASE_ERROR);

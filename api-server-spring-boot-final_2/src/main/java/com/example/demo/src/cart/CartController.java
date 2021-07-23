@@ -3,7 +3,7 @@ package com.example.demo.src.cart;
 import com.example.demo.src.cart.model.Cart;;
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
-import com.example.demo.src.member.model.MemberCartDTO;
+import com.example.demo.src.member.model.MemberCart;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,10 +34,10 @@ public class CartController {
 	//11 유저 장바구니 조회
 	@ResponseBody
 	@GetMapping("/{member-id}")
-	public BaseResponse<List<MemberCartDTO>> getCart(@PathVariable("member-id") int memberId) {
+	public BaseResponse<List<MemberCart>> getCart(@PathVariable("member-id") int memberId) {
 
 		try {
-			List<MemberCartDTO> carts = cartProvider.findCart(memberId);
+			List<MemberCart> carts = cartProvider.findCart(memberId);
 			return new BaseResponse<>(carts);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());

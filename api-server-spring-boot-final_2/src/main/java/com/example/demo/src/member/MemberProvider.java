@@ -8,10 +8,7 @@ import com.example.demo.src.menu.MenuDAO;
 import com.example.demo.utils.AES128;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 import static com.example.demo.config.BaseResponseStatus.*;
 
@@ -36,15 +33,15 @@ public class MemberProvider {
 
 		// 1. 멤버 ID를 이용하여 이름 가져오기
 		log.info("##### 0");
-		MemberDTO memberDTO = memberDAO.findMemberById(memberId);
+		Member memberDTO = memberDAO.findMemberById(memberId);
 		log.info("##### 1");
 		// 2. 멤버 ID를 이용하여 등급 이름 가져오기
-		MemberLevelDTO memberLevelDTO = memberDAO.findLevelById(memberId);
+		MemberLevel memberLevel = memberDAO.findLevelById(memberId);
 		log.info("##### 2");
 		// 3. 조합하여 내보내기
 		return MemberLevelRes.builder()
 			.name(memberDTO.getName())
-			.membershipName(memberLevelDTO.getMembershipName())
+			.membershipName(memberLevel.getMembershipName())
 			.build();
 	}
 
@@ -59,7 +56,7 @@ public class MemberProvider {
 
 	public MemberRes login(MemberReq memberReq) throws BaseException {
 		// 정보 받아오기
-		MemberDTO memberDTO = memberDAO.findMemberBy("email", memberReq);
+		Member memberDTO = memberDAO.findMemberBy("email", memberReq);
 
 		String password;
 		try { // 복호화

@@ -1,7 +1,7 @@
 package com.example.demo.src.category;
 
 import com.example.demo.config.BaseException;
-import com.example.demo.src.category.model.CategoryDTO;
+import com.example.demo.src.category.model.Category;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -23,12 +23,12 @@ public class CategoryService {
 		this.jwtService = jwtService;
 	}
 
-	public Integer registerCategory(CategoryDTO categoryDTO) throws BaseException {
+	public Integer registerCategory(Category category) throws BaseException {
 		try {
 			// 중복된 이름 검증
 
 			// 등록
-			return categoryDAO.insertCategory(categoryDTO);
+			return categoryDAO.insertCategory(category);
 		} catch(Exception exception) {
 			throw new BaseException(DATABASE_ERROR);
 		}

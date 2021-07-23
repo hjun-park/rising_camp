@@ -1,7 +1,6 @@
 package com.example.demo.src.member.model;
 
 import lombok.*;
-import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDateTime;
 import static lombok.Lombok.checkNotNull;
@@ -10,7 +9,7 @@ import static lombok.Lombok.checkNotNull;
 @Getter
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class MemberDTO {
+public class Member {
 	public enum Status {
 		Joined, Deleted, Suspend;
 	}
@@ -38,7 +37,7 @@ public class MemberDTO {
 	private LocalDateTime updatedAt;
 
 	@Builder
-	public MemberDTO(int id, String email, String password, String name, String phoneNumber, String profileImageUrl, String mailAccept, String smsAccept, String birthDate, String addressBuildingNum, String districtCode, String addressDetail, double latitude, double longitude, String grade) {
+	public Member(int id, String email, String password, String name, String phoneNumber, String profileImageUrl, String mailAccept, String smsAccept, String birthDate, String addressBuildingNum, String districtCode, String addressDetail, double latitude, double longitude, String grade) {
 		this.id = id;
 		this.email = checkNotNull(email, "email");
 		this.password = checkNotNull(password, "password");
@@ -60,7 +59,7 @@ public class MemberDTO {
 		this.password = checkNotNull(password, "password");
 	}
 
-	public static boolean hasNullDataWhenJoin(MemberDTO m) {
+	public static boolean hasNullDataWhenJoin(Member m) {
 		return m.getEmail() == null || m.getPassword() == null ||
 			m.getName() == null || m.getPhoneNumber() == null;
 	}

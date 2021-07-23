@@ -31,7 +31,7 @@ public class MemberDAO {
 	}
 
 	@Transactional
-	public Integer insertMember(MemberDTO member) throws Exception {
+	public Integer insertMember(Member member) throws Exception {
 		String insertMemberQuery = "insert into MEMBER(password, email, name, phoneNumber, profileImageUrl," +
 			" addressBuildingNum, districtCode, birthDate)" +
 			" VALUES(?, ?, ?, ?, ?, 0, 0, ?)";
@@ -122,7 +122,7 @@ public class MemberDAO {
 //		}
 //	}
 
-	public MemberDTO findMemberById(int memberId) throws BaseException {
+	public Member findMemberById(int memberId) throws BaseException {
 
 		String findMemberIdQuery = "SELECT * FROM MEMBER " +
 			"WHERE id = ? AND status = 'Joined'";
@@ -134,7 +134,7 @@ public class MemberDAO {
 
 
 
-	public MemberDTO findMemberBy(String field, MemberReq memberReq) throws BaseException {
+	public Member findMemberBy(String field, MemberReq memberReq) throws BaseException {
 
 		String findMemberQuery = "SELECT * FROM MEMBER WHERE "
 									+ field + " = ? AND status = 'Joined'";
@@ -150,14 +150,14 @@ public class MemberDAO {
 	}
 
 	// 사용자 멤버십 등급 정보 출력
-	public MemberLevelDTO findLevelById(int memberId) throws BaseException {
+	public MemberLevel findLevelById(int memberId) throws BaseException {
 		String findByIdQuery = "SELECT * FROM MEMBER_LEVEL " +
 			"WHERE memberId = ? AND status = 'Used'";
 		String findByNameParam = Integer.toString(memberId);
 
 		try {
 			return this.jdbcTemplate.queryForObject(findByIdQuery,
-				(rs, rowNum) -> MemberLevelDTO.builder()
+				(rs, rowNum) -> MemberLevel.builder()
 					.membershipName(rs.getString("membershipName"))
 					.orderCount(rs.getInt("orderCount"))
 					.build()
@@ -169,12 +169,12 @@ public class MemberDAO {
 	}
 
 	// 활성화 된 멤버십 등급 출력
-	public List<MembershipDTO> findReqCountByName(String membershipName) throws BaseException {
+	public List<Membership> findReqCountByName(String membershipName) throws BaseException {
 		String findReqCountQuery = "SELECT * FROM MEMBERSHIP WHERE status = 'Used'";
 
 		try {
 			return this.jdbcTemplate.query(findReqCountQuery,
-				(rs, rowNum) -> MembershipDTO.builder()
+				(rs, rowNum) -> Membership.builder()
 					.name(rs.getString("name"))
 					.build());
 		} catch (Exception exception) {
@@ -254,10 +254,10 @@ public class MemberDAO {
 	}
 
 
-	private MemberDTO getMember(String findMemberIdQuery, String findMemberIdParam) throws BaseException {
+	private Member getMember(String findMemberIdQuery, String findMemberIdParam) throws BaseException {
 		try {
 			return this.jdbcTemplate.queryForObject(findMemberIdQuery,
-				(rs, rowNum) -> MemberDTO.builder()
+				(rs, rowNum) -> Member.builder()
 					.id(rs.getInt("id"))
 					.email(rs.getString("email"))
 					.password(rs.getString("password"))

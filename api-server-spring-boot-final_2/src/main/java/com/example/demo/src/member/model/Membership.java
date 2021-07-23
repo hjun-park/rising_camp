@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class MembershipDTO {
+public class Membership {
 	public enum Status {
 		Used, Deleted;
 	}
@@ -16,7 +16,7 @@ public class MembershipDTO {
 	private Status status;
 
 	@Builder
-	public MembershipDTO(String name) {
+	public Membership(String name) {
 		this.name = name;
 	}
 }

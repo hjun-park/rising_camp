@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @AllArgsConstructor
 @ToString
-public class StoreInfoDTO {
+public class StoreInfo {
 
 	private int id;
 	private String info;

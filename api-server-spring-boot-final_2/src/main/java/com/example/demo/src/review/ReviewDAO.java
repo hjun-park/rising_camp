@@ -3,7 +3,7 @@ package com.example.demo.src.review;
 import com.example.demo.src.review.model.GetReviewDetailRes;
 import com.example.demo.src.review.model.GetReviewRes;
 import com.example.demo.src.review.model.PatchReviewReq;
-import com.example.demo.src.review.model.ReviewDTO;
+import com.example.demo.src.review.model.Review;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -57,14 +57,14 @@ public class ReviewDAO {
 	}
 
 	// 다음엔 서비스로 가게 리뷰 평균 구하는 메소드로 만들기
-	public List<ReviewDTO> findReviewsByStoreId(int storeId) { //throws Exception{
+	public List<Review> findReviewsByStoreId(int storeId) { //throws Exception{
 		String getReviewByIdQuery = "SELECT * FROM REVIEW" +
 			" WHERE status = 'Used' AND storeId = ?";
 		String getReviewByIdParam = Integer.toString(storeId);
 
 //		try {
 			return this.jdbcTemplate.query(getReviewByIdQuery,
-				(rs, rowNum) -> new ReviewDTO(
+				(rs, rowNum) -> new Review(
 					rs.getInt("id"),
 					rs.getInt("storeId"),
 					rs.getInt("memberId"),
@@ -72,7 +72,7 @@ public class ReviewDAO {
 					rs.getString("content"),
 					rs.getDouble("rating"),
 					rs.getString("reviewImageUrl"),
-					ReviewDTO.Status.valueOf(rs.getString("status"))
+					Review.Status.valueOf(rs.getString("status"))
 				),
 				getReviewByIdParam
 			);

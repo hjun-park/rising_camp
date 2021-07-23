@@ -9,13 +9,13 @@ import static lombok.Lombok.checkNotNull;
 
 @Getter
 @ToString
-public class MemberCartDTO {
+public class MemberCart {
 
 	private String name;
 	private int price;
 	private int amount;
 
-	public MemberCartDTO(String name, int price, int amount) {
+	public MemberCart(String name, int price, int amount) {
 		this.name = checkNotNull(name, "name");
 		this.price = price;
 		this.amount = amount;

@@ -3,8 +3,8 @@ package com.example.demo.src.cart;
 import com.example.demo.src.cart.model.Cart;
 import com.example.demo.config.BaseException;
 import com.example.demo.src.menu.MenuDAO;
-import com.example.demo.src.menu.model.MenuDTO;
-import com.example.demo.src.member.model.MemberCartDTO;
+import com.example.demo.src.menu.model.Menu;
+import com.example.demo.src.member.model.MemberCart;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,16 +34,15 @@ public class CartProvider {
 		this.jwtService = jwtService;
 	}
 
-	public List<MemberCartDTO> findCart(int memberId) throws BaseException {
+	public List<MemberCart> findCart(int memberId) throws BaseException {
 		try {
 			List<Cart> carts = cartDAO.findCartByMemberId(memberId);
 
 			// foreach , map -> return type
 			return carts.stream()
 				.map((cart) -> {
-					MenuDTO findMenuDTO = menuDAO.findMenuById(cart.getMenuId());
-
-					return new MemberCartDTO(findMenuDTO.getName(), findMenuDTO.getPrice(), cart.getAmount());
+					Menu findMenu = menuDAO.findMenuById(cart.getMenuId());
+					return new MemberCart(findMenu.getName(), findMenu.getPrice(), cart.getAmount());
 				})
 				.collect(Collectors.toList());
 

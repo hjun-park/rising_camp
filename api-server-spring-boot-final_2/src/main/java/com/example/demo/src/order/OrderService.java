@@ -1,15 +1,10 @@
 package com.example.demo.src.order;
 
 
-import com.example.demo.config.BaseException;
-import com.example.demo.src.order.model.OrderRequestDTO;
 import com.example.demo.src.member.MemberDAO;
-import com.example.demo.src.member.model.MemberDTO;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-
-import static com.example.demo.config.BaseResponseStatus.DATABASE_ERROR;
 
 @Service
 @Slf4j

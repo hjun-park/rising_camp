@@ -5,7 +5,7 @@ import lombok.*;
 @Getter
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class MemberLevelDTO {
+public class MemberLevel {
 	public enum Status {
 		Used, Deleted
 	}
@@ -16,7 +16,7 @@ public class MemberLevelDTO {
 	private int orderCount;
 
 	@Builder
-	public MemberLevelDTO(String membershipName, int orderCount) {
+	public MemberLevel(String membershipName, int orderCount) {
 		this.membershipName = membershipName;
 		this.orderCount = orderCount;
 	}

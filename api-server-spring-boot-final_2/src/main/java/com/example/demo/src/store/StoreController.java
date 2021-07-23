@@ -2,8 +2,8 @@ package com.example.demo.src.store;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
-import com.example.demo.src.store.model.StoreDTO;
-import com.example.demo.src.store.model.StoreInfoDTO;
+import com.example.demo.src.store.model.Store;
+import com.example.demo.src.store.model.StoreInfo;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +32,10 @@ public class StoreController {
 	//27 가게 조회
 	@ResponseBody
 	@GetMapping("/{store-id}")
-	public BaseResponse<StoreDTO> getStore(@PathVariable("store-id") int storeId) {
+	public BaseResponse<Store> getStore(@PathVariable("store-id") int storeId) {
 		try {
-			StoreDTO storeDTO = storeProvider.findStore(storeId);
-			return new BaseResponse<>(storeDTO);
+			Store store = storeProvider.findStore(storeId);
+			return new BaseResponse<>(store);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
 		}
@@ -44,9 +44,9 @@ public class StoreController {
 	//28 가게 등록
 	@ResponseBody
 	@PostMapping("")
-	public BaseResponse<Integer> postStore(@RequestBody StoreDTO storeDTO) {
+	public BaseResponse<Integer> postStore(@RequestBody Store store) {
 		try {
-			Integer resultId = storeService.registerStore(storeDTO);
+			Integer resultId = storeService.registerStore(store);
 			return new BaseResponse<>(resultId);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
@@ -68,10 +68,10 @@ public class StoreController {
 
 	//34 가게 정보 탭 조회
 	@GetMapping("/{store-id}/info")
-	public BaseResponse<StoreInfoDTO> getStoreInfo(@PathVariable("store-id") int storeId) {
+	public BaseResponse<StoreInfo> getStoreInfo(@PathVariable("store-id") int storeId) {
 		try {
-			StoreInfoDTO storeInfoDTO = storeProvider.getStoreInfo(storeId);
-			return new BaseResponse<>(storeInfoDTO);
+			StoreInfo storeInfo = storeProvider.getStoreInfo(storeId);
+			return new BaseResponse<>(storeInfo);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
 		}
