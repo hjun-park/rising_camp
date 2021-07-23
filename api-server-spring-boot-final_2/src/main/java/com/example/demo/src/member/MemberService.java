@@ -2,7 +2,9 @@ package com.example.demo.src.member;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.secret.Secret;
-import com.example.demo.src.member.model.Member;
+import com.example.demo.src.member.MemberDAO;
+import com.example.demo.src.member.MemberProvider;
+import com.example.demo.src.member.model.MemberDTO;
 import com.example.demo.src.member.model.MemberReq;
 import com.example.demo.src.member.model.MemberRes;
 import com.example.demo.src.user.model.PostUserReq;
@@ -31,30 +33,32 @@ public class MemberService {
 		this.jwtService = jwtService;
 	}
 
-	public MemberRes joinMember(Member member) throws BaseException {
+	public MemberRes joinMember(MemberDTO memberDTO) throws BaseException {
 		// 이메일, 전화번호 중복체크
-		if(memberProvider.checkMember(member.getEmail(), member.getPhoneNumber()) == 1) {
+		if(memberProvider.checkMember(memberDTO.getEmail(), memberDTO.getPhoneNumber()) == 1) {
 			throw new BaseException(POST_USERS_EXISTS_USER);
 		}
 
 		// 닉네임 중복체크
-		if(memberProvider.checkName(member.getName()) == 1) {
+		if(memberProvider.checkName(memberDTO.getName()) == 1) {
 			throw new BaseException(POST_USERS_EXISTS_NICKNAME);
 		}
 
 		// 비밀번호 암호화
 		String pwd;
 		try {
-			pwd = new AES128(Secret.USER_INFO_PASSWORD_KEY).encrypt(member.getPassword());
-			member.setPassword(pwd);
-			log.info("##### member -> {} // {}", member, member.getEmail());
+			pwd = new AES128(Secret.USER_INFO_PASSWORD_KEY).encrypt(memberDTO.getPassword());
+			memberDTO.setPassword(pwd);
 		} catch (Exception ignored) {
 			throw new BaseException(PASSWORD_ENCRYPTION_ERROR);
 		}
 
 		// 비밀번호 저장
 		try {
-			int memberId = memberDAO.insertMember(member);
+			int memberId = memberDAO.insertMember(memberDTO);
+
+			// ID를 기준으로 MemberLevel 테이블 생성
+			memberDAO.insertMemberLevel(memberId);
 
 			// jwt 발급 (UserId 정보 이용)
 			String myJwt = jwtService.createJwt(memberId);
@@ -136,7 +140,7 @@ public class MemberService {
 	// 회원 탈퇴 서비스
 	public Integer deleteMember(int memberId) throws BaseException {
 		try {
-
+			return memberDAO.deleteMember(memberId);
 		} catch (Exception exception) {
 			throw new BaseException(DATABASE_ERROR);
 		}

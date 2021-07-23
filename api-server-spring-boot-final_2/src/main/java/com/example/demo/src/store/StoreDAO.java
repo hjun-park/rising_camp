@@ -3,8 +3,10 @@ package com.example.demo.src.store;
 import com.example.demo.src.store.model.StoreDTO;
 import com.example.demo.src.store.model.StoreInfoDTO;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,43 +30,23 @@ public class StoreDAO {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
-	public StoreDTO findStoreById(int storeId) throws Exception {
+	public StoreDTO findStoreById(int storeId) { //throws Exception {
+		log.info("1");
 		String findStoreQuery = "SELECT *" +
 			" FROM STORE" +
 			" WHERE id = ? " +
 			" AND status = 'Used'";
 		String findStoreParam = Integer.toString(storeId);
-		try {
-			return this.jdbcTemplate.queryForObject(findStoreQuery,
-				(rs, rowNum) -> new StoreDTO(
-					rs.getInt("id"),
-					rs.getString("storeCategoryName"),
-					rs.getString("name"),
-					rs.getString("notice"),
-					rs.getString("info"),
-					rs.getString("paymentMethod"),
-					rs.getString("deliveryType"),
-					rs.getString("originInform"),
-					rs.getString("address"),
-					rs.getString("phoneNumber"),
-					rs.getString("hours"),
-					rs.getString("addressBuildingNum"),
-					rs.getString("districtCode"),
-					rs.getString("addressDetail"),
-					rs.getString("deliveryTime"),
-					rs.getString("closedDay"),
-					rs.getString("deliveryArea"),
-					rs.getInt("minOrderPrice"),
-					rs.getInt("tips"),
-					rs.getString("storeImageUrl"),
-					StoreDTO.Status.valueOf(rs.getString("status"))
-				),
-				findStoreParam);
-		} catch(Exception exception) {
-			exception.printStackTrace();
-			throw new Exception();
-
-		}
+		log.info("2");
+//		try {
+		log.info("3");
+		return this.jdbcTemplate.queryForObject(findStoreQuery,
+			getStoreDTORowMapper(),
+			findStoreParam);
+//		} catch(Exception exception) {
+//			exception.printStackTrace();
+//			throw new Exception();
+//		}
 	}
 
 	public Integer insertStore(StoreDTO storeDTO) throws Exception{
@@ -126,35 +108,40 @@ public class StoreDAO {
 		String findStoreParam = categoryName;
 		try {
 			return this.jdbcTemplate.query(findStoreQuery,
-				(rs, rowNum) -> new StoreDTO(
-					rs.getInt("id"),
-					rs.getString("storeCategoryName"),
-					rs.getString("name"),
-					rs.getString("notice"),
-					rs.getString("info"),
-					rs.getString("paymentMethod"),
-					rs.getString("deliveryType"),
-					rs.getString("originInform"),
-					rs.getString("address"),
-					rs.getString("phoneNumber"),
-					rs.getString("hours"),
-					rs.getString("addressBuildingNum"),
-					rs.getString("districtCode"),
-					rs.getString("addressDetail"),
-					rs.getString("deliveryTime"),
-					rs.getString("closedDay"),
-					rs.getString("deliveryArea"),
-					rs.getInt("minOrderPrice"),
-					rs.getInt("tips"),
-					rs.getString("storeImageUrl"),
-					StoreDTO.Status.valueOf(rs.getString("status"))
-				),
+				getStoreDTORowMapper(),
 				findStoreParam);
 		} catch(Exception exception) {
 			exception.printStackTrace();
 			throw new Exception();
 
 		}
+	}
+
+	@NotNull
+	private RowMapper<StoreDTO> getStoreDTORowMapper() {
+		return (rs, rowNum) -> new StoreDTO(
+			rs.getInt("id"),
+			rs.getString("storeCategoryName"),
+			rs.getString("name"),
+			rs.getString("notice"),
+			rs.getString("info"),
+			rs.getString("paymentMethod"),
+			rs.getString("deliveryType"),
+			rs.getString("originInform"),
+			rs.getString("address"),
+			rs.getString("phoneNumber"),
+			rs.getString("hours"),
+			rs.getString("addressBuildingNum"),
+			rs.getString("districtCode"),
+			rs.getString("addressDetail"),
+			rs.getString("deliveryTime"),
+			rs.getString("closedDay"),
+			rs.getString("deliveryArea"),
+			rs.getInt("minOrderPrice"),
+			rs.getInt("tips"),
+			rs.getString("storeImageUrl"),
+			StoreDTO.Status.valueOf(rs.getString("status"))
+		);
 	}
 
 }

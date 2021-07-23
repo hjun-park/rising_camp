@@ -3,15 +3,13 @@ package com.example.demo.src.cart;
 import com.example.demo.src.cart.model.Cart;
 import com.example.demo.config.BaseException;
 import com.example.demo.src.menu.MenuDAO;
-import com.example.demo.src.menu.model.Menu;
+import com.example.demo.src.menu.model.MenuDTO;
 import com.example.demo.src.member.model.MemberCartDTO;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Member;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,9 +41,9 @@ public class CartProvider {
 			// foreach , map -> return type
 			return carts.stream()
 				.map((cart) -> {
-					Menu findMenu = menuDAO.findMenuById(cart.getMenuId());
+					MenuDTO findMenuDTO = menuDAO.findMenuById(cart.getMenuId());
 
-					return new MemberCartDTO(findMenu.getName(), findMenu.getPrice(), cart.getAmount());
+					return new MemberCartDTO(findMenuDTO.getName(), findMenuDTO.getPrice(), cart.getAmount());
 				})
 				.collect(Collectors.toList());
 

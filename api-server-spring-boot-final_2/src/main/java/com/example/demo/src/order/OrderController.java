@@ -2,13 +2,17 @@ package com.example.demo.src.order;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
+import com.example.demo.config.BaseResponseStatus;
 import com.example.demo.src.member.model.MemberCartDTO;
 import com.example.demo.src.order.model.OrderRequestDTO;
+import com.example.demo.src.order.model.OrderRes;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+import static com.example.demo.config.BaseResponseStatus.*;
 
 @RestController
 @RequestMapping("/orders")
@@ -38,18 +42,24 @@ public class OrderController {
 //		}
 //	}
 
-//	//17 본인 주문 내역 조회 API
-//	@GetMapping("/{member-id}")
-//	public BaseResponse<List<MemberCartDTO>> getCart(@PathVariable("member-id") int memberId) {
-//
-//		try {
-//			List<MemberCartDTO> carts = cartProvider.findCart(memberId);
-//			return new BaseResponse<>(carts);
-//		} catch (BaseException exception) {
-//			return new BaseResponse<>(exception.getStatus());
-//		}
-//
-//	}
+	//17 본인 주문 내역 조회 API
+	@GetMapping("/{member-id}")
+	public BaseResponse<List<OrderRes>> getOrders(@PathVariable("member-id") int memberId) {
+
+		try {
+			// JWT 검증
+			int memberIdByJwt = jwtService.getUserIdx();
+			if (memberId != memberIdByJwt) {
+				return new BaseResponse<>(INVALID_USER_JWT);
+			}
+
+			List<OrderRes> orderRes = orderProvider.getOrderHistory(memberId);
+			return new BaseResponse<>(orderRes);
+		} catch (BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+
+	}
 
 
 }

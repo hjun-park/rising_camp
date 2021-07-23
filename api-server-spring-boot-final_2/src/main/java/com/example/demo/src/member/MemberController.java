@@ -2,12 +2,15 @@ package com.example.demo.src.member;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
-import com.example.demo.src.member.model.Member;
+import com.example.demo.src.member.model.MemberDTO;
+import com.example.demo.src.member.model.MemberLevelRes;
 import com.example.demo.src.member.model.MemberReq;
 import com.example.demo.src.member.model.MemberRes;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 import static com.example.demo.config.BaseResponseStatus.INVALID_USER_JWT;
 import static com.example.demo.config.BaseResponseStatus.REQUEST_ERROR;
@@ -30,16 +33,16 @@ public class MemberController {
 
 	//01
 	@PostMapping("/register")
-	public BaseResponse<MemberRes> postJoin(@RequestBody Member member) { // ****궁금증_2: 컨트롤러에서 DTO 객체로 받아도 되는지
+	public BaseResponse<MemberRes> postJoin(@RequestBody MemberDTO memberDTO) { // ****궁금증_2: 컨트롤러에서 DTO 객체로 받아도 되는지
 		// validation
-		if (Member.hasNullDataWhenJoin(member)) {
+		if (MemberDTO.hasNullDataWhenJoin(memberDTO)) {
 			return new BaseResponse<>(REQUEST_ERROR);
 		}
 
 		// 이메일 검증
 
 		try {
-			MemberRes memberRes = memberService.joinMember(member);
+			MemberRes memberRes = memberService.joinMember(memberDTO);
 			return new BaseResponse<>(memberRes);
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
@@ -123,12 +126,30 @@ public class MemberController {
 		}
 	}
 
+	//07 회원 정보 조회 API
+	@GetMapping("/{member-id}/info")
+	public BaseResponse<MemberLevelRes> getMemberInfo(@PathVariable("member-id") int memberId) {
+		try {
+			int memberIdByJwt = jwtService.getUserIdx();
+
+			if (memberId != memberIdByJwt) {
+				return new BaseResponse<>(INVALID_USER_JWT);
+			}
+
+			MemberLevelRes memberLevelRes = memberProvider.getMemberInfo(memberId);
+			return new BaseResponse<>(memberLevelRes);
+
+		} catch(BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+	}
+
 
 	//08 이메일 수신 동의 API
 	@PostMapping("/{member-id}/email")
 	public BaseResponse<Integer> postAcceptEmail(@PathVariable("member-id") int memberId,
-												 @RequestBody Member member) {
-		String emailStatus = member.getMailAccept();
+												 @RequestBody MemberDTO memberDTO) {
+		String emailStatus = memberDTO.getMailAccept();
 		try {
 			Integer result = memberService.modifyAcceptEmail(memberId, emailStatus);
 			return new BaseResponse<>(result);
@@ -141,8 +162,8 @@ public class MemberController {
 	@ResponseBody
 	@PostMapping("/{member-id}/sms")
 	public BaseResponse<Integer> postAcceptSms(@PathVariable("member-id") int memberId,
-											   @RequestBody Member member) {
-		String smsStatus = member.getSmsAccept();
+											   @RequestBody MemberDTO MemberDTO) {
+		String smsStatus = MemberDTO.getSmsAccept();
 		try {
 			Integer result = memberService.modifyAcceptSms(memberId, smsStatus);
 			return new BaseResponse<>(result);
