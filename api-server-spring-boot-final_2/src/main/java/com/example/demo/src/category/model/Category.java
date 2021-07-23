@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @ToString
-public class CategoryDTO {
+public class Category {
 	public enum Status {
 		Used, Deleted;
 	}

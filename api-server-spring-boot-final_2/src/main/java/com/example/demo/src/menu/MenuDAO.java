@@ -1,6 +1,6 @@
 package com.example.demo.src.menu;
 
-import com.example.demo.src.menu.model.MenuDTO;
+import com.example.demo.src.menu.model.Menu;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -26,7 +26,7 @@ public class MenuDAO {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
-	public MenuDTO findMenuById(int menuId) {
+	public Menu findMenuById(int menuId) {
 		String findQuery = "SELECT *" +
 			" FROM MENU" +
 			" WHERE id = ? " +
@@ -36,7 +36,7 @@ public class MenuDAO {
 
 
 		return this.jdbcTemplate.queryForObject(findQuery,
-			(rs, rowNum) -> new MenuDTO(
+			(rs, rowNum) -> new Menu(
 				rs.getInt("id"),
 				rs.getString("name"),
 				rs.getInt("price"),

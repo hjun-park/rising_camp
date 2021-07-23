@@ -5,7 +5,6 @@ import com.example.demo.config.BaseResponse;
 import com.example.demo.src.review.model.GetReviewDetailRes;
 import com.example.demo.src.review.model.GetReviewRes;
 import com.example.demo.src.review.model.PatchReviewReq;
-import com.example.demo.src.review.model.ReviewDTO;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

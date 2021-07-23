@@ -1,7 +1,6 @@
 package com.example.demo.src.store;
 
-import com.example.demo.src.store.model.StoreDTO;
-import com.example.demo.src.store.model.StoreInfoDTO;
+import com.example.demo.src.store.model.Store;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,26 +29,26 @@ public class StoreDAO {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
-	public StoreDTO findStoreById(int storeId) { //throws Exception {
-		log.info("1");
-		String findStoreQuery = "SELECT *" +
-			" FROM STORE" +
-			" WHERE id = ? " +
-			" AND status = 'Used'";
-		String findStoreParam = Integer.toString(storeId);
-		log.info("2");
-//		try {
-		log.info("3");
-		return this.jdbcTemplate.queryForObject(findStoreQuery,
-			getStoreDTORowMapper(),
-			findStoreParam);
-//		} catch(Exception exception) {
-//			exception.printStackTrace();
-//			throw new Exception();
-//		}
+	public Store findStoreById(int storeId) throws Exception {
+		log.info("##### TEST 4");
+		try {
+			String findStoreQuery = "SELECT *" +
+				" FROM STORE" +
+				" WHERE id = ? " +
+				" AND status = 'Used'";
+			String findStoreParam = Integer.toString(storeId);
+			log.info("##### TEST 5");
+
+			return this.jdbcTemplate.queryForObject(findStoreQuery,
+				getStoreDTORowMapper(),
+				findStoreParam);
+		} catch(Exception exception) {
+			exception.printStackTrace();
+			throw new Exception();
+		}
 	}
 
-	public Integer insertStore(StoreDTO storeDTO) throws Exception{
+	public Integer insertStore(Store store) throws Exception{
 		try {
 			String insertStoreQuery = "INSERT INTO STORE (storeCategoryName, name, notice, info," +
 				" paymentMethod, deliveryType, originInform, address, phoneNumber," +
@@ -58,25 +57,25 @@ public class StoreDAO {
 				" VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 			Object[] insertStoreParam = new Object[]{
-				storeDTO.getStoreCategoryName(),
-				storeDTO.getName(),
-				storeDTO.getNotice(),
-				storeDTO.getInfo(),
-				storeDTO.getPaymentMethod(),
-				storeDTO.getDeliveryType(),
-				storeDTO.getOriginInform(),
-				storeDTO.getAddress(),
-				storeDTO.getPhoneNumber(),
-				storeDTO.getHours(),
-				storeDTO.getAddressBuildingNum(),
-				storeDTO.getDistrictCode(),
-				storeDTO.getAddressDetail(),
-				storeDTO.getDeliveryTime(),
-				storeDTO.getClosedDay(),
-				storeDTO.getDeliveryArea(),
-				storeDTO.getMinOrderPrice(),
-				storeDTO.getTips(),
-				storeDTO.getStoreImageUrl()
+				store.getStoreCategoryName(),
+				store.getName(),
+				store.getNotice(),
+				store.getInfo(),
+				store.getPaymentMethod(),
+				store.getDeliveryType(),
+				store.getOriginInform(),
+				store.getAddress(),
+				store.getPhoneNumber(),
+				store.getHours(),
+				store.getAddressBuildingNum(),
+				store.getDistrictCode(),
+				store.getAddressDetail(),
+				store.getDeliveryTime(),
+				store.getClosedDay(),
+				store.getDeliveryArea(),
+				store.getMinOrderPrice(),
+				store.getTips(),
+				store.getStoreImageUrl()
 			};
 			this.jdbcTemplate.update(insertStoreQuery, insertStoreParam);
 		} catch (Exception exception) {
@@ -102,7 +101,7 @@ public class StoreDAO {
 		}
 	}
 
-	public List<StoreDTO> findStoreByCategoryName(String categoryName) throws Exception {
+	public List<Store> findStoreByCategoryName(String categoryName) throws Exception {
 		String findStoreQuery = "SELECT * FROM STORE" +
 			" WHERE storeCategoryName = ? AND status = 'Used'";
 		String findStoreParam = categoryName;
@@ -118,8 +117,8 @@ public class StoreDAO {
 	}
 
 	@NotNull
-	private RowMapper<StoreDTO> getStoreDTORowMapper() {
-		return (rs, rowNum) -> new StoreDTO(
+	private RowMapper<Store> getStoreDTORowMapper() {
+		return (rs, rowNum) -> new Store(
 			rs.getInt("id"),
 			rs.getString("storeCategoryName"),
 			rs.getString("name"),
@@ -140,7 +139,7 @@ public class StoreDAO {
 			rs.getInt("minOrderPrice"),
 			rs.getInt("tips"),
 			rs.getString("storeImageUrl"),
-			StoreDTO.Status.valueOf(rs.getString("status"))
+			Store.Status.valueOf(rs.getString("status"))
 		);
 	}
 

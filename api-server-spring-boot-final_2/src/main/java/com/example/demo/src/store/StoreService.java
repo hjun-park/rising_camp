@@ -1,7 +1,7 @@
 package com.example.demo.src.store;
 
 import com.example.demo.config.BaseException;
-import com.example.demo.src.store.model.StoreDTO;
+import com.example.demo.src.store.model.Store;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,11 +29,11 @@ public class StoreService {
 		this.jwtService = jwtService;
 	}
 
-	public Integer registerStore(StoreDTO storeDTO) throws BaseException {
+	public Integer registerStore(Store store) throws BaseException {
 		// 1. 카테고리 메뉴 이름 유효성 검사
 		try {
 			// 검증 되었다면 상품 등록
-			Integer resultId = storeDAO.insertStore(storeDTO);
+			Integer resultId = storeDAO.insertStore(store);
 
 			// STORE_HOURS를 통해서 파싱해서 넣어줘야함
 			return resultId;

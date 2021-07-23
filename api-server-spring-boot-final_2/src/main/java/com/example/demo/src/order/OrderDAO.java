@@ -1,9 +1,9 @@
 package com.example.demo.src.order;
 
 import com.example.demo.config.BaseException;
-import com.example.demo.src.order.model.OrderDTO;
-import com.example.demo.src.order.model.OrderItemDTO;
-import com.example.demo.src.order.model.OrderRequestDTO;
+import com.example.demo.src.order.model.Order;
+import com.example.demo.src.order.model.OrderItem;
+import com.example.demo.src.order.model.OrderRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,6 +14,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static com.example.demo.config.BaseResponseStatus.DATABASE_ERROR;
@@ -36,19 +37,19 @@ public class OrderDAO {
 	/*
 		CREATE ORDER
 	 */
-	public int createOrder(int memberId, OrderRequestDTO orderRequestDTO) throws Exception {
+	public int createOrder(int memberId, OrderRequest orderRequest) throws Exception {
 		try {
 			String orderQuery = "INSERT INTO ORDERS(storeId, memberId, addressBuildingNum," +
 				" addressDetail, tips, storeRequest, riderRequest)" +
 				" VALUES(?, ?, ?, ?, ?, ?, ?)";
 			Object[] orderParam = new Object[]{
-				orderRequestDTO.getStoreId(),
+				orderRequest.getStoreId(),
 				memberId,
-				orderRequestDTO.getAddressBuildingNum(),
-				orderRequestDTO.getAddressDetail(),
-				orderRequestDTO.getTips(),
-				orderRequestDTO.getStoreRequest(),
-				orderRequestDTO.getRiderRequest()
+				orderRequest.getAddressBuildingNum(),
+				orderRequest.getAddressDetail(),
+				orderRequest.getTips(),
+				orderRequest.getStoreRequest(),
+				orderRequest.getRiderRequest()
 			};
 
 			return this.jdbcTemplate.update(orderQuery, orderParam);
@@ -64,27 +65,27 @@ public class OrderDAO {
 	 */
 
 	// 멤버ID -> 주문내역 획득
-	public List<OrderDTO> findOrdersById(int memberId) throws BaseException {
-		log.info("12");
+	public List<Order> findOrdersById(int memberId) throws BaseException {
 		String findOrderQuery = "SELECT * FROM ORDERS " +
-			"WHERE id = ?";
+			"WHERE memberid = ?";
 		String findOrderParam = Integer.toString(memberId);
-		log.info("13");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
 		try {
 			log.info("14");
 			return this.jdbcTemplate.query(findOrderQuery,
-				(rs, rowNum) -> OrderDTO.builder()
+				(rs, rowNum) -> Order.builder()
 					.id(rs.getInt("id"))
 					.storeId(rs.getInt("storeId"))
 					.memberId(rs.getInt("memberId"))
 					.addressBuildingNum(rs.getString("addressBuildingNum"))
 					.addressDetail(rs.getString("addressDetail"))
 					.tips(rs.getInt("tips"))
-					.status(OrderDTO.Status.valueOf(rs.getString("status")))
+					.status(Order.Status.valueOf(rs.getString("status")))
 					.storeRequest(rs.getString("storeRequest"))
 					.riderRequest(rs.getString("riderRequest"))
 					.riderId(rs.getInt("riderId"))
-					.orderTime(LocalDateTime.parse(rs.getString("orderTime")))
+					.orderTime(LocalDateTime.parse(rs.getString("orderTime"), formatter))
 					.build()
 				,findOrderParam
 			);
@@ -96,18 +97,18 @@ public class OrderDAO {
 	}
 
 	// 주문ID -> 주문메뉴 리스트 획득
-	public List<OrderItemDTO> findItemsByOrderId(int orderId) { // throws BaseException {
+	public List<OrderItem> findItemsByOrderId(int orderId) { // throws BaseException {
 		String findItemsQuery = "SELECT * FROM ORDER_ITEM " +
 			"WHERE orderId = ? AND status = 'Used'";
 		String findItemsParam = Integer.toString(orderId);
 
 //		try {
 		return this.jdbcTemplate.query(findItemsQuery,
-			(rs, rowNum) -> OrderItemDTO.builder()
+			(rs, rowNum) -> OrderItem.builder()
 			.id(rs.getInt("id"))
 			.orderId(rs.getInt("orderId"))
 			.amount(rs.getInt("amount"))
-			.menuId(rs.getInt("memberId"))
+			.menuId(rs.getInt("menuId"))
 			.build()
 			, findItemsParam);
 

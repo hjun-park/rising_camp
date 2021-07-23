@@ -1,6 +1,6 @@
 package com.example.demo.src.category;
 
-import com.example.demo.src.category.model.CategoryDTO;
+import com.example.demo.src.category.model.Category;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,15 +21,15 @@ public class CategoryDAO {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
-	public List<CategoryDTO> getCategory() throws Exception{
+	public List<Category> getCategory() throws Exception{
 		String getCategoryQuery = "SELECT * FROM STORE_CATEGORY WHERE status = 'Used'";
 
 		try {
 			return this.jdbcTemplate.query(getCategoryQuery,
-				(rs, rowNum) -> new CategoryDTO(
+				(rs, rowNum) -> new Category(
 					rs.getString("name"),
 					rs.getString("imageUrl"),
-					CategoryDTO.Status.valueOf(rs.getString("status"))
+					Category.Status.valueOf(rs.getString("status"))
 				));
 		} catch(Exception exception) {
 			exception.printStackTrace();
@@ -37,13 +37,13 @@ public class CategoryDAO {
 		}
 	}
 
-	public Integer insertCategory(CategoryDTO categoryDTO) throws Exception {
+	public Integer insertCategory(Category category) throws Exception {
 		try {
 			String insertCategoryQuery = "INSERT INTO STORE_CATEGORY (name, imageUrl)" +
 				" VALUES (?, ?)";
 			Object[] insertCategoryParam = new Object[]{
-				categoryDTO.getName(),
-				categoryDTO.getImageUrl()
+				category.getName(),
+				category.getImageUrl()
 			};
 
 			this.jdbcTemplate.update(insertCategoryQuery, insertCategoryParam);

@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 @Getter @Setter @ToString
 @AllArgsConstructor
-public class StoreDTO {
+public class Store {
 	public enum Status {
 		Ready, Used, Deleted;
 	}

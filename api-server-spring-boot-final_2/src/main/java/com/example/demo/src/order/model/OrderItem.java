@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class OrderItemDTO {
+public class OrderItem {
 	private enum Status {
 		Used, Deleted;
 	}
@@ -18,7 +18,7 @@ public class OrderItemDTO {
 	private Status status;
 
 	@Builder
-	public OrderItemDTO(int id, int orderId, int amount, int menuId) {
+	public OrderItem(int id, int orderId, int amount, int menuId) {
 		this.id = id;
 		this.orderId = orderId;
 		this.amount = amount;

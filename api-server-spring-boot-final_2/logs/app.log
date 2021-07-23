@@ -81,3 +81,174 @@
 18:10:11.447 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:72] [Message:13]- 13
 18:10:11.447 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:74] [Message:14]- 14
 18:10:11.490 INFO  [File:OrderProvider.java] [Func:getOrderHistory] [Line:43] [Message:15]- 15
+18:22:06.834 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 4152 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 4152 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+18:22:06.837 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+18:22:11.928 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.658 seconds (JVM running for 6.06)]- Started DemoApplication in 5.658 seconds (JVM running for 6.06)
+18:22:16.902 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:68] [Message:12]- 12
+18:22:16.903 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:72] [Message:13]- 13
+18:22:16.903 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:74] [Message:14]- 14
+18:22:18.924 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:68] [Message:12]- 12
+18:22:18.924 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:72] [Message:13]- 13
+18:22:18.924 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:74] [Message:14]- 14
+18:28:12.096 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 16592 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 16592 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+18:28:12.100 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+18:28:16.582 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.014 seconds (JVM running for 5.464)]- Started DemoApplication in 5.014 seconds (JVM running for 5.464)
+18:28:21.060 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:68] [Message:12]- 12
+18:28:21.061 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:72] [Message:13]- 13
+18:28:21.061 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:74] [Message:14]- 14
+18:59:50.953 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 11740 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 11740 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+18:59:50.959 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+18:59:56.192 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.84 seconds (JVM running for 6.37)]- Started DemoApplication in 5.84 seconds (JVM running for 6.37)
+19:00:11.475 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:68] [Message:12]- 12
+19:00:11.476 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:72] [Message:13]- 13
+19:00:11.476 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:74] [Message:14]- 14
+19:02:43.738 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 900 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 900 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+19:02:43.742 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+19:02:48.105 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 4.906 seconds (JVM running for 5.318)]- Started DemoApplication in 4.906 seconds (JVM running for 5.318)
+19:03:32.002 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:68] [Message:12]- 12
+19:03:32.003 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:72] [Message:13]- 13
+19:03:32.003 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:74] [Message:14]- 14
+19:04:34.481 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 21684 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 21684 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+19:04:34.484 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+19:04:39.351 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.419 seconds (JVM running for 5.827)]- Started DemoApplication in 5.419 seconds (JVM running for 5.827)
+19:04:44.031 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:68] [Message:12]- 12
+19:04:44.033 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:72] [Message:13]- 13
+19:04:44.033 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:74] [Message:14]- 14
+19:08:36.271 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 21556 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 21556 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+19:08:36.275 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+19:08:40.843 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.098 seconds (JVM running for 5.513)]- Started DemoApplication in 5.098 seconds (JVM running for 5.513)
+19:08:44.151 INFO  [File:CartProvider.java] [Func:lambda$findCart$0] [Line:45] [Message:######## TEST 01]- ######## TEST 01
+19:08:44.172 INFO  [File:CartProvider.java] [Func:lambda$findCart$0] [Line:45] [Message:######## TEST 01]- ######## TEST 01
+19:08:44.192 INFO  [File:CartProvider.java] [Func:lambda$findCart$0] [Line:45] [Message:######## TEST 01]- ######## TEST 01
+19:08:44.210 INFO  [File:CartProvider.java] [Func:lambda$findCart$0] [Line:45] [Message:######## TEST 01]- ######## TEST 01
+19:09:21.574 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 21876 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 21876 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+19:09:21.578 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+19:09:26.197 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.152 seconds (JVM running for 5.553)]- Started DemoApplication in 5.152 seconds (JVM running for 5.553)
+19:09:44.940 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 18256 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 18256 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+19:09:44.944 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+19:09:50.145 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.848 seconds (JVM running for 6.376)]- Started DemoApplication in 5.848 seconds (JVM running for 6.376)
+19:10:00.906 INFO  [File:MemberProvider.java] [Func:getMemberInfo] [Line:38] [Message:##### 0]- ##### 0
+19:10:00.972 INFO  [File:MemberProvider.java] [Func:getMemberInfo] [Line:40] [Message:##### 1]- ##### 1
+19:10:00.991 INFO  [File:MemberProvider.java] [Func:getMemberInfo] [Line:43] [Message:##### 2]- ##### 2
+19:10:29.499 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:68] [Message:12]- 12
+19:10:29.500 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:72] [Message:13]- 13
+19:10:29.500 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:74] [Message:14]- 14
+19:10:29.517 INFO  [File:OrderProvider.java] [Func:getOrderHistory] [Line:47] [Message:##### TEST 0]- ##### TEST 0
+19:11:14.648 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 21880 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 21880 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+19:11:14.652 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+19:11:19.856 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.766 seconds (JVM running for 6.186)]- Started DemoApplication in 5.766 seconds (JVM running for 6.186)
+19:11:54.838 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:68] [Message:12]- 12
+19:11:54.840 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:72] [Message:13]- 13
+19:11:54.840 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:74] [Message:14]- 14
+19:11:54.878 INFO  [File:OrderProvider.java] [Func:getOrderHistory] [Line:47] [Message:##### TEST 0]- ##### TEST 0
+19:17:57.430 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 7244 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 7244 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+19:17:57.434 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+19:18:02.564 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.74 seconds (JVM running for 6.19)]- Started DemoApplication in 5.74 seconds (JVM running for 6.19)
+19:18:56.565 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:68] [Message:12]- 12
+19:18:56.566 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:72] [Message:13]- 13
+19:18:56.566 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:74] [Message:14]- 14
+19:18:56.607 INFO  [File:OrderProvider.java] [Func:getOrderHistory] [Line:47] [Message:##### TEST 0]- ##### TEST 0
+19:20:45.452 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 11772 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 11772 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+19:20:45.456 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+19:20:50.067 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.211 seconds (JVM running for 5.625)]- Started DemoApplication in 5.211 seconds (JVM running for 5.625)
+19:20:53.881 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:68] [Message:12]- 12
+19:20:53.881 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:72] [Message:13]- 13
+19:20:53.882 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:74] [Message:14]- 14
+19:26:46.213 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 22616 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 22616 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+19:26:46.218 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+19:26:50.635 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.003 seconds (JVM running for 5.437)]- Started DemoApplication in 5.003 seconds (JVM running for 5.437)
+19:26:59.575 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:74] [Message:14]- 14
+19:28:31.299 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 15464 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 15464 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+19:28:31.302 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+19:28:35.890 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.122 seconds (JVM running for 5.542)]- Started DemoApplication in 5.122 seconds (JVM running for 5.542)
+19:28:41.526 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:75] [Message:14]- 14
+19:30:54.470 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 22048 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 22048 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+19:30:54.474 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+19:30:59.833 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 6.049 seconds (JVM running for 6.569)]- Started DemoApplication in 6.049 seconds (JVM running for 6.569)
+19:31:03.704 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:75] [Message:14]- 14
+19:31:37.392 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 9788 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 9788 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+19:31:37.397 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+19:31:42.440 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.602 seconds (JVM running for 6.036)]- Started DemoApplication in 5.602 seconds (JVM running for 6.036)
+19:31:45.948 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:75] [Message:14]- 14
+19:31:45.992 INFO  [File:OrderProvider.java] [Func:getOrderHistory] [Line:47] [Message:##### TEST 0]- ##### TEST 0
+19:31:45.993 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:50] [Message:##### TEST 1]- ##### TEST 1
+19:31:45.994 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:52] [Message:##### TEST 2]- ##### TEST 2
+19:31:46.005 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:34] [Message:##### TEST 4]- ##### TEST 4
+19:31:46.005 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:41] [Message:##### TEST 5]- ##### TEST 5
+19:31:46.025 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:55] [Message:##### TEST 3]- ##### TEST 3
+19:32:41.999 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 3840 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 3840 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+19:32:42.004 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+19:32:47.022 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.574 seconds (JVM running for 5.984)]- Started DemoApplication in 5.574 seconds (JVM running for 5.984)
+19:32:49.457 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:75] [Message:14]- 14
+19:32:49.494 INFO  [File:OrderProvider.java] [Func:getOrderHistory] [Line:47] [Message:##### TEST 0]- ##### TEST 0
+19:32:49.495 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:50] [Message:##### TEST 1]- ##### TEST 1
+19:32:49.495 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:52] [Message:##### TEST 2]- ##### TEST 2
+19:32:49.503 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:34] [Message:##### TEST 4]- ##### TEST 4
+19:32:49.504 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:41] [Message:##### TEST 5]- ##### TEST 5
+19:32:49.521 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:55] [Message:##### TEST 3]- ##### TEST 3
+19:32:49.560 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:50] [Message:##### TEST 1]- ##### TEST 1
+19:32:49.560 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:52] [Message:##### TEST 2]- ##### TEST 2
+19:32:49.566 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:34] [Message:##### TEST 4]- ##### TEST 4
+19:32:49.566 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:41] [Message:##### TEST 5]- ##### TEST 5
+19:32:49.580 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:55] [Message:##### TEST 3]- ##### TEST 3
+19:33:37.459 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 1616 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 1616 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+19:33:37.462 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+19:33:41.943 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.03 seconds (JVM running for 5.506)]- Started DemoApplication in 5.03 seconds (JVM running for 5.506)
+19:33:46.468 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:75] [Message:14]- 14
+19:33:46.506 INFO  [File:OrderProvider.java] [Func:getOrderHistory] [Line:47] [Message:##### TEST 0]- ##### TEST 0
+19:33:46.507 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:50] [Message:##### TEST 1]- ##### TEST 1
+19:33:46.507 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:52] [Message:##### TEST 2]- ##### TEST 2
+19:33:46.516 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:34] [Message:##### TEST 4]- ##### TEST 4
+19:33:46.517 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:41] [Message:##### TEST 5]- ##### TEST 5
+19:33:46.536 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:55] [Message:##### TEST 3]- ##### TEST 3
+19:33:46.555 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:61] [Message:[com.example.demo.src.order.model.OrderItem@677b5472, com.example.demo.src.order.model.OrderItem@385b075a]]- [com.example.demo.src.order.model.OrderItem@677b5472, com.example.demo.src.order.model.OrderItem@385b075a]
+19:33:46.579 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:50] [Message:##### TEST 1]- ##### TEST 1
+19:33:46.579 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:52] [Message:##### TEST 2]- ##### TEST 2
+19:33:46.586 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:34] [Message:##### TEST 4]- ##### TEST 4
+19:33:46.587 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:41] [Message:##### TEST 5]- ##### TEST 5
+19:33:46.610 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:55] [Message:##### TEST 3]- ##### TEST 3
+19:33:46.631 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:61] [Message:[]]- []
+19:36:48.850 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 15264 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 15264 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+19:36:48.854 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+19:36:53.898 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.742 seconds (JVM running for 6.471)]- Started DemoApplication in 5.742 seconds (JVM running for 6.471)
+19:37:26.414 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:75] [Message:14]- 14
+19:37:26.469 INFO  [File:OrderProvider.java] [Func:getOrderHistory] [Line:47] [Message:##### TEST 0]- ##### TEST 0
+19:37:26.470 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:50] [Message:##### TEST 1]- ##### TEST 1
+19:37:26.471 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:52] [Message:##### TEST 2]- ##### TEST 2
+19:37:26.480 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:34] [Message:##### TEST 4]- ##### TEST 4
+19:37:26.481 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:41] [Message:##### TEST 5]- ##### TEST 5
+19:37:26.501 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:55] [Message:##### TEST 3]- ##### TEST 3
+19:37:26.523 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:62] [Message:[com.example.demo.src.order.model.OrderItem@739aea10, com.example.demo.src.order.model.OrderItem@68d2794c]]- [com.example.demo.src.order.model.OrderItem@739aea10, com.example.demo.src.order.model.OrderItem@68d2794c]
+19:37:26.546 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:50] [Message:##### TEST 1]- ##### TEST 1
+19:37:26.547 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:52] [Message:##### TEST 2]- ##### TEST 2
+19:37:26.552 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:34] [Message:##### TEST 4]- ##### TEST 4
+19:37:26.553 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:41] [Message:##### TEST 5]- ##### TEST 5
+19:37:26.571 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:55] [Message:##### TEST 3]- ##### TEST 3
+19:37:26.591 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:62] [Message:[]]- []
+19:38:40.250 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 6444 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 6444 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+19:38:40.253 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+19:38:44.758 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.054 seconds (JVM running for 5.482)]- Started DemoApplication in 5.054 seconds (JVM running for 5.482)
+19:38:48.213 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:75] [Message:14]- 14
+19:38:48.255 INFO  [File:OrderProvider.java] [Func:getOrderHistory] [Line:47] [Message:##### TEST 0]- ##### TEST 0
+19:38:48.255 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:50] [Message:##### TEST 1]- ##### TEST 1
+19:38:48.256 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:52] [Message:##### TEST 2]- ##### TEST 2
+19:38:48.267 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:34] [Message:##### TEST 4]- ##### TEST 4
+19:38:48.267 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:41] [Message:##### TEST 5]- ##### TEST 5
+19:38:48.294 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:55] [Message:##### TEST 3]- ##### TEST 3
+19:38:48.295 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:60] [Message:orderID : 1]- orderID : 1
+19:38:48.315 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:62] [Message:[com.example.demo.src.order.model.OrderItem@15c9be90, com.example.demo.src.order.model.OrderItem@e61dc1c]]- [com.example.demo.src.order.model.OrderItem@15c9be90, com.example.demo.src.order.model.OrderItem@e61dc1c]
+19:38:48.343 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:50] [Message:##### TEST 1]- ##### TEST 1
+19:38:48.343 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:52] [Message:##### TEST 2]- ##### TEST 2
+19:38:48.348 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:34] [Message:##### TEST 4]- ##### TEST 4
+19:38:48.349 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:41] [Message:##### TEST 5]- ##### TEST 5
+19:38:48.365 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:55] [Message:##### TEST 3]- ##### TEST 3
+19:38:48.365 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:60] [Message:orderID : 3]- orderID : 3
+19:38:48.387 INFO  [File:OrderProvider.java] [Func:lambda$getOrderHistory$0] [Line:62] [Message:[]]- []
+19:54:07.806 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 8164 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 8164 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+19:54:07.810 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+19:54:12.749 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 5.536 seconds (JVM running for 5.96)]- Started DemoApplication in 5.536 seconds (JVM running for 5.96)
+19:54:37.323 INFO  [File:OrderDAO.java] [Func:findOrdersById] [Line:75] [Message:14]- 14
+19:54:37.372 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:34] [Message:##### TEST 4]- ##### TEST 4
+19:54:37.372 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:41] [Message:##### TEST 5]- ##### TEST 5
+19:54:37.432 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:34] [Message:##### TEST 4]- ##### TEST 4
+19:54:37.432 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:41] [Message:##### TEST 5]- ##### TEST 5

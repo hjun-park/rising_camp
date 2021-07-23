@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @AllArgsConstructor
-public class ReviewDTO {
+public class Review {
 	public enum Status {
 		Used, Deleted;
 	}

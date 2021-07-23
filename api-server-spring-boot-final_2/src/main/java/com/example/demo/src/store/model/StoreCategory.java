@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @AllArgsConstructor
-public class StoreCategoryDTO {
+public class StoreCategory {
 
 	private String storeName;
 	private String storeImageUrl;
