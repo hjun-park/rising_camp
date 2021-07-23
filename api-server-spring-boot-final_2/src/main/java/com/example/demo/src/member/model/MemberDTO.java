@@ -10,7 +10,7 @@ import static lombok.Lombok.checkNotNull;
 @Getter
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Member {
+public class MemberDTO {
 	public enum Status {
 		Joined, Deleted, Suspend;
 	}
@@ -32,13 +32,13 @@ public class Member {
 	private double latitude;
 	private double longitude;
 
-	private int grade;
+	private String grade;
 	private Status status;
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
 
 	@Builder
-	public Member(int id, String email, String password, String name, String phoneNumber, String profileImageUrl, String mailAccept, String smsAccept, String birthDate, String addressBuildingNum, String districtCode, String addressDetail, double latitude, double longitude, int grade) {
+	public MemberDTO(int id, String email, String password, String name, String phoneNumber, String profileImageUrl, String mailAccept, String smsAccept, String birthDate, String addressBuildingNum, String districtCode, String addressDetail, double latitude, double longitude, String grade) {
 		this.id = id;
 		this.email = checkNotNull(email, "email");
 		this.password = checkNotNull(password, "password");
@@ -60,7 +60,7 @@ public class Member {
 		this.password = checkNotNull(password, "password");
 	}
 
-	public static boolean hasNullDataWhenJoin(Member m) {
+	public static boolean hasNullDataWhenJoin(MemberDTO m) {
 		return m.getEmail() == null || m.getPassword() == null ||
 			m.getName() == null || m.getPhoneNumber() == null;
 	}

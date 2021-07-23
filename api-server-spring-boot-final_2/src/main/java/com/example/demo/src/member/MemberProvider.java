@@ -3,15 +3,15 @@ package com.example.demo.src.member;
 import com.example.demo.config.secret.Secret;
 import com.example.demo.src.cart.CartDAO;
 import com.example.demo.config.BaseException;
-import com.example.demo.src.member.model.MemberReq;
-import com.example.demo.src.member.model.MemberRes;
+import com.example.demo.src.member.model.*;
 import com.example.demo.src.menu.MenuDAO;
-import com.example.demo.src.member.model.Member;
 import com.example.demo.utils.AES128;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 import static com.example.demo.config.BaseResponseStatus.*;
 
@@ -19,16 +19,9 @@ import static com.example.demo.config.BaseResponseStatus.*;
 @Slf4j
 public class MemberProvider {
 
-	@Autowired
 	private final MemberDAO memberDAO;
-
-	@Autowired
 	private final MenuDAO menuDAO;
-
-	@Autowired
 	private final CartDAO cartDAO;
-
-	@Autowired
 	private final JwtService jwtService;
 
 	public MemberProvider(MemberDAO memberDAO, MenuDAO menuDAO, CartDAO cartDAO, JwtService jwtService) {
@@ -37,6 +30,24 @@ public class MemberProvider {
 		this.cartDAO = cartDAO;
 		this.jwtService = jwtService;
 	}
+
+	// 사용자 멤버 등급 출력 - jwt 검증 필요
+	public MemberLevelRes getMemberInfo(int memberId) throws BaseException {
+
+		// 1. 멤버 ID를 이용하여 이름 가져오기
+		log.info("##### 0");
+		MemberDTO memberDTO = memberDAO.findMemberById(memberId);
+		log.info("##### 1");
+		// 2. 멤버 ID를 이용하여 등급 이름 가져오기
+		MemberLevelDTO memberLevelDTO = memberDAO.findLevelById(memberId);
+		log.info("##### 2");
+		// 3. 조합하여 내보내기
+		return MemberLevelRes.builder()
+			.name(memberDTO.getName())
+			.membershipName(memberLevelDTO.getMembershipName())
+			.build();
+	}
+
 
 	public Integer checkMember(String email, String phoneNumber) {
 		return memberDAO.isDuplicatedMember(email, phoneNumber);
@@ -48,19 +59,19 @@ public class MemberProvider {
 
 	public MemberRes login(MemberReq memberReq) throws BaseException {
 		// 정보 받아오기
-		Member member = memberDAO.findMemberByEmail(memberReq);
+		MemberDTO memberDTO = memberDAO.findMemberBy("email", memberReq);
 
 		String password;
 		try { // 복호화
-			password = new AES128(Secret.USER_INFO_PASSWORD_KEY).decrypt(member.getPassword());
-		} catch(Exception ignored) {
+			password = new AES128(Secret.USER_INFO_PASSWORD_KEY).decrypt(memberDTO.getPassword());
+		} catch (Exception ignored) {
 			throw new BaseException(PASSWORD_DECRYPTION_ERROR);
 		}
 
 		// ****궁금증_1: 서비스에서 반환할 때 VO 객체로 반환해야하나? Integer로 반환하면 안 되나
 		// 복호화 된 패스워드 확인
-		if(memberReq.getPassword().equals(password)) {
-			int memberId = member.getId();
+		if (memberReq.getPassword().equals(password)) {
+			int memberId = memberDTO.getId();
 			String myJwt = jwtService.createJwt(memberId);
 			return MemberRes.builder()
 				.jwt(myJwt)

@@ -1,10 +1,17 @@
 package com.example.demo.src.order.model;
 
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrderDTO {
 	public enum Status {
-		OrderComplete, DeliveryComplete, Cancel;
+		Order, Delivery, Cancel, Complete;
 	}
 
 	private int id;
@@ -18,4 +25,19 @@ public class OrderDTO {
 	private String riderRequest;
 	private int riderId;
 	private LocalDateTime orderTime;
+
+	@Builder
+	public OrderDTO(int id, int storeId, int memberId, String addressBuildingNum, String addressDetail, int tips, Status status, String storeRequest, String riderRequest, int riderId, LocalDateTime orderTime) {
+		this.id = id;
+		this.storeId = storeId;
+		this.memberId = memberId;
+		this.addressBuildingNum = addressBuildingNum;
+		this.addressDetail = addressDetail;
+		this.tips = tips;
+		this.status = status;
+		this.storeRequest = storeRequest;
+		this.riderRequest = riderRequest;
+		this.riderId = riderId;
+		this.orderTime = orderTime;
+	}
 }
