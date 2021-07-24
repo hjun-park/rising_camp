@@ -252,3 +252,6 @@
 19:54:37.372 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:41] [Message:##### TEST 5]- ##### TEST 5
 19:54:37.432 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:34] [Message:##### TEST 4]- ##### TEST 4
 19:54:37.432 INFO  [File:StoreDAO.java] [Func:findStoreById] [Line:41] [Message:##### TEST 5]- ##### TEST 5
+22:09:22.598 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 20364 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)]- Starting DemoApplication using Java 11.0.11 on DESKTOP-5LEUD1T with PID 20364 (C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2\build\classes\java\main started by hjun in C:\Users\hjun\Code\rising_camp\api-server-spring-boot-final_2)
+22:09:22.603 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+22:09:28.517 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 6.533 seconds (JVM running for 7.032)]- Started DemoApplication in 6.533 seconds (JVM running for 7.032)
