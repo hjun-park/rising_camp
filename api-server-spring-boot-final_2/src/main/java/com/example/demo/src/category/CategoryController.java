@@ -84,8 +84,6 @@ public class CategoryController {
 		} catch (BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
 		}
-
-
 	}
 
 
