@@ -21,12 +21,25 @@ public class ClientDAO {
 	private EntityManager em;
 
 	@Transactional
-	public void createUser(Client client) {
+	public void createClient(Client client) {
 		em.persist();
 	}
 
+	public void findClientById(int clientId) {
+
+	}
+
 	@Transactional
-	
+	public void updateClient(Client client) {
+
+	}
+
+	@Transactional
+	public void deleteClient(int clientId) {
+
+	}
+
+
 
 
 
