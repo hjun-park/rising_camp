@@ -1,5 +1,6 @@
 package com.example.demo.src.order.model;
 
+import com.example.demo.src.client.model.Client;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +23,9 @@ public class Address {
 	private Double latitude;
 	private String addressName;
 	private int zipcode;
+
+//	@OneToOne(mappedBy = "addressBuildingNum")
+//	private Client client = new Client();
 
 	public Address() {
 	}

@@ -1,7 +1,9 @@
 package com.example.demo.src.client.model;
 
+import com.example.demo.src.location.model.District;
 import com.example.demo.src.order.model.Address;
 import lombok.Getter;
+import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -38,12 +40,6 @@ public class Client {
 	@Column(nullable = false)
 	private String smsAccept;
 
-	@Column(nullable = false)
-	private String addressBuildingNum;
-
-	@Column(nullable = false)
-	private String districtCode;
-
 	private String addressDetail;
 
 	@Column(nullable = false)
@@ -55,18 +51,24 @@ public class Client {
 	private Double latitude;
 	private Double longitude;
 
-	@Temporal(TemporalType.TIMESTAMP)
+//	@Temporal(TemporalType.TIMESTAMP)
 	private LocalDateTime createdAt;
 
-	@Temporal(TemporalType.TIMESTAMP)
+//	@Temporal(TemporalType.TIMESTAMP)
 	private LocalDateTime updatedAt;
 
 	@Enumerated(EnumType.STRING)
 	private MemberStatus status;
 
+	// 양방향 연관관계
 	@OneToOne
 	@JoinColumn(name = "buildingNum")
-	private Address buildingNum;
+	private Address addressBuildingNum;
+
+	// 양방향 연관관계
+	@ManyToOne
+	@JoinColumn(name = "code")
+	private District districtCode;
 
 	// DB랑 신경 없는 값
 	@Transient
