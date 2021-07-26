@@ -9,15 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/clients")
 public class ClientController {
 
-	@RequestMapping("/")
-	public void getClientMain() {
-
-	}
-
-	@RequestMapping
-	public
-
-
+//	@RequestMapping("/")
+//	public void getClientMain() {
+//
+//	}
 
 
 }

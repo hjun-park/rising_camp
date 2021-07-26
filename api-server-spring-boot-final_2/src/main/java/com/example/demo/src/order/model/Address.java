@@ -5,10 +5,19 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 @AllArgsConstructor
 @Getter @Setter @ToString
+@Entity
 public class Address {
-	private int buildingNum;
+
+	@Id
+	private String buildingNum;
+
 	private Double longitude;
 	private Double latitude;
 	private String addressName;
