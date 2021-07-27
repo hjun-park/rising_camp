@@ -1,19 +1,26 @@
 package com.example.demo.src.order.model;
 
+import com.example.demo.src.client.model.Client;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 @Getter
+@Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
 	public enum Status {
 		Order, Delivery, Cancel, Complete;
 	}
 
+	@Id
 	private int id;
 	private int storeId;
 	private int memberId;
@@ -25,6 +32,11 @@ public class Order {
 	private String riderRequest;
 	private int riderId;
 	private LocalDateTime orderTime;
+
+	@ManyToOne
+	@JoinColumn(name = "id")
+	private Client client;
+
 
 	@Builder
 	public Order(int id, int storeId, int memberId, String addressBuildingNum, String addressDetail, int tips, Status status, String storeRequest, String riderRequest, int riderId, LocalDateTime orderTime) {

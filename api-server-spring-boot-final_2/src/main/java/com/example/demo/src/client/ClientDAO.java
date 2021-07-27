@@ -1,7 +1,10 @@
 package com.example.demo.src.client;
 
 
+import com.example.demo.config.BaseException;
+import com.example.demo.config.BaseResponseStatus;
 import com.example.demo.src.client.model.Client;
+import com.example.demo.src.client.model.ClientReq;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
@@ -12,6 +15,8 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
+import static com.example.demo.config.BaseResponseStatus.*;
+
 @Repository
 @Slf4j
 public class ClientDAO {
@@ -21,9 +26,18 @@ public class ClientDAO {
 
 //	EntityTransaction tx = em.getTransaction();
 
-	public void createClient(Client client) { ;
-		if (client.getId() != null) {
+	public Long createClient(Client client) throws BaseException {
+		log.info(String.valueOf(client.getId()));
+		log.info(client.getAddressBuildingNum());
+		log.info(client.getEmail());
+
+		try {
 			em.persist(client);
+			em.flush();
+			return client.getId();
+		} catch (Exception exception)  {
+			exception.printStackTrace();
+			throw new BaseException(DATABASE_ERROR);
 		}
 
 	}
@@ -47,16 +61,21 @@ public class ClientDAO {
 	}
 
 	//이름 수정
-	public void updateClient(Client client) {
+	public Long updateClient(Client client) {
 		Client findClient = em.find(Client.class, client.getId());
 		findClient.setName(client.getName());
+
+		return client.getId();
 	}
 
 
 	//삭제
-	public void deleteClient(int clientId) {
+	public Long deleteClient(Long clientId) throws BaseException {
 		Client findClient = em.find(Client.class, clientId);
 		em.remove(findClient);
+
+		return clientId;
+
 	}
 
 

@@ -25,7 +25,7 @@ public class District {
 	// mapped 붙여진 건 연관관계 주인이 아니기 때문에
 	// 읽기만 된다, 외래키 수정은 client domain에서 가능
 	// 연관관계 주인 := 외래키가 있는 곳
-	@OneToMany(mappedBy = "districtCode")
+	@OneToMany(mappedBy = "district")
 	private List<Client> clients = new ArrayList<>();
 
 	private String region1Depth;
