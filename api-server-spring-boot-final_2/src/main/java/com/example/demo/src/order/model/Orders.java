@@ -6,16 +6,14 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Order {
+@Table(name = "ORDERS")
+public class Orders {
 	public enum Status {
 		Order, Delivery, Cancel, Complete;
 	}
@@ -33,13 +31,14 @@ public class Order {
 	private int riderId;
 	private LocalDateTime orderTime;
 
+	// 연관관계 주인
 	@ManyToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "client_id") // 클라이언트 엔티티의 id를 참조한다는 뜻
 	private Client client;
 
 
 	@Builder
-	public Order(int id, int storeId, int memberId, String addressBuildingNum, String addressDetail, int tips, Status status, String storeRequest, String riderRequest, int riderId, LocalDateTime orderTime) {
+	public Orders(int id, int storeId, int memberId, String addressBuildingNum, String addressDetail, int tips, Status status, String storeRequest, String riderRequest, int riderId, LocalDateTime orderTime) {
 		this.id = id;
 		this.storeId = storeId;
 		this.memberId = memberId;

@@ -19,12 +19,16 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
       hibernate:
         format_sql: true
         show_sql: true
-    database: mysql
+
 
 logging:
   level:
     org.hibernate.SQL: debug
+    org.hibernate.type: trace # 데이터 추적

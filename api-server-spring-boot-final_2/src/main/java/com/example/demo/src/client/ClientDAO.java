@@ -19,6 +19,7 @@ import static com.example.demo.config.BaseResponseStatus.*;
 
 @Repository
 @Slf4j
+@Transactional(readOnly = true)
 public class ClientDAO {
 
 	@PersistenceContext
@@ -26,10 +27,11 @@ public class ClientDAO {
 
 //	EntityTransaction tx = em.getTransaction();
 
+	@Transactional
 	public Long createClient(Client client) throws BaseException {
 		log.info(String.valueOf(client.getId()));
-		log.info(client.getAddressBuildingNum());
 		log.info(client.getEmail());
+		log.info("======================");
 
 		try {
 			em.persist(client);
@@ -61,6 +63,7 @@ public class ClientDAO {
 	}
 
 	//이름 수정
+	@Transactional
 	public Long updateClient(Client client) {
 		Client findClient = em.find(Client.class, client.getId());
 		findClient.setName(client.getName());
@@ -70,6 +73,7 @@ public class ClientDAO {
 
 
 	//삭제
+	@Transactional
 	public Long deleteClient(Long clientId) throws BaseException {
 		Client findClient = em.find(Client.class, clientId);
 		em.remove(findClient);

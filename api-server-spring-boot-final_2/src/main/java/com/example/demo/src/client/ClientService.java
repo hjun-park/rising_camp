@@ -13,7 +13,6 @@ import java.util.List;
 
 @Service
 @Slf4j
-@Transactional(readOnly = true)
 public class ClientService {
 
 	private final ClientDAO clientDAO;
@@ -25,7 +24,6 @@ public class ClientService {
 	}
 
 	// 유저 생성
-	@Transactional
 	public Long join(PostClientReq postClientReq) throws BaseException {
 		/*
 			private String email;
@@ -72,6 +70,7 @@ public class ClientService {
 		return clientDAO.updateClient(client);
 	}
 
+	// 유저 삭제
 	public Long removeClient(Long clientId) throws BaseException {
 
 		return clientDAO.deleteClient(clientId);

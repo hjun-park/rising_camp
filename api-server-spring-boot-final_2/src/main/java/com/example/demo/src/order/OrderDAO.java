@@ -1,7 +1,7 @@
 package com.example.demo.src.order;
 
 import com.example.demo.config.BaseException;
-import com.example.demo.src.order.model.Order;
+import com.example.demo.src.order.model.Orders;
 import com.example.demo.src.order.model.OrderItem;
 import com.example.demo.src.order.model.OrderRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -65,7 +65,7 @@ public class OrderDAO {
 	 */
 
 	// 멤버ID -> 주문내역 획득
-	public List<Order> findOrdersById(int memberId) throws BaseException {
+	public List<Orders> findOrdersById(int memberId) throws BaseException {
 		String findOrderQuery = "SELECT * FROM ORDERS " +
 			"WHERE memberid = ?";
 		String findOrderParam = Integer.toString(memberId);
@@ -74,14 +74,14 @@ public class OrderDAO {
 		try {
 			log.info("14");
 			return this.jdbcTemplate.query(findOrderQuery,
-				(rs, rowNum) -> Order.builder()
+				(rs, rowNum) -> Orders.builder()
 					.id(rs.getInt("id"))
 					.storeId(rs.getInt("storeId"))
 					.memberId(rs.getInt("memberId"))
 					.addressBuildingNum(rs.getString("addressBuildingNum"))
 					.addressDetail(rs.getString("addressDetail"))
 					.tips(rs.getInt("tips"))
-					.status(Order.Status.valueOf(rs.getString("status")))
+					.status(Orders.Status.valueOf(rs.getString("status")))
 					.storeRequest(rs.getString("storeRequest"))
 					.riderRequest(rs.getString("riderRequest"))
 					.riderId(rs.getInt("riderId"))

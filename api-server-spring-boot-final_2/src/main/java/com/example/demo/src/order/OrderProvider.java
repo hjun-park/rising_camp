@@ -3,7 +3,7 @@ package com.example.demo.src.order;
 import com.example.demo.config.BaseException;
 import com.example.demo.src.menu.MenuDAO;
 import com.example.demo.src.menu.model.Menu;
-import com.example.demo.src.order.model.Order;
+import com.example.demo.src.order.model.Orders;
 import com.example.demo.src.order.model.OrderItem;
 import com.example.demo.src.order.model.OrderRes;
 import com.example.demo.src.store.StoreDAO;
@@ -38,7 +38,7 @@ public class OrderProvider {
 
 	public List<OrderRes> getOrderHistory(int memberId) throws BaseException {
 		try {
-			List<Order> orders = orderDAO.findOrdersById(memberId);
+			List<Orders> orders = orderDAO.findOrdersById(memberId);
 
 			// 주문 내역들 중 orderId를 뽑아서 메뉴 리스트 생성
 			return orders.stream().map((order) -> {

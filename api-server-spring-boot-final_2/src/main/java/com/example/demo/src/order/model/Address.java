@@ -6,14 +6,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @AllArgsConstructor
 @Getter @Setter @ToString
 @Entity
+@Table(name = "ADDRESS")
 public class Address {
 
 	@Id
@@ -24,8 +22,8 @@ public class Address {
 	private String addressName;
 	private int zipcode;
 
-//	@OneToOne(mappedBy = "addressBuildingNum")
-//	private Client client = new Client();
+	@OneToOne(mappedBy = "address")
+	private Client client;
 
 	public Address() {
 	}

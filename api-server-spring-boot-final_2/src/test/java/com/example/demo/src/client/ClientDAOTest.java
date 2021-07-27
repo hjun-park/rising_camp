@@ -9,13 +9,13 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class) // Junit4의 RunWith와 같음
 @SpringBootTest
-@AutoConfigureMockMvc // unused
 public class ClientDAOTest {
 
 	@Autowired
@@ -23,16 +23,18 @@ public class ClientDAOTest {
 
 	@Test
 	@Transactional
-	@Rollback(false)	// 내 눈을 의심하고 롤백 노노 원할 때
+	@Rollback(true)	// 내 눈을 의심하고 롤백 노노 원할 때
 	public void testClient() throws Exception {
 		//given
 		Client client = Client.builder()
-		.email("ph123@gmail.com")
+		.email("p11@gmail.com")
 		.password("pwd1231233123")
-		.name("testAB")
+		.name("t11")
 		.phoneNumber("012313412412")
 		.profileImageUrl(null)
 		.birthDate("19961022")
+//		.addressBuildingNum("0")
+//		.districtCode("0")
 		.build();
 
 		//when

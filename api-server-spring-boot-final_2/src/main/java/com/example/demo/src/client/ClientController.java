@@ -8,10 +8,7 @@ import com.example.demo.src.client.model.PostClientReq;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
@@ -33,6 +30,16 @@ public class ClientController {
 		try {
 			Long clientId = clientService.join(postClientReq);
 			return new BaseResponse<>(clientId);
+		} catch(BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+	}
+
+	@PatchMapping("/{clientId}/status")
+	public BaseResponse<Long> deleteClient(@PathVariable Long clientId) {
+		try {
+			Long resultId = clientService.removeClient(clientId);
+			return new BaseResponse<>(resultId);
 		} catch(BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());
 		}
