@@ -14,6 +14,7 @@ public class Student extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Column(name = "i")
 	private Long id;
 
 	private String name;
@@ -24,11 +25,11 @@ public class Student extends BaseEntity {
 	private String phoneNumber;
 
 	@ManyToOne
-	@JoinColumn(name = "club_id")
+	@JoinColumn(name = "clubId")
 	private Club club;
 
 	@ManyToOne
-	@JoinColumn(name = "teacher_id")
+	@JoinColumn(name = "teacherId")
 	private Teacher teacher;
 
 

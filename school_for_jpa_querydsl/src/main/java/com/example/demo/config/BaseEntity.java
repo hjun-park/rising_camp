@@ -9,40 +9,22 @@ import java.time.LocalDateTime;
 @MappedSuperclass   // 명시해주면 해당 클래스는 엔티티 속성 상속만을 위한 목적으로 사용하겠단 얘기
 public abstract class BaseEntity {
 
-	private String createdBy;
-	private LocalDateTime createdDate;
-	private String lastModifiedBy;
-	private LocalDateTime lastModifiedDate;
+	private LocalDateTime createdAt;
+	private LocalDateTime updatedAt;
 
-	public String getCreatedBy() {
-		return createdBy;
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
 	}
 
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
 	}
 
-	public LocalDateTime getCreatedDate() {
-		return createdDate;
+	public LocalDateTime getUpdatedAt() {
+		return updatedAt;
 	}
 
-	public void setCreatedDate(LocalDateTime createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public String getLastModifiedBy() {
-		return lastModifiedBy;
-	}
-
-	public void setLastModifiedBy(String lastModifiedBy) {
-		this.lastModifiedBy = lastModifiedBy;
-	}
-
-	public LocalDateTime getLastModifiedDate() {
-		return lastModifiedDate;
-	}
-
-	public void setLastModifiedDate(LocalDateTime lastModifiedDate) {
-		this.lastModifiedDate = lastModifiedDate;
+	public void setUpdatedAt(LocalDateTime updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 }

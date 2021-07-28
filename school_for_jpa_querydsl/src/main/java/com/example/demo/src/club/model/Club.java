@@ -16,14 +16,15 @@ public class Club extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Column(name = "CLUB_ID")
 	private Long id;
 	private String name;
 
-	@OneToMany(mappedBy = "student_id")
+	@OneToMany(mappedBy = "club")
 	private List<Student> students = new ArrayList<>();
 
 	@OneToOne
-	@JoinColumn(name = "teacher_id")
+	@JoinColumn(name = "teacherId")
 	private Teacher teacher;
 
 

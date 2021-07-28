@@ -10,7 +10,7 @@ spring:
     platform: mysql
     # url: jdbc:mysql://RDS엔드포인트:3306/DB스키마명?autoReconnect=true
     # autoReconnect : 시간이 지나면 DB 연결이 자동으로 끊기는데 이를 막기 위함
-    url: jdbc:mysql://baemindb.ckywccfsj4o1.ap-northeast-2.rds.amazonaws.com:3306/baemin_db?autoReconnect=true
+    url: jdbc:mysql://baemindb.ckywccfsj4o1.ap-northeast-2.rds.amazonaws.com:3306/school_db?autoReconnect=true
     username: admin
     password: guswjd35
     driver-class-name: com.mysql.cj.jdbc.Driver # mysql 8버전
@@ -30,5 +30,5 @@ spring:
 
 logging:
   level:
-    org.hibernate.SQL: debug
-    org.hibernate.type: trace # 데이터 추적
+    org.hibernate.SQL: info
+#    org.hibernate.type: trace # 데이터 추적
