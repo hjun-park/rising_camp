@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import java.util.List;
+
 import static com.example.demo.config.BaseResponseStatus.*;
 
 @Repository
@@ -26,5 +28,26 @@ public class StudentRepository {
 			throw new BaseException(DATABASE_ERROR);
 		}
 	}
+
+	public Long join(Student student) throws BaseException {
+		try {
+			em.persist(student);
+			return student.getId();
+		} catch(Exception exception) {
+			exception.printStackTrace();
+			throw new BaseException(DATABASE_ERROR);
+		}
+	}
+
+	public List<Student> findAll() throws BaseException {
+		try {
+			return em.createQuery("select s from Student s where s.status = 'Used'", Student.class)
+				.getResultList();
+		} catch(Exception exception) {
+			exception.printStackTrace();
+			throw new BaseException(DATABASE_ERROR);
+		}
+	}
+
 
 }

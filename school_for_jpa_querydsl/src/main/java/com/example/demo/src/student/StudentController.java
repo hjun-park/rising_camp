@@ -3,20 +3,19 @@ package com.example.demo.src.student;
 import com.example.demo.config.BaseException;
 import com.example.demo.config.BaseResponse;
 import com.example.demo.src.student.model.GetStudentRes;
+import com.example.demo.src.student.model.PatchStudentReq;
+import com.example.demo.src.student.model.PostStudentReq;
 import com.example.demo.utils.JwtService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
 @RequestMapping("/student")
 public class StudentController {
 
-	private StudentService studentService;
-	private JwtService jwtService;
+	private final StudentService studentService;
+	private final JwtService jwtService;
 
 	public StudentController(StudentService studentService, JwtService jwtService) {
 		this.studentService = studentService;
@@ -34,4 +33,38 @@ public class StudentController {
 			return new BaseResponse<>(exception.getStatus());
 		}
 	}
+
+	@PostMapping("/join")
+	public BaseResponse<Long> postStudent(@RequestBody PostStudentReq postStudentReq) {
+		try {
+
+			Long resultId = studentService.joinStudent(postStudentReq);
+			return new BaseResponse<>(resultId);
+		} catch(BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+	}
+
+	@PatchMapping("/{studentId}/edit")
+	public BaseResponse<Long> patchStudent(@PathVariable Long studentId,
+										   @RequestBody PatchStudentReq patchStudentReq) {
+		try {
+			Long resultId = studentService.updateStudent(studentId, patchStudentReq);
+			return new BaseResponse<>(resultId);
+		} catch(BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+	}
+
+	@PatchMapping("/status")
+	public BaseResponse<Long> deleteStudent(@RequestBody PostStudentReq postStudentReq) {
+		try {
+
+			Long resultId = studentService.joinStudent(postStudentReq);
+			return new BaseResponse<>(resultId);
+		} catch(BaseException exception) {
+			return new BaseResponse<>(exception.getStatus());
+		}
+	}
+
 }

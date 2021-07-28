@@ -1,0 +1,24 @@
+package com.example.demo.src.teacher.model;
+
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class GetTeacherRes {
+
+	private Long id;
+	private String name;
+	private String phoneNumber;
+	private String subject;
+
+	@Builder
+	public GetTeacherRes(Long id, String name, String phoneNumber, String subject) {
+		this.id = id;
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+		this.subject = subject;
+	}
+}
