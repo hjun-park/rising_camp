@@ -20,7 +20,6 @@ public class Teacher extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(name = "TEACHER_ID")
 	private Long id;
 	private String name;
 	private String phoneNumber;
@@ -33,11 +32,21 @@ public class Teacher extends BaseEntity {
 	@OneToOne(mappedBy = "teacher", targetEntity = Club.class)
 	private Club club;
 
+	// 양방향 연관관계는 미리 만들지 말고 실제 개발 시 필요하면 만들기
 	@OneToMany(mappedBy = "teacher", targetEntity = Student.class)
 	private List<Student> students = new ArrayList<>();
 
-	public Teacher() {
+	// 외래키 없는 쪽, mappedBy 연관관계 주인이 아닌 쪽에서는 편의 메소드 만들기
+	public void addStudent(Student student) {
+		students.add(student);
+		student.setTeacher(this);
+	}
 
+	public void addClub(Club club) {
+		club.setTeacher(this);
+	}
+
+	public Teacher() {
 	}
 
 	@Builder

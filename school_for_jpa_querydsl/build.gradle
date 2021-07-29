@@ -40,8 +40,6 @@ dependencies {
     implementation ('org.springframework.boot:spring-boot-starter-jdbc')
     compile('org.springframework.boot:spring-boot-starter-data-jpa') //mysql 5버전의 경우 삭제.
 
-
-
     // Web
     implementation ('org.springframework.boot:spring-boot-starter-web')
 
@@ -56,6 +54,9 @@ dependencies {
     // Spring Security for OAuth2)
     compile('org.springframework.boot:spring-boot-starter-oauth2-client')
     compile('org.springframework.boot:spring-boot-starter-mustache')
+
+    // bean Validation
+    implementation('org.springframework.boot:spring-boot-starter-validation')
     
     // test
     implementation('org.springframework.boot:spring-boot-devtools')

@@ -66,16 +66,19 @@ public class StudentService {
 
 		Teacher findTeacher = teacherRepository.findById(patchStudentReq.getTeacherId());
 		Club findClub = clubRepository.findById(patchStudentReq.getClubId());
-
+		
+		// 이런식으로 set을 깔면 안 되고 findStudent.change(name, phoneNumber) 이런 의미있는
+		// 방법으로 접근을 해야한다.
 		Student findStudent = studentRepository.findById(studentId);
-		findStudent = Student.builder()
-			.name(patchStudentReq.getName())
-			.grade(patchStudentReq.getGrade())
-			.studentClass(patchStudentReq.getStudentClass())
-			.phoneNumber(patchStudentReq.getPhoneNumber())
-			.club(findClub)
-			.teacher(findTeacher)
-			.build();
+
+		findStudent.updateStudent(
+			patchStudentReq.getName(),
+			patchStudentReq.getGrade(),
+			patchStudentReq.getStudentClass(),
+			patchStudentReq.getPhoneNumber(),
+			findClub,
+			findTeacher
+		);
 
 		return findStudent.getId();
 	}

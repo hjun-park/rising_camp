@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Getter
@@ -16,14 +18,20 @@ public class Student extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(name = "i")
 	private Long id;
 
+	@NotBlank()
 	private String name;
+
+	@NotNull()
 	private int grade;
 
-//	@Column(name = "class")
+	@NotNull()
 	private int studentClass;
+
+	// saveCheck : 등록 시에도 체크
+	// updateCheck : 수정 시에도 체크
+	@NotBlank()
 	private String phoneNumber;
 
 	@ManyToOne
@@ -39,7 +47,15 @@ public class Student extends BaseEntity {
 	private Status status;
 
 	public Student() {
+	}
 
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+
+	public void setClub(Club club) {
+		this.club = club;
 	}
 
 	@Builder
@@ -51,6 +67,15 @@ public class Student extends BaseEntity {
 		this.club = club;
 		this.teacher = teacher;
 		this.status = status;
+	}
+
+	public void updateStudent(String name, int grade, int studentClass, String phoneNumber, Club club, Teacher teacher) {
+		this.name = name;
+		this.grade = grade;
+		this.studentClass = studentClass;
+		this.phoneNumber = phoneNumber;
+		this.club = club;
+		this.teacher = teacher;
 	}
 
 

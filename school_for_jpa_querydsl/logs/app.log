@@ -1,128 +1,334 @@
-01:26:42.322 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 24392 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 24392 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-01:26:42.326 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-09:27:31.697 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 4804 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 4804 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-09:27:31.701 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-09:38:09.805 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 12980 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 12980 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-09:38:09.807 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-09:38:12.833 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.462 seconds (JVM running for 4.343)]- Started DemoApplication in 3.462 seconds (JVM running for 4.343)
-09:39:13.214 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 15276 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 15276 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-09:39:13.218 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-09:39:16.076 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.244 seconds (JVM running for 3.926)]- Started DemoApplication in 3.244 seconds (JVM running for 3.926)
-09:40:14.339 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 2188 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 2188 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-09:40:14.341 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-09:40:17.404 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.502 seconds (JVM running for 4.188)]- Started DemoApplication in 3.502 seconds (JVM running for 4.188)
-09:40:20.517 INFO  [File:StudentController.java] [Func:getStudent] [Line:24] [Message:1]- 1
-09:41:18.674 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 22052 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 22052 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-09:41:18.677 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-09:41:22.008 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.757 seconds (JVM running for 4.448)]- Started DemoApplication in 3.757 seconds (JVM running for 4.448)
-09:43:26.904 INFO  [File:StudentController.java] [Func:getStudent] [Line:24] [Message:1]- 1
-09:47:11.969 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 23932 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 23932 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-09:47:11.974 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-09:47:15.046 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 4.494 seconds (JVM running for 5.528)]- Started DemoApplication in 4.494 seconds (JVM running for 5.528)
-09:47:28.590 INFO  [File:StudentController.java] [Func:getStudent] [Line:24] [Message:1]- 1
-09:50:10.102 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 10836 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 10836 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-09:50:10.106 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-09:50:13.264 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.58 seconds (JVM running for 4.279)]- Started DemoApplication in 3.58 seconds (JVM running for 4.279)
-09:50:19.781 INFO  [File:StudentController.java] [Func:getStudent] [Line:29] [Message:1]- 1
-09:50:19.815 INFO  [File:StudentService.java] [Func:findStudent] [Line:26] [Message:test]- test
-09:51:26.595 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 19680 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 19680 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-09:51:26.598 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-09:51:29.564 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.374 seconds (JVM running for 4.067)]- Started DemoApplication in 3.374 seconds (JVM running for 4.067)
-09:51:32.276 INFO  [File:StudentController.java] [Func:getStudent] [Line:29] [Message:1]- 1
-09:51:32.307 INFO  [File:StudentService.java] [Func:findStudent] [Line:26] [Message:test]- test
-09:53:58.770 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 19540 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 19540 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-09:53:58.773 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-09:54:01.758 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.408 seconds (JVM running for 4.209)]- Started DemoApplication in 3.408 seconds (JVM running for 4.209)
-09:54:05.134 INFO  [File:StudentController.java] [Func:getStudent] [Line:29] [Message:1]- 1
-09:54:05.172 INFO  [File:StudentService.java] [Func:findStudent] [Line:26] [Message:test]- test
-09:56:18.624 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 21348 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 21348 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-09:56:18.627 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-09:56:21.676 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.508 seconds (JVM running for 4.561)]- Started DemoApplication in 3.508 seconds (JVM running for 4.561)
-09:56:21.945 INFO  [File:StudentController.java] [Func:getStudent] [Line:29] [Message:1]- 1
-09:56:21.974 INFO  [File:StudentService.java] [Func:findStudent] [Line:26] [Message:test]- test
-09:57:33.279 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 16712 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 16712 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-09:57:33.283 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-09:57:36.163 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.369 seconds (JVM running for 4.283)]- Started DemoApplication in 3.369 seconds (JVM running for 4.283)
-09:57:38.812 INFO  [File:StudentController.java] [Func:getStudent] [Line:29] [Message:1]- 1
-09:57:38.844 INFO  [File:StudentService.java] [Func:findStudent] [Line:26] [Message:test]- test
-09:58:38.822 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 20968 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 20968 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-09:58:38.825 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-09:58:41.710 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.288 seconds (JVM running for 3.937)]- Started DemoApplication in 3.288 seconds (JVM running for 3.937)
-09:58:46.576 INFO  [File:StudentController.java] [Func:getStudent] [Line:29] [Message:1]- 1
-09:58:46.604 INFO  [File:StudentService.java] [Func:findStudent] [Line:26] [Message:test]- test
-11:04:28.714 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 19280 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 19280 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-11:04:28.718 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-11:04:32.879 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 4.704 seconds (JVM running for 5.554)]- Started DemoApplication in 4.704 seconds (JVM running for 5.554)
-11:06:40.273 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 22280 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 22280 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-11:06:40.276 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-11:06:43.461 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.622 seconds (JVM running for 4.286)]- Started DemoApplication in 3.622 seconds (JVM running for 4.286)
-11:08:40.364 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 13488 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 13488 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-11:08:40.367 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-11:08:43.793 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.857 seconds (JVM running for 4.606)]- Started DemoApplication in 3.857 seconds (JVM running for 4.606)
-11:10:12.402 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 7252 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 7252 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-11:10:12.405 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-11:10:15.708 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.702 seconds (JVM running for 4.341)]- Started DemoApplication in 3.702 seconds (JVM running for 4.341)
-12:46:59.381 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 11036 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 11036 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-12:46:59.384 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-12:47:02.840 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.933 seconds (JVM running for 4.812)]- Started DemoApplication in 3.933 seconds (JVM running for 4.812)
-12:49:19.535 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 2492 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 2492 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-12:49:19.538 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-12:49:22.584 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.466 seconds (JVM running for 4.234)]- Started DemoApplication in 3.466 seconds (JVM running for 4.234)
-12:50:54.892 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 13548 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 13548 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-12:50:54.895 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-12:50:59.181 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 4.747 seconds (JVM running for 5.673)]- Started DemoApplication in 4.747 seconds (JVM running for 5.673)
-12:53:04.647 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 9764 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 9764 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-12:53:04.650 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-12:53:08.425 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 4.264 seconds (JVM running for 5.061)]- Started DemoApplication in 4.264 seconds (JVM running for 5.061)
-12:53:46.092 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 10496 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 10496 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-12:53:46.095 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-12:53:49.215 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.624 seconds (JVM running for 4.349)]- Started DemoApplication in 3.624 seconds (JVM running for 4.349)
-21:05:45.578 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 6284 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 6284 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-21:05:45.582 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-21:27:28.625 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 5944 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 5944 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-21:27:28.627 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-21:28:31.409 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 24100 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 24100 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-21:28:31.415 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-21:30:44.826 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 21948 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 21948 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-21:30:44.829 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-21:32:40.879 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 17264 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 17264 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-21:32:40.883 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-21:32:43.851 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.372 seconds (JVM running for 4.025)]- Started DemoApplication in 3.372 seconds (JVM running for 4.025)
-21:33:10.354 INFO  [File:ClubController.java] [Func:getClub] [Line:31] [Message:1]- 1
-21:34:58.309 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 11112 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 11112 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-21:34:58.312 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-21:35:01.392 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.48 seconds (JVM running for 4.125)]- Started DemoApplication in 3.48 seconds (JVM running for 4.125)
-21:35:03.929 INFO  [File:ClubController.java] [Func:getClub] [Line:31] [Message:1]- 1
-21:37:55.667 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 21544 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 21544 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-21:37:55.671 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-21:37:58.660 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.405 seconds (JVM running for 4.058)]- Started DemoApplication in 3.405 seconds (JVM running for 4.058)
-21:38:01.575 INFO  [File:ClubController.java] [Func:getClub] [Line:31] [Message:1]- 1
-21:38:01.614 INFO  [File:ClubService.java] [Func:findClub] [Line:39] [Message:############## 1 #################]- ############## 1 #################
-21:41:53.200 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 8856 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 8856 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-21:41:53.202 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-21:41:56.082 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.286 seconds (JVM running for 4.133)]- Started DemoApplication in 3.286 seconds (JVM running for 4.133)
-21:41:59.023 INFO  [File:ClubController.java] [Func:getClub] [Line:31] [Message:1]- 1
-21:41:59.052 INFO  [File:ClubService.java] [Func:findClub] [Line:39] [Message:############## 1 #################]- ############## 1 #################
-21:42:22.719 INFO  [File:ClubController.java] [Func:getClub] [Line:31] [Message:1]- 1
-21:42:22.732 INFO  [File:ClubService.java] [Func:findClub] [Line:39] [Message:############## 1 #################]- ############## 1 #################
-21:44:03.930 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 15608 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 15608 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-21:44:03.934 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-21:44:07.256 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.742 seconds (JVM running for 4.397)]- Started DemoApplication in 3.742 seconds (JVM running for 4.397)
-21:44:27.350 INFO  [File:ClubController.java] [Func:getClub] [Line:31] [Message:1]- 1
-21:44:27.379 INFO  [File:ClubService.java] [Func:findClub] [Line:39] [Message:############## 1 #################]- ############## 1 #################
-21:44:27.381 INFO  [File:ClubRepository.java] [Func:findById] [Line:25] [Message:############## 3 #################]- ############## 3 #################
-22:16:50.716 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 4840 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 4840 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
-22:16:50.720 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
-22:16:54.042 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.821 seconds (JVM running for 4.499)]- Started DemoApplication in 3.821 seconds (JVM running for 4.499)
-22:17:01.145 INFO  [File:ClubController.java] [Func:getClub] [Line:31] [Message:1]- 1
-22:17:01.175 INFO  [File:ClubService.java] [Func:findClub] [Line:39] [Message:############## 1 #################]- ############## 1 #################
-22:17:01.177 INFO  [File:ClubRepository.java] [Func:findById] [Line:25] [Message:############## 3 #################]- ############## 3 #################
-22:17:01.231 INFO  [File:ClubService.java] [Func:findClub] [Line:41] [Message:############## 2 #################]- ############## 2 #################
-22:17:18.175 INFO  [File:ScoreController.java] [Func:getScore] [Line:31] [Message:1]- 1
-22:17:28.596 INFO  [File:ClubController.java] [Func:getClub] [Line:31] [Message:1]- 1
-22:17:28.609 INFO  [File:ClubService.java] [Func:findClub] [Line:39] [Message:############## 1 #################]- ############## 1 #################
-22:17:28.610 INFO  [File:ClubRepository.java] [Func:findById] [Line:25] [Message:############## 3 #################]- ############## 3 #################
-22:17:28.616 INFO  [File:ClubService.java] [Func:findClub] [Line:41] [Message:############## 2 #################]- ############## 2 #################
-22:17:46.009 INFO  [File:StudentController.java] [Func:getStudent] [Line:28] [Message:1]- 1
-22:17:46.027 INFO  [File:StudentService.java] [Func:findStudent] [Line:39] [Message:test]- test
-22:17:50.284 INFO  [File:TeacherController.java] [Func:getTeacher] [Line:28] [Message:1]- 1
+12:19:35.754 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 8712 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 8712 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
+12:19:35.761 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+12:19:40.027 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 4.753 seconds (JVM running for 5.611)]- Started DemoApplication in 4.753 seconds (JVM running for 5.611)
+12:22:08.216 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 6008 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 6008 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
+12:22:08.218 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+12:22:11.247 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.426 seconds (JVM running for 4.052)]- Started DemoApplication in 3.426 seconds (JVM running for 4.052)
+12:22:52.740 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 9740 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 9740 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
+12:22:52.743 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+12:22:55.963 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.623 seconds (JVM running for 4.277)]- Started DemoApplication in 3.623 seconds (JVM running for 4.277)
+12:22:59.529 ERROR [File:ExControllerAdvice.java] [Func:exHandle] [Line:30] [Message:[exceptionHandle] ex]- [exceptionHandle] ex
+org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:752)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.completeTransactionAfterThrowing(TransactionAspectSupport.java:688)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at com.example.demo.src.student.StudentService$$EnhancerBySpringCGLIB$$e6607256.joinStudent(<generated>)
+	at com.example.demo.src.student.StudentController.postStudent(StudentController.java:53)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+12:23:51.501 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 7476 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 7476 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
+12:23:51.504 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+12:23:54.502 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.393 seconds (JVM running for 4.103)]- Started DemoApplication in 3.393 seconds (JVM running for 4.103)
+12:24:53.804 ERROR [File:ExControllerAdvice.java] [Func:exHandle] [Line:30] [Message:[exceptionHandle] ex]- [exceptionHandle] ex
+org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:752)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.completeTransactionAfterThrowing(TransactionAspectSupport.java:688)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at com.example.demo.src.student.StudentService$$EnhancerBySpringCGLIB$$f31701bb.updateStudent(<generated>)
+	at com.example.demo.src.student.StudentController.patchStudent(StudentController.java:71)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:880)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+12:26:22.975 INFO  [File:ClubRepository.java] [Func:findById] [Line:25] [Message:############## 3 #################]- ############## 3 #################
+12:52:02.265 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 24788 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 24788 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
+12:52:02.269 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+12:52:05.440 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.585 seconds (JVM running for 4.271)]- Started DemoApplication in 3.585 seconds (JVM running for 4.271)
+12:52:15.761 INFO  [File:ClubRepository.java] [Func:findById] [Line:25] [Message:############## 3 #################]- ############## 3 #################
+12:57:18.548 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 19472 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 19472 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
+12:57:18.552 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+12:57:21.867 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 3.709 seconds (JVM running for 4.354)]- Started DemoApplication in 3.709 seconds (JVM running for 4.354)
+12:57:26.459 INFO  [File:ClubRepository.java] [Func:findById] [Line:25] [Message:############## 3 #################]- ############## 3 #################
+15:20:52.035 INFO  [File:StartupInfoLogger.java] [Func:logStarting] [Line:55] [Message:Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 24980 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)]- Starting DemoApplication using Java 14.0.2 on DESKTOP-5LEUD1T with PID 24980 (C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl\out\production\classes started by hjun in C:\Users\hjun\Code\rising_camp\school_for_jpa_querydsl)
+15:20:52.037 INFO  [File:SpringApplication.java] [Func:logStartupProfileInfo] [Line:660] [Message:No active profile set, falling back to default profiles: default]- No active profile set, falling back to default profiles: default
+15:20:55.772 INFO  [File:StartupInfoLogger.java] [Func:logStarted] [Line:61] [Message:Started DemoApplication in 4.158 seconds (JVM running for 4.857)]- Started DemoApplication in 4.158 seconds (JVM running for 4.857)
+15:21:48.590 INFO  [File:ClubRepository.java] [Func:findById] [Line:25] [Message:############## 3 #################]- ############## 3 #################
+15:21:48.743 ERROR [File:ExControllerAdvice.java] [Func:exHandle] [Line:30] [Message:[exceptionHandle] ex]- [exceptionHandle] ex
+org.springframework.transaction.TransactionSystemException: Could not commit JPA transaction; nested exception is javax.persistence.RollbackException: Error while committing the transaction
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:571)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:654)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:407)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:750)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:692)
+	at com.example.demo.src.student.StudentService$$EnhancerBySpringCGLIB$$640d6dee.updateStudent(<generated>)
+	at com.example.demo.src.student.StudentController.patchStudent(StudentController.java:71)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1060)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:880)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:113)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: javax.persistence.RollbackException: Error while committing the transaction
+	at org.hibernate.internal.ExceptionConverterImpl.convertCommitException(ExceptionConverterImpl.java:81)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:104)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562)
+	... 90 common frames omitted
+Caused by: javax.validation.ConstraintViolationException: Validation failed for classes [com.example.demo.src.student.model.Student] during update time for groups [javax.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='공백일 수 없습니다', propertyPath=name, rootBeanClass=class com.example.demo.src.student.model.Student, messageTemplate='{javax.validation.constraints.NotBlank.message}'}
+]
+	at org.hibernate.cfg.beanvalidation.BeanValidationEventListener.validate(BeanValidationEventListener.java:140)
+	at org.hibernate.cfg.beanvalidation.BeanValidationEventListener.onPreUpdate(BeanValidationEventListener.java:88)
+	at org.hibernate.action.internal.EntityUpdateAction.preUpdate(EntityUpdateAction.java:304)
+	at org.hibernate.action.internal.EntityUpdateAction.execute(EntityUpdateAction.java:174)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:723)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:348)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1362)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:453)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3212)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2380)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:447)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	... 91 common frames omitted

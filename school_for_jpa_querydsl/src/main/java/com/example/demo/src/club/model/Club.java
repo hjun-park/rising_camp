@@ -32,10 +32,18 @@ public class Club extends BaseEntity {
 	@JoinColumn(name = "teacherId")
 	private Teacher teacher;
 
-	public Club() {
 
+	public void addStudents(Student student) {
+		students.add(student);
+		student.setClub(this);
 	}
 
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+
+	public Club() {
+	}
 
 	@Builder
 	public Club(String name, Teacher teacher, Status status) {

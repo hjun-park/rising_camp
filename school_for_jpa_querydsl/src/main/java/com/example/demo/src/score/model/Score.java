@@ -5,8 +5,10 @@ import com.example.demo.src.Status;
 import com.example.demo.src.student.model.Student;
 import lombok.Builder;
 import lombok.Getter;
+import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Entity
@@ -15,10 +17,18 @@ public class Score extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Column(name = "SCORE_ID")
 	private Long id;
+
+	@NotNull
+	@Range(min = 0, max = 100)
 	private int korean;
+
+	@NotNull
+	@Range(min = 0, max = 100)
 	private int math;
+
+	@NotNull
+	@Range(min = 0, max = 100)
 	private int english;
 
 	@Column(insertable = false)
