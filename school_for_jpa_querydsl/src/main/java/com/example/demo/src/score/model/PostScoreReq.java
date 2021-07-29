@@ -12,11 +12,13 @@ public class PostScoreReq {
 	private int korean;
 	private int math;
 	private int english;
+	private Long studentId;
 
 	@Builder
-	public PostScoreReq(int korean, int math, int english) {
+	public PostScoreReq(int korean, int math, int english, Long studentId) {
 		this.korean = korean;
 		this.math = math;
 		this.english = english;
+		this.studentId = studentId;
 	}
 }

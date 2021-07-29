@@ -49,15 +49,18 @@ public class ScoreService {
 	}
 
 	@Transactional
-	public Long joinScore(PostScoreReq postScoreReq) throws BaseException {
+	public Long registerScore(PostScoreReq postScoreReq) throws BaseException {
+
+		Student findStudent = studentRepository.findById(postScoreReq.getStudentId());
 
 		Score score = Score.builder()
 			.korean(postScoreReq.getKorean())
 			.math(postScoreReq.getMath())
 			.english(postScoreReq.getEnglish())
+			.student(findStudent)
 			.build();
 
-		return scoreRepository.join(score);
+		return scoreRepository.register(score);
 	}
 
 	@Transactional
@@ -66,12 +69,13 @@ public class ScoreService {
 		Student findStudent = studentRepository.findById(patchScoreReq.getStudentId());
 
 		Score findScore = scoreRepository.findById(scoreId);
-		findScore = Score.builder()
-			.korean(patchScoreReq.getKorean())
-			.english(patchScoreReq.getEnglish())
-			.math(patchScoreReq.getMath())
-			.student(findStudent)
-			.build();
+
+		findScore.updateScore(
+			patchScoreReq.getKorean(),
+			patchScoreReq.getMath(),
+			patchScoreReq.getEnglish(),
+			findStudent
+		);
 
 		return findScore.getId();
 	}
@@ -80,9 +84,8 @@ public class ScoreService {
 	public Long deleteScore(Long scoreId) throws BaseException {
 
 		Score findScore = scoreRepository.findById(scoreId);
-		findScore = Score.builder()
-			.status(Status.valueOf("Deleted"))
-			.build();
+
+		findScore.updateStatus(Status.valueOf("Deleted"));
 
 		return findScore.getId();
 	}

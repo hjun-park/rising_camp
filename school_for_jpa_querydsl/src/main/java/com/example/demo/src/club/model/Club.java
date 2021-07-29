@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +20,8 @@ public class Club extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@NotBlank
 	private String name;
 
 	@Column(insertable = false)
@@ -33,22 +36,33 @@ public class Club extends BaseEntity {
 	private Teacher teacher;
 
 
+	// 연관관계 편의 메소드
 	public void addStudents(Student student) {
 		students.add(student);
 		student.setClub(this);
+	}
+
+	public Club() {
 	}
 
 	public void setTeacher(Teacher teacher) {
 		this.teacher = teacher;
 	}
 
-	public Club() {
-	}
 
 	@Builder
 	public Club(String name, Teacher teacher, Status status) {
 		this.name = name;
 		this.teacher = teacher;
+		this.status = status;
+	}
+
+	public void updateClub(String name, Teacher teacher) {
+		this.name = name;
+		this.teacher = teacher;
+	}
+
+	public void updateStatus(Status status) {
 		this.status = status;
 	}
 

@@ -78,5 +78,8 @@ public class Student extends BaseEntity {
 		this.teacher = teacher;
 	}
 
+	public void updateStatus(Status status) {
+		this.status = status;
+	}
 
 }

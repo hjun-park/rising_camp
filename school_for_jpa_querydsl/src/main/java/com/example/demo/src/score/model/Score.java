@@ -51,4 +51,17 @@ public class Score extends BaseEntity {
 		this.status = status;
 		this.student = student;
 	}
+
+	public void updateScore(int korean, int math, int english, Student student) {
+		this.korean = korean;
+		this.math = math;
+		this.english = english;
+		this.student = student;
+	}
+
+	public void updateStatus(Status status) {
+		this.status = status;
+	}
+
+
 }

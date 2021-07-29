@@ -52,11 +52,11 @@ public class TeacherService {
 	public Long updateTeacher(Long teacherId, PatchTeacherReq patchTeacherReq) throws BaseException {
 
 		Teacher findTeacher = teacherRepository.findById(teacherId);
-		findTeacher = Teacher.builder()
-			.name(patchTeacherReq.getName())
-			.phoneNumber(patchTeacherReq.getPhoneNumber())
-			.subject(patchTeacherReq.getSubject())
-			.build();
+		findTeacher.updateTeacher(
+			patchTeacherReq.getName(),
+			patchTeacherReq.getPhoneNumber(),
+			patchTeacherReq.getSubject()
+		);
 
 		return findTeacher.getId();
 	}
@@ -65,9 +65,10 @@ public class TeacherService {
 	public Long deleteTeacher(Long teacherId) throws BaseException {
 
 		Teacher findTeacher = teacherRepository.findById(teacherId);
-		findTeacher = Teacher.builder()
-			.status(Status.valueOf("Deleted"))
-			.build();
+//		findTeacher = Teacher.builder()
+//			.status(Status.valueOf("Deleted"))
+//			.build();
+		findTeacher.updateStatus(Status.valueOf("Deleted"));
 
 		return findTeacher.getId();
 	}

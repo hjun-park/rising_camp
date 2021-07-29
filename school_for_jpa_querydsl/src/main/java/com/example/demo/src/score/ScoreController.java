@@ -37,10 +37,10 @@ public class ScoreController {
 		}
 	}
 
-	@PostMapping("/join")
+	@PostMapping
 	public BaseResponse<Long> postScore(@RequestBody PostScoreReq postScoreReq) {
 		try {
-			Long resultId = scoreService.joinScore(postScoreReq);
+			Long resultId = scoreService.registerScore(postScoreReq);
 			return new BaseResponse<>(resultId);
 		} catch(BaseException exception) {
 			return new BaseResponse<>(exception.getStatus());

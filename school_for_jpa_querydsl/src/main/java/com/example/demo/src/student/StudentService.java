@@ -66,7 +66,7 @@ public class StudentService {
 
 		Teacher findTeacher = teacherRepository.findById(patchStudentReq.getTeacherId());
 		Club findClub = clubRepository.findById(patchStudentReq.getClubId());
-		
+
 		// 이런식으로 set을 깔면 안 되고 findStudent.change(name, phoneNumber) 이런 의미있는
 		// 방법으로 접근을 해야한다.
 		Student findStudent = studentRepository.findById(studentId);
@@ -86,9 +86,8 @@ public class StudentService {
 	@Transactional
 	public Long deleteStudent(Long studentId) throws BaseException {
 		Student findStudent = studentRepository.findById(studentId);
-		findStudent = Student.builder()
-			.status(Status.valueOf("Deleted"))
-			.build();
+
+		findStudent.updateStatus(Status.valueOf("Deleted"));
 
 		return findStudent.getId();
 	}

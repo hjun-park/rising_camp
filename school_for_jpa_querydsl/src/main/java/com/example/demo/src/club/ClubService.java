@@ -36,9 +36,7 @@ public class ClubService {
 
 	public GetClubRes findClub(Long clubId) throws BaseException {
 
-		log.info("############## 1 #################");
 		Club club = clubRepository.findById(clubId);
-		log.info("############## 2 #################");
 
 		return GetClubRes.builder()
 			.id(club.getId())
@@ -63,10 +61,10 @@ public class ClubService {
 		Teacher findTeacher = teacherRepository.findById(patchClubReq.getTeacherId());
 
 		Club findClub = clubRepository.findById(clubId);
-		findClub = Club.builder()
-			.name(patchClubReq.getName())
-			.teacher(findTeacher)
-			.build();
+		findClub.updateClub(
+			patchClubReq.getName(),
+			findTeacher
+		);
 
 		return findClub.getId();
 	}
@@ -75,9 +73,8 @@ public class ClubService {
 	public Long deleteClub(Long clubId) throws BaseException {
 
 		Club findClub = clubRepository.findById(clubId);
-		findClub = Club.builder()
-			.status(Status.valueOf("Deleted"))
-			.build();
+
+		findClub.updateStatus(Status.valueOf("Deleted"));
 
 		return findClub.getId();
 	}

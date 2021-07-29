@@ -28,7 +28,7 @@ public class ScoreRepository {
 		}
 	}
 
-	public Long join(Score score) throws BaseException {
+	public Long register(Score score) throws BaseException {
 		try {
 			em.persist(score);
 			return score.getId();
