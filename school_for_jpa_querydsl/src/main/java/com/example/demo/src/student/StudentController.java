@@ -26,6 +26,7 @@ public class StudentController {
 		this.jwtService = jwtService;
 	}
 
+
 	@GetMapping("/{studentId}")
 	public BaseResponse<GetStudentRes> getStudent(@PathVariable Long studentId) {
 		try {

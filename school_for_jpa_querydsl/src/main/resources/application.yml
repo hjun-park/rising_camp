@@ -1,9 +1,12 @@
+
 server:
   port: 9000 # 01. 디폴트는 8080
 
 spring:
   application:
     name: demo
+  profiles:
+    include: oauth
 
   # 02. 데이터 연결해 주는 부분
   datasource:
@@ -32,3 +35,4 @@ logging:
   level:
     org.hibernate.SQL: info
 #    org.hibernate.type: trace # 데이터 추적
+
