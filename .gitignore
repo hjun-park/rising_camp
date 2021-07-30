@@ -44,4 +44,5 @@ out/
 ./api-server-spring-boot-final_2/src/main/resources/application-oauth.properties
 application-oauth.properties
 Secret.java
+application-oauth.yml
 
